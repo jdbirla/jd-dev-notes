@@ -1,7 +1,7 @@
 site_name: "JD Tech Notes"
 site_description: "My Quick Reference Docs"
 site_author: "J.D. Birla"
-## site_url: "https://sivalabs-dev-notes.netlify.app/"
+site_url: "https://jdbirla-dev-notes.netlify.app/"
 
 # Repository
 repo_name: "jdbirla/jd-dev-notes"
