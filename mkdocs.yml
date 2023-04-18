@@ -1,0 +1,52 @@
+site_name: "JD Tech Notes"
+site_description: "My Quick Reference Docs"
+site_author: "J.D. Birla"
+## site_url: "https://sivalabs-dev-notes.netlify.app/"
+
+# Repository
+repo_name: "jdbirla/jd-dev-notes"
+repo_url: "https://github.com/jdbirla/jd-dev-notes"
+
+# Copyright
+copyright: "Copyright &copy; 2020 - 2023 J.D. Birla"
+
+theme:
+  name: material
+nav:
+  - Home: index.md
+  - Learning: learning.md
+  - Shortcuts: shortcuts.md
+  - Java:
+      - Ecosystem: java/ecosystem.md
+      - Maven: java/maven.md
+      - Gradle: java/gradle.md
+  - SpringBoot:
+      - Introduction: springboot/introduction.md
+  - TypeScript:
+      - Introduction: typescript/introduction.md
+  - DevOps:
+      - Tools: devops/devops.md
+      - Linux: devops/linux.md
+      - Docker: devops/docker.md
+      - Ansible: devops/ansible.md
+      - AWS: devops/aws.md
+  - Misc:
+      - CleanArchitecture: misc/clean-architecture.md
+
+# Customization
+extra:
+  manifest: "manifest.webmanifest"
+  social:
+    - icon: fontawesome/brands/github-alt
+      link: "https://github.com/jdbirla"
+    - icon: fontawesome/brands/linkedin
+      link: "https://www.linkedin.com/in/jdbirla/"
+
+# Extensions
+markdown_extensions:
+  - codehilite
+  - tables
+  - attr_list
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
