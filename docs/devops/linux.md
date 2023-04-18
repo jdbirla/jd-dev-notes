@@ -14,6 +14,10 @@ Ex:
     x86_64 ==> 64-bit kernel
     i686   ==> 32-bit kernel
 
+* Check Linux OS
+![image](https://user-images.githubusercontent.com/69948118/232764043-a6132a7d-40c4-4daa-a791-2238c90b0719.png)
+
+
 **Show distribution info:**
 
 `$ uname -a`
@@ -385,3 +389,6 @@ ex: sudo apt-get install openssh-server
   ssh siva@192.168.0.103
 
 Note: Check configuration of SSH server in /etc/ssh/sshd_config file.
+
+## All Commands 
+![image](https://user-images.githubusercontent.com/69948118/232765171-aae1830f-477f-4802-af3c-a4a01843ef39.png)
