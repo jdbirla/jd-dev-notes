@@ -12,6 +12,7 @@
 - Extract to variable: ⌘ + ⌥ + V
 - Extract to method: ⌘ + ⌥ + M
 - File Structure: ⌘ + F12
+![image](https://user-images.githubusercontent.com/69948118/232766770-a5efc647-8588-453f-87da-6cbe8c97825a.png)
 
 ## Git Tips
 
@@ -61,3 +62,6 @@ git push
 * Ensures current branch is master `$ git checkout master`
 * Pulls all new commits made to upstream/master `$ git pull upstream master`
 * To remove all your local changes to master `$ git reset --hard upstream/master`
+
+## Best Tools for Development
+- https://jdbirla.github.io/jdcoderesources/
