@@ -15,6 +15,7 @@ theme:
 nav:
   - Home: index.md
   - Learning: learning.md
+  - AI Tools: aitools.md
   - Shortcuts: shortcuts.md
   - Java:
       - Ecosystem: java/ecosystem.md
