@@ -17,14 +17,16 @@ nav:
   - Learning: learning.md
   - AI Tools: aitools.md
   - Shortcuts: shortcuts.md
-  - Java:
-      - Ecosystem: java/ecosystem.md
-      - Maven: java/maven.md
-      - Gradle: java/gradle.md
-  - SpringBoot:
+  - BackEnd:
+     - Java:
+        - Ecosystem: java/ecosystem.md
+        - Maven: java/maven.md
+        - Gradle: java/gradle.md
+     - SpringBoot:
       - Introduction: springboot/introduction.md
-  - TypeScript:
-      - Introduction: typescript/introduction.md
+  - FrontEnd:
+     - TypeScript:
+       - Introduction: typescript/introduction.md
   - DevOps:
       - Tools: devops/devops.md
       - Linux: devops/linux.md
