@@ -21,6 +21,7 @@
 - formate code : Ctrl + Alt + L 
 - Previously copied to the clipboard :Ctrl + Shift + V 
 - suggestions for code : Ctrl + J  
+- call hirarchy for method : ctrl + alt + H
 #### Mac
 - Extend Selection: ⌥ + ↑
 - Shrink Selection: ⌥ + ↓
@@ -54,9 +55,9 @@
     - This plugin gives some assistance in projects that use MapStruct to generate bean mapping code.
 3. **Presentation Assistant**
     - This plugin shows name and Win/Mac shortcuts of any action you invoke (View | Appearance | Descriptions of Actions).
-2. **Tabnine AI Code Completion**
+4. **Tabnine AI Code Completion**
     - Tabnine is an AI code assistant that makes you a better developer.
-2. **MapStruct support**
-    - This plugin gives some assistance in projects that use MapStruct to generate bean mapping code.
+5. **AceJump**
+    - AceJump allows you to quickly navigate the caret to any position visible in the editor. See a demo of AceJump in action! Simply hit "ctrl+;", then press UP/LEFT/Right for shortcut key will generate
 2. **MapStruct support**
     - This plugin gives some assistance in projects that use MapStruct to generate bean mapping code.
