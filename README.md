@@ -6,3 +6,4 @@
   - pip install mkdocs
   - pip install mkdocs-material
 - Run locally: `mkdocs serve` and open http://127.0.0.1:8000/
+- Hosted: https://jdbirla-dev-notes.netlify.app/
