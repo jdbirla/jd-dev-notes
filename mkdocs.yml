@@ -30,10 +30,13 @@ nav:
   - DevOps:
       - Tools: devops/devops.md
       - Linux: devops/linux.md
+        - Linux CS: devops/linuxcs.md
       - Docker: devops/docker.md
+        - Docker CS: devops/dockercs.md
       - Ansible: devops/ansible.md
       - Terraform: devops/terraform.md
       - AWS: devops/aws.md
+      - Kubernetes CS: devops/kubernetescs.md
   - Tools:
     - IDE:
       - Intellij: tools/intellij.md
