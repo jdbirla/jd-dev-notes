@@ -34,8 +34,6 @@ nav:
       - Linux-cs: devops/linuxcs.md
     - Docker:
       - Docker: devops/docker.md
-      - Docker CS: devops/dockercs.md
-    - Docker: devops/docker.md
       - Docker_CS: devops/dockercs.md
     - Ansible: devops/ansible.md
     - Terraform: devops/terraform.md
