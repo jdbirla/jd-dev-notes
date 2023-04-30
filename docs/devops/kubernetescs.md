@@ -2,7 +2,7 @@
 
 # kubernetes-cheat-sheet
 Quick reference guide for Kubernetes
-
+- https://github.com/sudheerj/kubernetes-cheat-sheet#pods
 > Click :star:if you like the project. Pull Requests are highly appreciated. Follow me [@SudheerJonna](https://twitter.com/SudheerJonna) for technical updates.
 
 ### Table of Contents
