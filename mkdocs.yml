@@ -1,15 +1,11 @@
-site_name: "JD Tech Notes"
-site_description: "My Quick Reference Docs"
-site_author: "J.D. Birla"
-site_url: "https://jdbirla-dev-notes.netlify.app/"
-
-# Repository
-repo_name: "jdbirla/jd-dev-notes"
-repo_url: "https://github.com/jdbirla/jd-dev-notes"
-
-# Copyright
-copyright: "Copyright &copy; 2020 - 2023 J.D. Birla"
-
+---
+site_name: JD Tech Notes
+site_description: My Quick Reference Docs
+site_author: J.D. Birla
+site_url: https://jdbirla-dev-notes.netlify.app/
+repo_name: jdbirla/jd-dev-notes
+repo_url: https://github.com/jdbirla/jd-dev-notes
+copyright: Copyright &copy; 2020 - 2023 J.D. Birla
 theme:
   name: material
 nav:
@@ -18,45 +14,43 @@ nav:
   - AI Tools: aitools.md
   - Shortcuts: shortcuts.md
   - BackEnd:
-    - Java:
-      - Ecosystem: java/ecosystem.md
-      - Maven: java/maven.md
-      - Gradle: java/gradle.md
-    - SpringBoot:
-      - Introduction: springboot/introduction.md
+      - Java:
+          - Ecosystem: java/ecosystem.md
+          - Maven: java/maven.md
+          - Gradle: java/gradle.md
+      - SpringBoot:
+          - Introduction: springboot/introduction.md
   - FrontEnd:
-    - TypeScript:
-      - Introduction: typescript/introduction.md
+      - TypeScript:
+          - Introduction: typescript/introduction.md
   - DevOps:
-    - Tools: devops/devops.md
-    - Linux: devops/linux.md
-      - Linux_CS: devops/linuxcs.md
-    - Docker: devops/docker.md
-      - Docker_CS: devops/dockercs.md
-    - Ansible: devops/ansible.md
-    - Terraform: devops/terraform.md
-    - AWS: devops/aws.md
-    - Kubernetes_CS: devops/kubernetescs.md
+      - Tools: devops/devops.md
+      - Linux:
+          - Linux: devops/linux.md
+          - Linux-cs: devops/linuxcs.md
+      - Docker:
+          - Docker: devops/docker.md
+          - Docker CS: devops/dockercs.md
+      - Ansible: devops/ansible.md
+      - Terraform: devops/terraform.md
+      - AWS: devops/aws.md
+      - Kubernetes-cs: devops/kubernetescs.md
   - Tools:
-    - IDE:
-      - Intellij: tools/intellij.md
+      - IDE:
+          - Intellij: tools/intellij.md
   - Misc:
-    - CleanArchitecture: misc/clean-architecture.md
-
-# Customization
+      - CleanArchitecture: misc/clean-architecture.md
 extra:
-  manifest: "manifest.webmanifest"
+  manifest: manifest.webmanifest
   social:
     - icon: fontawesome/brands/github-alt
-      link: "https://github.com/jdbirla"
+      link: https://github.com/jdbirla
     - icon: fontawesome/brands/linkedin
-      link: "https://www.linkedin.com/in/jdbirla/"
-
-# Extensions
+      link: https://www.linkedin.com/in/jdbirla/
 markdown_extensions:
   - codehilite
   - tables
   - attr_list
   - pymdownx.emoji:
-      emoji_index: !!python/name:materialx.emoji.twemoji
-      emoji_generator: !!python/name:materialx.emoji.to_svg
+      emoji_index: ""
+      emoji_generator: ""
