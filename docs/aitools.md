@@ -24,6 +24,9 @@
 ## https://askyourpdf.com/
 - Transforming the way you interact with PDFs Powered by ChatGPT Upload Any Doc And Get Answers Straight From The Source! Breeze Through Contracts, Research, And More!
 
+## https://www.chatpdf.com/
+- Chat with any PDF
+
 ## https://app.yoodli.ai/
 - Improve your communication skills with personalized and private feedback from our AI speech coach - for free
 
@@ -39,7 +42,30 @@
 ## https://www.signalhire.com/
 - Find Valid Emails and Phone Numbers Real-time verified contact info for recruiters, sales professionals, and marketers. Personal & work contacts.
 
+## https://durable.co/ai-website-builder
+- Build websites with AI
+
+## http://charley.ai/
+- Effortless Writing. Turn 3 words into 10,000
+
+## https://cohesive.so/
+- Create magical content with the most powerful AI editor
+
+## https://www.longshot.ai/
+- From an Idea to a Blog in minutes
+
+## https://monica.im/
+- ChatGPT Copilot in Chrome
+
+## Blaze.today 
+- Speed up typing
+
+## https://stockimg.ai/
+- Create images with AI
+
+
 ---
+
 
 ### Lets make a PPT
 ![image](https://user-images.githubusercontent.com/69948118/234593690-213bf393-e757-4c3e-918f-4e22846a8c62.png)
