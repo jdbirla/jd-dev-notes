@@ -302,3 +302,7 @@ String str = "Hello, world!";
 ![image](https://user-images.githubusercontent.com/69948118/236414915-80f23a38-90fa-481e-bdf7-ed4d696c1149.png)
 
 ---
+## Common Java Developer Mistakes
+#### Use Iterator for removing object from collection in loop 
+
+---
