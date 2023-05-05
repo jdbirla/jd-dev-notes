@@ -306,7 +306,5 @@ String str = "Hello, world!";
 #### Remove Object from Collection
 - Use Iterator for removing object from collection in loop 
 #### Don't use wrapper classes in loop instead use primitive Long -> long
-
----
 ### Spring Boot Mistakes 
 #### Leaking iternals 
