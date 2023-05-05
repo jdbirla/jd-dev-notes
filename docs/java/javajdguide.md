@@ -201,3 +201,99 @@ public class Callbacks {
 //    }
 }
 ```
+---
+## Optional Use
+#### ofNullable(): 
+ - This method returns an empty Optional instance if the value passed is null, otherwise, it returns an Optional instance containing the passed value.
+```java
+  String str = null;
+    Optional<String> optionalStr = Optional.ofNullable(str);
+    System.out.println(optionalStr.isEmpty());//true
+    String str1 = "Jitendra";
+    Optional<String> optionalStr1 = Optional.ofNullable(str1);
+    System.out.println(optionalStr1.get());//Jitendra
+```
+#### isPresent():
+- This method returns true if the Optional instance contains a value, otherwise, it returns false.
+```java
+String str = null;
+    Optional<String> optionalStr = Optional.ofNullable(str);
+    System.out.println(optionalStr.isPresent());//false
+    String str1 = "Jitendra";
+    Optional<String> optionalStr1 = Optional.ofNullable(str1);
+    System.out.println(optionalStr1.isPresent());//true
+```
+#### orElse(): 
+- This method returns the value contained in the Optional instance if it is present, otherwise, it returns the value passed as a parameter.
+```java
+ String str = null;
+    Optional<String> optionalStr = Optional.ofNullable(str);
+    System.out.println(optionalStr.orElse("Hello, world!"));//Hello, world!
+    String str1 = "Jitendra";
+    Optional<String> optionalStr1 = Optional.ofNullable(str1);
+    System.out.println(optionalStr1.orElse("Hello, world!"));//Jitendra
+
+```
+#### orElseGet(): 
+- This method is similar to orElse(), but instead of returning a value, it returns a Supplier that produces a value when the Optional instance is empty.
+```java
+String str = null;
+    Optional<String> optionalStr = Optional.ofNullable(str);
+    String result = optionalStr.orElseGet(() -> "Hello, world!");
+    System.out.println(result);//Hello, world!
+```
+
+#### orElseThrow(): 
+- This method returns the value contained in the Optional instance if it is present, otherwise, it throws the exception passed as a parameter.
+```java
+ String str = null;
+    Optional<String> optionalStr = Optional.ofNullable(str);
+    String result = optionalStr.orElseThrow(() -> new IllegalArgumentException("Value cannot be null"));
+//output
+
+//Exception in thread "main" java.lang.IllegalArgumentException: Value cannot be null
+//	at com.jd.test.Test.PracticeTest.lambda$main$0(PracticeTest.java:18)
+//	at java.base/java.util.Optional.orElseThrow(Optional.java:403)
+//	at com.jd.test.Test.PracticeTest.main(PracticeTest.java:18)
+```
+#### filter(): 
+- This method applies a predicate to the value contained in the Optional instance and returns an Optional instance containing the value if the predicate is true, otherwise, it returns an empty Optional instance.
+```java
+   String str = "Hello, world!";
+    Optional<String> optionalStr = Optional.ofNullable(str);
+    Optional<String> filtered = optionalStr.filter(s -> s.contains("world"));
+    System.out.println(filtered.get());//Hello, world!
+    String str1 = null;
+    Optional<String> optionalStr1 = Optional.ofNullable(str1);
+    Optional<String> filtered1 = optionalStr1.filter(s -> s.contains("world"));
+    System.out.println(filtered1.isEmpty()?"Empty optional":filtered1.get());//Empty optional
+```
+
+#### map(): 
+- This method applies a function to the value contained in the Optional instance and returns an Optional instance containing the result of the function, or an empty Optional instance if the original Optional instance was empty.
+```java
+   String str = "Hello, world!";
+    Optional<String> optionalStr = Optional.ofNullable(str);
+    Optional<Integer> filtered = optionalStr.map(s -> s.length());
+    System.out.println(filtered.get());//13
+
+    String str1 = null;
+    Optional<String> optionalStr1 = Optional.ofNullable(str1);
+    Optional<Integer> filtered1 = optionalStr1.map(s -> s.length());
+    System.out.println(filtered1.isEmpty()?"Empty optional":filtered1.get());//Empty optional
+
+
+```
+
+#### flatMap(): 
+- This method applies a function that returns an Optional instance to the value contained in the original Optional instance, and returns the result of the function or an empty Optional instance if the original Optional instance was empty.
+```java
+String str = "Hello, world!";
+    Optional<String> optionalStr = Optional.ofNullable(str);
+    Optional<Character> firstChar = optionalStr.flatMap(s -> s.isEmpty() ? Optional.empty() : Optional.of(s.charAt(0)));
+    System.out.println(firstChar.get()); //H
+
+
+```
+
+---
