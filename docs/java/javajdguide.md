@@ -302,7 +302,11 @@ String str = "Hello, world!";
 ![image](https://user-images.githubusercontent.com/69948118/236414915-80f23a38-90fa-481e-bdf7-ed4d696c1149.png)
 
 ---
-## Common Java Developer Mistakes
-#### Use Iterator for removing object from collection in loop 
+## Common Java Mistakes
+#### Remove Object from Collection
+- Use Iterator for removing object from collection in loop 
+#### Don't use wrapper classes in loop instead use primitive Long -> long
 
 ---
+### Spring Boot Mistakes 
+#### Leaking iternals 
