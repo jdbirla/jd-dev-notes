@@ -14,6 +14,7 @@ theme:
   name: material
 nav:
   - Home: index.md
+  - RunningNotes: runningnotes.md
   - Learning: learning.md
   - AI Tools: aitools.md
   - Shortcuts: shortcuts.md
@@ -22,6 +23,7 @@ nav:
       - Ecosystem: java/ecosystem.md
       - Maven: java/maven.md
       - Gradle: java/gradle.md
+      - JavaJdGuide: java/javajdguide.md
     - SpringBoot:
       - Introduction: springboot/introduction.md
   - FrontEnd:
