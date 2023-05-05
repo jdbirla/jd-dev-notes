@@ -297,3 +297,8 @@ String str = "Hello, world!";
 ```
 
 ---
+## Disable H2 in Spring Boot Test
+- Disable H2 DB `@AutoConfigurationTestDataBase(replace = AutoConfigurationTestDatabase.Replace.NONE)
+![image](https://user-images.githubusercontent.com/69948118/236414915-80f23a38-90fa-481e-bdf7-ed4d696c1149.png)
+
+---
