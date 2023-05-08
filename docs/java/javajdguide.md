@@ -340,4 +340,7 @@ String str = "Hello, world!";
 - Avoid unnecessary string manipulation: String manipulation can be expensive, especially if it involves regular expressions or other complex operations. Try to minimize string manipulation, and consider using StringBuilder or StringBuffer for string concatenation.
 - Use efficient network communication: Network communication can be a major bottleneck in Java applications. Use efficient protocols and data formats, and consider using compression or caching to reduce the amount of data that needs to be transmitted.
 - Use modern Java features: Finally, remember that Java is a constantly evolving language, and new features are added with each release. Make sure that you’re using the latest Java version, and take advantage of new features like lambdas, streams, and modules to write more efficient code.
-
+- Use the static keyword to create utility methods that can be used without instantiating an object
+- Use final keyword to make variables and methods immutable or constant.
+- Use the @Override annotation when overriding a method to ensure that you are actually overriding a method and not creating a new one.
+- 
