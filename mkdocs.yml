@@ -26,6 +26,8 @@ nav:
       - JavaJdGuide: java/javajdguide.md
     - SpringBoot:
       - Introduction: springboot/introduction.md
+    - JPA_Hibernate:
+      - jpa_performance: springboot/jpaperformance.md
   - FrontEnd:
     - TypeScript:
       - Introduction: typescript/introduction.md
