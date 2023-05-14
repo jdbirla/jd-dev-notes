@@ -343,4 +343,7 @@ String str = "Hello, world!";
 - Use the static keyword to create utility methods that can be used without instantiating an object
 - Use final keyword to make variables and methods immutable or constant.
 - Use the @Override annotation when overriding a method to ensure that you are actually overriding a method and not creating a new one.
-- 
+---
+## Generics in Java
+
+- https://salithachathuranga94.medium.com/generics-in-java-3c791555e924
