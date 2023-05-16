@@ -97,9 +97,12 @@ public List<Product> findAllProductsOrderByNameDesc();
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/941ef4c3-d97d-4633-8fb6-c08129c957e7)
 
 ```java
-      @OneToOne(cascade = CasdeType.ALL)
-      @JoinColumn(name = "billing_address_id" , referencedColumnName = "id")
-```
+public class Order {
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "billing_address_id" , referencedColumnName = "id")
+    private Address billingAddress;
+    }
+    ```
   #### Bidirectional Mapping
  - Each entity has a relationship field that refers to each other and the target entity table contain the foreign key. The source entity must use the mappedBy attributr to define the bidirectional one-to-one mapping
  
