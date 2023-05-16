@@ -416,5 +416,5 @@ public class Dolphin extends Mammal {
 }
 ```
 - Each entity has its own table and There is no explicit foreign key relationship between the tables representing subclasses and the superclass.
-- 
+
 
