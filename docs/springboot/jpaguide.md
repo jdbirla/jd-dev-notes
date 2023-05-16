@@ -146,5 +146,52 @@ public class OrderItem {
     private Order order;
 ```
 ### Many-to-Many Mapping
+  ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/a25e3a51-b82c-486a-838c-ab04ce3adddd)
+- It use a table to store association that join two entities.
+
+ #### Unidirectional mapping : 
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/1338cc5a-9bff-4207-8613-5d9af8d5bfd4)
+- Source entity has @ManyToMany annotation
+```java
+public class User {
+ @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinTable(
+            name = "users_roles",
+            joinColumns = @JoinColumn(
+                    name = "user_id", referencedColumnName = "id"
+            ),
+            inverseJoinColumns = @JoinColumn(
+                    name = "role_id", referencedColumnName = "id"
+            )
+    )
+    private Set<Role> roles = new HashSet<>();
+    }
+```
+#### Bidirectional mapping : 
+- Both entities have @ManyToMany annotation
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/8879d993-34d4-40de-b1e9-1b1f1d49e709)
+```java
+public class User {
+ @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinTable(
+            name = "users_roles",
+            joinColumns = @JoinColumn(
+                    name = "user_id", referencedColumnName = "id"
+            ),
+            inverseJoinColumns = @JoinColumn(
+                    name = "role_id", referencedColumnName = "id"
+            )
+    )
+    private Set<Role> roles = new HashSet<>();
+    }
+    
+    public class Role {
   
+    @ManyToMany(mappedBy = "roles" , cascade = {CascadeType.PERSIST, CascadeType.MERGE} , fetch = FetchType.EAGER)
+    private Set<User> users = new HashSet<>();
+
+}
+    
+```
+
  
