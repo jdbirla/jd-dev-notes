@@ -9,6 +9,8 @@
 ##  @CreationTimestamp and @UpdateTimestamp
 
 ## Query
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/7541213c-2ad1-42c2-9f33-1c7d5720d007)
+
 ### Query Generation by Spring Data JPA
 ### @Query
  - We can write JPQL query 
@@ -86,4 +88,62 @@ public List<Product> findAllProductsOrderByNameDesc();
     @Query(nativeQuery = true)
     public List<Product> findAllProductsOrderByNameAsc();
 ```
+## Mapping
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/d12c29a1-cf39-485d-be6c-d7807aa50745)
 
+### One-to-One Mapping: 
+  #### Unidirectional mapping : 
+      - Source entity has a relationship field that refers to the target entity and the source entity's table contains the foreign key
+      ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/941ef4c3-d97d-4633-8fb6-c08129c957e7)
+
+      ```java
+      @OneToOne(cascade = CasdeType.ALL)
+      @JoinColumn(name = "billing_address_id" , referencedColumnName = "id")
+      ```
+  #### Bidirectional Mapping:
+      - Each entity has a relationship field that refers to each other and the target entity table contain the foreign key. The source entity must use the mappedBy attributr to define the bidirectional one-to-one mapping
+```java
+public class Order {
+    @OneToOne(cascade = CascadeType.ALL, mappedBy = "order", fetch = FetchType.LAZY)
+    private Address billingAddress;
+    }
+    
+    public class Address {
+    @OneToOne(cascade = CascadeType.ALL )
+    @JoinColumn(name = "billing_address_id", referencedColumnName = "id")
+    private Order order;
+  }  
+```
+### One-to-Many Mapping
+
+ - Child tables record reference the primary key or the parent table
+   #### Unidirectional mapping : 
+   ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/1a3c3a97-cd20-4e34-b98b-05bc885e8ba6)
+
+   - Parent entity will have OnetoMany relationship , Foreign key column in child table which referes to primary key of the parent table
+   
+   ```java
+   public class Order {
+    //Default fetch type for one to many is LAZY
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumnn(name = "order_id" , referenceColumnName = "id")
+    private Set<OrderItem> orderItemSets = new HashSet<>();
+    ```
+#### Bidirectional mapping : 
+   ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/c7a128c2-d75c-43a4-b285-7d1c2ab0829e)
+   - Parent entity will have OnetoMany and child entity will have ManyToOne relationship , Foreign key column in child table which referes to primary key of the parent table
+```java
+public class Order {
+    //Default fetch type for one to many is LAZY
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "order")
+    private Set<OrderItem> orderItemSets = new HashSet<>();
+}
+
+public class OrderItem {
+    //Default fetch type of ManyToOne : EAGER
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "order_id", referencedColumnName = "id")
+    private Order order;
+```
+    
+ 
