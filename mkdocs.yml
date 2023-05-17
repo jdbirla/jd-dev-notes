@@ -29,6 +29,8 @@ nav:
     - JPA_Hibernate:
       - jpa_guide: springboot/jpaguide.md
       - jpa_performance: springboot/jpaperformance.md
+    - Testing:
+      - Testing_Guide: springboot/testing_guide.md
   - FrontEnd:
     - TypeScript:
       - Introduction: typescript/introduction.md
