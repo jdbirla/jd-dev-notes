@@ -22,9 +22,10 @@
 
 - Testcontainers provides a high-level API that makes it easy to launch containers and interact with them from your tests, as well as providing support for popular container images, such as those for databases like MySQL or PostgreSQL. This can greatly simplify the process of setting up a test environment, and reduce the amount of code that needs to be written to support tests.
 
+### [4.All_Assertions](#all-asserstions)
 
 
-### [4.Old Test sheet](#old-test-sheet)
+### [5.Old Test sheet](#old-test-sheet)
 
 
 
@@ -806,6 +807,19 @@ public class EmployeeControllerITTestContainer extends AbstractionBaseTest{
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 public class EmployeeRepositoryITTestContainer extends AbstractionBaseTest {
+```
+---
+## all asserstions
+```java
+Assertions.assertThat(employee).isNotNull();
+Assertions.assertThat(employee.getId()).isNotNull();
+Assertions.assertThat(employee.getId()).isGreaterThan(0);
+Assertions.assertThat(empList).isNotEmpty();
+Assertions.assertThat(empList).isNotNull();
+Assertions.assertThat(empList).size().isEqualTo(2);
+Assertions.assertThat(emp).isNotNull();
+Assertions.assertThat(emp).isEqualTo(employee);
+
 ```
 
 ---
