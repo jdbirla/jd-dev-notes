@@ -214,6 +214,42 @@ public class EmployeeRepositoryTests {
  - mock()/@Mock : We can mock an class or interface
  - @InjectMocks :  When we want to inject a mocker object into another mocked object , we can use @InjectMocks annoation.
                    @InejctMock created the mock object of the class and injects the mocks that are marked with the annotation @Mock
+- Using mock() methos
+```java
+public class TodoBusinessImpl {
+    private TodoService todoService;
+    TodoBusinessImpl(TodoService todoService) {
+        this.todoService = todoService;
+    }
+    public List<String> retrieveTodosRelatedToSpring(String user) {
+        List<String> filteredTodos = new ArrayList<String>();
+        List<String> allTodos = todoService.retrieveTodos(user);
+        for (String todo : allTodos) {
+            if (todo.contains("Spring")) {
+                filteredTodos.add(todo);
+            }
+        }
+        return filteredTodos;
+    }
+}
+
+public class TodoBusinessImplMockitoTest {
+    @Test
+    public void usingMockito() {
+        TodoService todoService = mock(TodoService.class);
+        List<String> allTodos = Arrays.asList("Learn Spring MVC",
+                "Learn Spring", "Learn to Dance");
+        when(todoService.retrieveTodos("Ranga")).thenReturn(allTodos);
+        TodoBusinessImpl todoBusinessImpl = new TodoBusinessImpl(todoService);
+        List<String> todos = todoBusinessImpl
+                .retrieveTodosRelatedToSpring("Ranga");
+        assertEquals(2, todos.size());
+    }
+}
+
+```
+		   
+- Unsing @Mock Annotation
 ```java
 @ExtendWith(MockitoExtension.class)
 public class EmployeeServiceTests {
@@ -222,6 +258,41 @@ public class EmployeeServiceTests {
     EmployeeRepository employeeRepository;
     @InjectMocks
     EmployeeServiceImpl employeeService;
+```
+-- BDDMockito Style 
+```java
+@ExtendWith(MockitoExtension.class)
+public class EmployeeServiceTests {
+    @Mock
+    EmployeeRepository employeeRepository;
+    @InjectMocks
+    EmployeeServiceImpl employeeService;
+    private Employee e;
+    private Employee employee1;
+    @BeforeEach
+    public void setup() {
+        // employeeRepository = Mockito.mock(EmployeeRepository.class);
+        //employeeService = new EmployeeServiceImpl(employeeRepository);
+        e = Employee.builder().id(1L).firstName("Jitu").lastName("Birla").email("jdbirla@gmail.com").build();
+        employee1 = Employee.builder().id(2L).firstName("Jitu").lastName("Birla").email("jitendra@gmail.com").build();
+
+    }
+
+    @Test
+    @DisplayName("Test save employee using serviceimpl")
+    public void givenEmployee_whenSaveEmployee_thenEmployeeObject() {
+        //given
+        BDDMockito.given(employeeRepository.findByEmail(e.getEmail())).willReturn(Optional.empty());
+        BDDMockito.given(employeeService.saveEmployee(e)).willReturn(e);
+
+        //When
+        Employee savedEmp = employeeService.saveEmployee(e);
+        System.out.println(savedEmp.toString());
+        //Then
+        Assertions.assertThat(savedEmp).isNotNull();
+    }
+}
+
 ```
 ---
 ## Service Layer
@@ -819,7 +890,22 @@ Assertions.assertThat(empList).isNotNull();
 Assertions.assertThat(empList).size().isEqualTo(2);
 Assertions.assertThat(emp).isNotNull();
 Assertions.assertThat(emp).isEqualTo(employee);
+----
+org.junit.jupiter.api.Assertions.assertThrows(ResurceNotFound.class, () -> {
+            employeeService.saveEmployee(e);
+        });
+ //Then
+ BDDMockito.verify(employeeRepository, Mockito.never()).save(any(Employee.class));
+----
+    long employeeid = 1L;
+        //given
+        BDDMockito.willDoNothing().given(employeeRepository).deleteById(employeeid);
 
+        //When
+         employeeService.deleteEmployee(employeeid);
+        //Then
+      BDDMockito.verify(employeeRepository,Mockito.times(1)).deleteById(employeeid);
+---
 ```
 
 ---
