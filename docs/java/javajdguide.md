@@ -347,3 +347,9 @@ String str = "Hello, world!";
 ## Generics in Java
 
 - https://salithachathuranga94.medium.com/generics-in-java-3c791555e924
+
+---
+## Java Faker API
+- JavaFaker library to generate real-looking fake data. 
+- https://www.baeldung.com/java-faker
+- https://github.com/DiUS/java-faker
