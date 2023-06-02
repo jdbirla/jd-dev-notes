@@ -49,6 +49,7 @@ nav:
   - Tools:
     - IDE:
       - Intellij: tools/intellij.md
+      - VSCode: tools/vscode.md
   - Misc:
     - CleanArchitecture: misc/clean-architecture.md
 
