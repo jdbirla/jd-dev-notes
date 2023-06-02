@@ -41,3 +41,30 @@
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/b863a300-1fc9-4ae9-8743-0625c619bfb5)
 
 ### CSS Position
+- Demo : https://appbrewery.github.io/css-positioning/
+#### Relative psotion :  meaning relative to the defualt position meaning if there was no relative then its one after another box
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/a04ae40f-89f8-49aa-8b85-438a1ac072f0)
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/3b5ba96d-b942-4876-a20e-580a826a708c)
+#### Absoulte position
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/f2106020-dc86-4bd3-90b3-61970e730b61)
+#### Fixed position
+- it will be fixed even we scroll web page
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/760217c8-304a-4b85-8572-e23763fdd94e)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
