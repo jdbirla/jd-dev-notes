@@ -29,3 +29,15 @@
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/2e73bea4-fd2e-4389-98fc-79981128b5b8)
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/5a2f1133-44db-45bf-836d-59f72955e9ef)
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/056270e1-1b98-458a-9934-4b96f96326d2)
+
+### Combining Slectors
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/76ab48c2-6d2a-43a6-8233-1d63db6ae9f0)
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/772ab69f-0a32-4bc3-aaa6-681785839439)
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/4c048f45-9342-4735-9b03-a5207cd0abad)
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/3db7251b-890f-44ee-b9e7-7855962e810b)
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/8728e2e6-32fd-4820-b109-64d3b41419d6)
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/52b66599-c87d-4869-875f-30e8fa96e54d)
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/92341f91-e601-4945-88c9-0ade30fdd0c6)
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/b863a300-1fc9-4ae9-8743-0625c619bfb5)
+
+### CSS Position
