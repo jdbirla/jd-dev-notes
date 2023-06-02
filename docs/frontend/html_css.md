@@ -18,4 +18,7 @@
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/511bf1a8-b505-453f-9136-6e1559b562f0)
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/143fc752-24b7-4cad-980e-9a42b036b233)
 
-## CSS Inspection
+## CSS Inspection using pesticide
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/2a49716c-5502-4822-8f72-44d68f9f60f7)
+- press ctrl button and go to element you can see details below 
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/2c05f80b-f81f-4588-b849-753eb0583fe4)
