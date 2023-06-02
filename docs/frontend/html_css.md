@@ -51,6 +51,9 @@
 - it will be fixed even we scroll web page
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/760217c8-304a-4b85-8572-e23763fdd94e)
 
+### CSS Display
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/d262697d-3934-4eff-8f6b-fe8726e729e9)
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/8904b7f5-341a-4b0a-b271-3e9bc359fe82)
 
 
 
