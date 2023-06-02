@@ -68,6 +68,12 @@
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/17b64df6-2075-4c47-80df-2fc534c6426a)
 
 
+## Media Queries
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/df6bc435-6ada-466a-837f-9e7a10e25fab)
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/b709fba7-b57e-494c-9ea0-c029a644dfb4)
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/82f8ecea-d484-4106-9bcd-9c453c39ab8d)
+
+
 
 
 
