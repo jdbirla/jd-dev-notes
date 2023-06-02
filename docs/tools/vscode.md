@@ -1,6 +1,6 @@
 ## Frontend IDE
-- Angela Web Development Course Resources List 
-- <a>https://www.appbrewery.co/p/web-development-course-resources<a/>
+- [Angela Web Development Course Resources List ](https://www.appbrewery.co/p/web-development-course-resources)
+
 
 ### Pesticide for Chrome
 - This extension inserts the Pesticide CSS into the current page, outlining each element to better see placement on the page.
