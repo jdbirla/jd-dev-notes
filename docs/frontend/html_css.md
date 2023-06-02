@@ -55,6 +55,19 @@
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/d262697d-3934-4eff-8f6b-fe8726e729e9)
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/8904b7f5-341a-4b0a-b271-3e9bc359fe82)
 
+### CSS Display
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/dbe4a913-cf2a-427d-98fa-e98964c48e07)
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/3f52d167-bd3b-4ddf-aa08-d5552a2f0c40)
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/9ea5a1cd-89b7-4c40-9f4a-c78f1cc69a6d)
+
+### Responsive Websites
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/2ad7c224-2f2a-47e9-b78a-aadf9125ab48)
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/cb043e50-f23a-435c-b920-8e2ef54ec84c)
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/ef3a66ba-8ce3-4ab4-b9e1-a1b63c9937a7)
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/204d7525-4c3b-4c68-8871-1d5edb9003ea)
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/17b64df6-2075-4c47-80df-2fc534c6426a)
+
+
 
 
 
