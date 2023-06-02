@@ -34,6 +34,9 @@ nav:
   - FrontEnd:
     - TypeScript:
       - Introduction: typescript/introduction.md
+    - HTML_CSS: frontend/html_css.md
+    - JavaScript: frontend/javascript.md
+    - React: frontend/react.md
   - DevOps:
     - Tools: devops/devops.md
     - Linux:
