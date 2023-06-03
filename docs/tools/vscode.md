@@ -55,5 +55,7 @@ https://replit.com/signup
 - live server
 - user snipet configure
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/f17876c7-9e7a-42b5-b06e-3575c6f93849)
+- Debuggin 
+ ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/dfc30a0d-abdb-4ff6-b77f-8048343cbf91)
 
 
