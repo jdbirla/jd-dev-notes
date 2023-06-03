@@ -112,6 +112,7 @@ Why not 23?
 
 */
 ```
+---
 ### Function 
 ```js
 // Function declaration
@@ -153,7 +154,7 @@ Bob retires in 8 years
 */
 
 ```
-
+---
 ## Array Operations 
 ```js
 const friends = ["Michael", "Steven", "Peter"];
@@ -190,7 +191,7 @@ if (friends.includes("Steven")) {
 ```
 - output
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/ac0c3732-6d65-48ed-ad72-d9f137db470d)
-
+---
 ## Object
 ```js
 // Dot vs. Bracket Notation
@@ -236,7 +237,55 @@ console.log(
 - output
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/1544c67a-d456-4b14-b82e-3d1cc67c80ef)
 
+## Object Methods
+```js
+const jonas = {
+  firstName: "Jonas",
+  lastName: "Schmedtmann",
+  birthYeah: 1991,
+  job: "teacher",
+  friends: ["Michael", "Peter", "Steven"],
+  hasDriversLicense: true,
 
+  // calcAge: function (birthYeah) {
+  //   return 2037 - birthYeah;
+  // }
+
+  // calcAge: function () {
+  //   // console.log(this);
+  //   return 2037 - this.birthYeah;
+  // }
+
+  calcAge: function () {
+    this.age = 2037 - this.birthYeah;
+    return this.age;
+  },
+
+  getSummary: function () {
+    return `${this.firstName} is a ${this.calcAge()}-year old ${
+      jonas.job
+    }, and he has ${this.hasDriversLicense ? "a" : "no"} driver's license.`;
+  },
+};
+
+console.log(jonas.calcAge());
+
+console.log(jonas.age);
+console.log(jonas.age);
+console.log(jonas.age);
+
+// Challenge
+// "Jonas is a 46-year old teacher, and he has a driver's license"
+console.log(jonas.getSummary());
+/*output
+
+Jonas is a 46-year old teacher, and he has a driver's license.
+46
+46
+46
+46
+*/
+```
 
 
 
