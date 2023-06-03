@@ -46,3 +46,5 @@ https://replit.com/signup
 ![](https://github.com/jdbirla/jd-dev-notes/blob/master/docs/tools/pics/Screenshot_2.png)
 ![](https://github.com/jdbirla/jd-dev-notes/blob/master/docs/tools/pics/Screenshot_3.png)
 ![](https://github.com/jdbirla/jd-dev-notes/blob/master/docs/tools/pics/Screenshot_4.png)
+- One Monokai Theme
+![](https://github.com/jdbirla/jd-dev-notes/blob/master/docs/tools/pics/Screenshot_5.png)
