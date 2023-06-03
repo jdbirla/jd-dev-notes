@@ -13,6 +13,7 @@ https://chrome.google.com/webstore/detail/pesticide-for-chrome/bakpbgckdnepkmkea
 https://replit.com/signup
 
 ### VS Code Extensions
+#### Angela
 - Live PreviewPreview
   - Hosts a local server in your workspace for you to preview your webpages on.
   - https://marketplace.visualstudio.com/items?itemName=ms-vscode.live-server
@@ -39,5 +40,6 @@ https://replit.com/signup
 - file-icons
     - File-specific icons in VSCode for improved visual grepping.
     - https://marketplace.visualstudio.com/items?itemName=file-icons.file-icons
-
+#### Jonas
+- Prettier - Code formatter
 
