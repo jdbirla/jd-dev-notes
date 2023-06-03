@@ -42,6 +42,7 @@ https://replit.com/signup
     - https://marketplace.visualstudio.com/items?itemName=file-icons.file-icons
 #### Jonas
 - Prettier - Code formatter
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/c9f5ecbb-c242-4aee-b8c7-f215140e6509)
 ![](https://github.com/jdbirla/jd-dev-notes/blob/master/docs/tools/pics/Screenshot_1.png)
 ![](https://github.com/jdbirla/jd-dev-notes/blob/master/docs/tools/pics/Screenshot_2.png)
 ![](https://github.com/jdbirla/jd-dev-notes/blob/master/docs/tools/pics/Screenshot_3.png)
@@ -52,3 +53,7 @@ https://replit.com/signup
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/928f39e2-d2e2-4642-889f-4e0c3958b987)
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/89d8f58e-367a-48de-a4bd-953c7b178376)
 - live server
+- user snipet configure
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/f17876c7-9e7a-42b5-b06e-3575c6f93849)
+
+
