@@ -42,4 +42,7 @@ https://replit.com/signup
     - https://marketplace.visualstudio.com/items?itemName=file-icons.file-icons
 #### Jonas
 - Prettier - Code formatter
-
+![](https://github.com/jdbirla/jd-dev-notes/blob/master/docs/tools/pics/Screenshot_1.png)
+![](https://github.com/jdbirla/jd-dev-notes/blob/master/docs/tools/pics/Screenshot_2.png)
+![](https://github.com/jdbirla/jd-dev-notes/blob/master/docs/tools/pics/Screenshot_3.png)
+![](https://github.com/jdbirla/jd-dev-notes/blob/master/docs/tools/pics/Screenshot_4.png)
