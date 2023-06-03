@@ -39,6 +39,7 @@
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/52b66599-c87d-4869-875f-30e8fa96e54d)
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/92341f91-e601-4945-88c9-0ade30fdd0c6)
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/b863a300-1fc9-4ae9-8743-0625c619bfb5)
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/e5b58091-3402-4473-86b8-2d9202c6002e)
 
 ### CSS Position
 - Demo : https://appbrewery.github.io/css-positioning/
@@ -54,11 +55,14 @@
 ### CSS Display
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/d262697d-3934-4eff-8f6b-fe8726e729e9)
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/8904b7f5-341a-4b0a-b271-3e9bc359fe82)
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/e0082855-4e98-4955-a31e-77b16a007038)
 
-### CSS Display
+### CSS float
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/dbe4a913-cf2a-427d-98fa-e98964c48e07)
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/3f52d167-bd3b-4ddf-aa08-d5552a2f0c40)
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/9ea5a1cd-89b7-4c40-9f4a-c78f1cc69a6d)
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/ff20593e-717e-4f7e-8b62-552bdce5ca0c)
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/d61aac2b-4690-4382-8fa7-17653ac74fca)
 
 ### Responsive Websites
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/2ad7c224-2f2a-47e9-b78a-aadf9125ab48)
