@@ -113,6 +113,7 @@ Why not 23?
 */
 ```
 ---
+
 ### Function 
 ```js
 // Function declaration
@@ -155,6 +156,7 @@ Bob retires in 8 years
 
 ```
 ---
+
 ## Array Operations 
 ```js
 const friends = ["Michael", "Steven", "Peter"];
@@ -190,8 +192,11 @@ if (friends.includes("Steven")) {
 
 ```
 - output
+
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/ac0c3732-6d65-48ed-ad72-d9f137db470d)
+
 ---
+
 ## Object
 ```js
 // Dot vs. Bracket Notation
@@ -235,7 +240,9 @@ console.log(
 
 ```
 - output
+
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/1544c67a-d456-4b14-b82e-3d1cc67c80ef)
+
 
 ## Object Methods
 ```js
@@ -286,6 +293,34 @@ Jonas is a 46-year old teacher, and he has a driver's license.
 46
 */
 ```
+
+---
+### Loops
+
+```js
+onst jonas = [
+  "Jonas",
+  "Schmedtmann",
+  2037 - 1991,
+  "teacher",
+  ["Michael", "Peter", "Steven"],
+  true,
+];
+const types = [];
+
+for (let i = 0; i < jonas.length; i++) {
+  // Reading from jonas array
+  console.log(jonas[i], typeof jonas[i]);
+
+  // Filling types array
+  // types[i] = typeof jonas[i];
+  types.push(typeof jonas[i]);
+}
+
+console.log(types);
+
+```
+
 
 
 
