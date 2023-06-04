@@ -709,3 +709,73 @@ console.log(guestCorrect1);
  ```
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/74791eb2-00d7-44c2-acae-7fc19f1a0d89)
 
+---
+### All Loops in JS
+1. for loop: The standard for loop is used when you know the exact number of iterations you want to perform.
+```js
+const numbers = [1, 2, 3, 4, 5];
+
+for (let index = 0; index < numbers.length; index++) {
+  const element = numbers[index];
+  console.log(element);
+}
+/*Output 
+1
+2
+3
+4
+5
+*/
+```
+2. forEach :The forEach loop is used specifically with arrays to iterate over each element in the array.
+
+```js
+const numbers = [1, 2, 3, 4, 5];
+
+numbers.forEach(element => {
+  console.log(element);
+});
+/*Output 
+1
+2
+3
+4
+5
+*/
+```
+
+3. for...in :The for...in loop is used to iterate over the enumerable properties of an object.
+```js
+const person = {
+  name: 'John',
+  age: 30,
+  city: 'New York',
+};
+
+for (let key in person) {
+  console.log(key + ': ' + person[key]);
+}
+/*Output 
+name: John
+age: 30
+city: New York
+*/
+
+```
+4.for...of loop: The for...of loop is used to iterate over iterable objects like arrays, strings, or other collections.
+```js
+const colors = ['red', 'green', 'blue'];
+
+for (let color of colors) {
+  console.log(color);
+}
+/*Output
+red
+green
+blue
+*/
+
+```
+
+---
+
