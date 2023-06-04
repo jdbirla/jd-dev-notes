@@ -433,6 +433,54 @@ if (friends.includes("Steven")) {
 - output
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/ac0c3732-6d65-48ed-ad72-d9f137db470d)
 
+### Array Methods
+```js
+// Simple Array Methods
+let arr = ['a', 'b', 'c', 'd', 'e'];
+
+// SLICE
+console.log('---------------------------------slice----------------------');
+console.log(arr.slice(2));
+console.log(arr.slice(2, 4));
+console.log(arr.slice(-2));
+console.log(arr.slice(-1));
+console.log(arr.slice(1, -2));
+console.log(arr.slice());
+console.log([...arr]);
+
+// SPLICE
+console.log('---------------------------------SPLICE----------------------');
+
+// console.log(arr.splice(2));
+arr.splice(-1);
+console.log(arr);
+arr.splice(1, 2);
+console.log(arr);
+
+// REVERSE
+console.log('---------------------------------REVERSE----------------------');
+
+arr = ['a', 'b', 'c', 'd', 'e'];
+const arr2 = ['j', 'i', 'h', 'g', 'f'];
+console.log(arr2.reverse());
+console.log(arr2);
+
+// CONCAT
+console.log('---------------------------------CONCAT----------------------');
+
+const letters = arr.concat(arr2);
+console.log(letters);
+console.log([...arr, ...arr2]);
+
+// JOIN
+console.log('---------------------------------JOIN----------------------');
+
+console.log(letters.join(' - '));
+
+```
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/95af17a5-a4ca-46f6-84df-a76c312dcec8)
+
+
 ### Array Destruring
 ```js
 const restaurant = {
@@ -943,6 +991,58 @@ numbers.forEach(element => {
 4
 5
 */
+//------------------------------------------------------------
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+console.log('---- FOREACH ----');
+movements.forEach(function (mov, i, arr) {
+  if (mov > 0) {
+    console.log(`Movement ${i + 1}: You deposited ${mov}`);
+  } else {
+    console.log(`Movement ${i + 1}: You withdrew ${Math.abs(mov)}`);
+  }
+});
+
+/*Output
+Movement 1: You deposited 200
+Movement 2: You deposited 450
+Movement 3: You withdrew 400
+Movement 4: You deposited 3000
+Movement 5: You withdrew 650
+Movement 6: You withdrew 130
+Movement 7: You deposited 70
+Movement 8: You deposited 1300
+*/
+//-----------------------------------------------
+const currencies = new Map([
+  ['USD', 'United States dollar'],
+  ['EUR', 'Euro'],
+  ['GBP', 'Pound sterling'],
+]);
+
+// forEach With Maps and Sets
+
+currencies.forEach(function (value, key, map) {
+  console.log(`${key}: ${value}`);
+});
+/*
+USD: United States dollar
+EUR: Euro
+GBP: Pound sterling
+*/
+
+// Set
+const currenciesUnique = new Set(['USD', 'GBP', 'USD', 'EUR', 'EUR']);
+console.log(currenciesUnique);
+currenciesUnique.forEach(function (value, _, map) {
+  console.log(`${value}: ${value}`);
+});
+/*
+Set(3) {'USD', 'GBP', 'EUR'}
+USD: USD
+GBP: GBP
+EUR: EUR
+*/
 ```
 
 ##### 3. for...in :The for...in loop is used to iterate over the enumerable properties of an object.
@@ -975,6 +1075,31 @@ red
 green
 blue
 */
+
+/////////////////////////////////////////////
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+// for (const movement of movements) {
+for (const [i, movement] of movements.entries()) {
+  if (movement > 0) {
+    console.log(`Movement ${i + 1}: You deposited ${movement}`);
+  } else {
+    console.log(`Movement ${i + 1}: You withdrew ${Math.abs(movement)}`);
+  }
+}
+
+/*output
+Movement 1: You deposited 200
+Movement 2: You deposited 450
+ Movement 3: You withdrew 400
+ Movement 4: You deposited 3000
+ Movement 5: You withdrew 650
+Movement 6: You withdrew 130
+ Movement 7: You deposited 70
+Movement 8: You deposited 1300
+
+*/
+
 
 ```
 ##### 5. Iterate object using keys, values and entries
