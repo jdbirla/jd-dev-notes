@@ -869,7 +869,28 @@ Pizza
 Risotto
 */
 ```
+7. Looping maps
+```js
+const question = new Map([
+  ['question', 'What is the best programming language in the world?'],
+  [1, 'C'],
+  [2, 'Java'],
+  [3, 'JavaScript'],
+  ['correct', 3],
+  [true, 'Correct 🎉'],
+  [false, 'Try again!'],
+]);
 
+// Quiz app
+for (const [key, value] of question) {
+  if (typeof key === 'number') console.log(`Answer ${key}: ${value}`);
+}
+/*
+Answer 1: C
+Answer 2: Java
+Answer 3: JavaScript
+*/
+```
 ---
 ### optional chaining ?. like Optionla in Java
 - This will be used when we are not sure about the value or properties is avaiable instead of throwing error with give undefined
