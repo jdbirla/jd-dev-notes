@@ -849,6 +849,26 @@ console.log('----------------------------------------');
 ```
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/2b8deafb-88fa-491a-9216-aabb189d2c90)
 
+6. Looping sets
+```js
+
+const ordersSet = new Set([
+  'Pasta',
+  'Pizza',
+  'Pizza',
+  'Risotto',
+  'Pasta',
+  'Pizza',
+]);
+
+for (const order of ordersSet) console.log(order);
+console.log('------------------------------------------------');
+/*output
+Pasta
+Pizza
+Risotto
+*/
+```
 
 ---
 ### optional chaining ?. like Optionla in Java
@@ -932,3 +952,95 @@ console.log('-------------------------------------');
 ```
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/83a584b5-eb7a-4549-ad03-b964838fa631)
 ---
+
+### Sets
+```js
+const ordersSet = new Set([
+  'Pasta',
+  'Pizza',
+  'Pizza',
+  'Risotto',
+  'Pasta',
+  'Pizza',
+]);
+console.log(ordersSet);
+console.log('------------------------------------------------');
+console.log(new Set('Jonas'));
+console.log('------------------------------------------------');
+
+console.log(ordersSet.size);
+console.log(ordersSet.has('Pizza'));
+console.log(ordersSet.has('Bread'));
+console.log('------------------------------------------------');
+
+ordersSet.add('Garlic Bread');
+ordersSet.add('Garlic Bread');
+ordersSet.delete('Risotto');
+// ordersSet.clear();
+console.log(ordersSet);
+console.log('------------------------------------------------');
+
+for (const order of ordersSet) console.log(order);
+console.log('------------------------------------------------');
+
+// Example
+const staff = ['Waiter', 'Chef', 'Waiter', 'Manager', 'Chef', 'Waiter'];
+const staffUnique = [...new Set(staff)];
+console.log(staffUnique);
+console.log('------------------------------------------------');
+
+console.log(
+  new Set(['Waiter', 'Chef', 'Waiter', 'Manager', 'Chef', 'Waiter']).size
+);
+console.log('------------------------------------------------');
+
+console.log(new Set('jonasschmedtmann').size);
+console.log('------------------------------------------------');
+
+```
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/d50ca2b9-bbbc-464f-9831-fe37de648dcd)
+
+---
+
+### Maps
+```js
+const rest = new Map();
+rest.set('name', 'Classico Italiano');
+rest.set(1, 'Firenze, Italy');
+console.log(rest.set(2, 'Lisbon, Portugal'));
+console.log('----------------------------------------------');
+rest
+  .set('categories', ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'])
+  .set('open', 11)
+  .set('close', 23)
+  .set(true, 'We are open :D')
+  .set(false, 'We are closed :(');
+
+console.log(rest.get('name'));
+console.log(rest.get(true));
+console.log(rest.get(1));
+console.log('----------------------------------------------');
+
+const time = 8;
+console.log(rest.get(time > rest.get('open') && time < rest.get('close')));
+console.log('----------------------------------------------');
+
+console.log(rest.has('categories'));
+rest.delete(2);
+// rest.clear();
+console.log('----------------------------------------------');
+
+const arr = [1, 2];
+rest.set(arr, 'Test');
+rest.set(document.querySelector('h1'), 'Heading');
+console.log(rest);
+console.log(rest.size);
+
+console.log(rest.get(arr));
+console.log('----------------------------------------------');
+
+```
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/1f756d83-7f74-4e8c-87af-54e39c4413d5)
+
+---
+
