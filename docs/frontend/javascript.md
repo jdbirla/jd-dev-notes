@@ -1391,3 +1391,261 @@ console.log('----------------------------------------------');
 
 ---
 ## Data Transformation
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/3a64152c-add2-41c0-83b7-45736d440367)
+
+### Map
+```js
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+// The map Method
+const eurToUsd = 1.1;
+
+const movementsUSD = movements.map(mov => mov * eurToUsd);
+const movementsUSD1 = movements.map(mov => mov);
+
+console.log(movements);
+console.log(movementsUSD1);
+console.log(movementsUSD);
+
+const movementsDescriptions = movements.map(
+  (mov, i) =>
+    `Movement ${i + 1}: You ${mov > 0 ? 'deposited' : 'withdrew'} ${Math.abs(
+      mov
+    )}`
+);
+console.log(movementsDescriptions);
+
+```
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/9caf699e-2135-4399-8e00-a052d2c300bd)
+
+
+### Filter
+
+```js
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+// The filter Method
+const deposits = movements.filter(function (mov, i, arr) {
+  return mov > 0;
+});
+console.log(movements);
+console.log(deposits);
+
+const depositsFor = [];
+for (const mov of movements) if (mov > 0) depositsFor.push(mov);
+console.log(depositsFor);
+
+const withdrawals = movements.filter(mov => mov < 0);
+console.log(withdrawals);
+
+
+```
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/fb3a6122-ab5a-42d2-a04e-f959ddc12da4)
+
+
+### Reduce
+```js
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+// The reduce Method
+console.log(movements);
+console.log('---------------------------------------------------------');
+// accumulator -> SNOWBALL
+const balance = movements.reduce(function (acc, cur, i, arr) {
+  console.log(`Iteration ${i}: ${acc}`);
+  return acc + cur;
+}, 0);
+console.log(balance);
+console.log('---------------------------------------------------------');
+
+const balance1 = movements.reduce((acc, cur) => acc + cur, 0);
+console.log(balance1);
+console.log('---------------------------------------------------------');
+
+let balance2 = 0;
+for (const mov of movements) balance2 += mov;
+console.log(balance2);
+console.log('---------------------------------------------------------');
+
+// Maximum value
+const max = movements.reduce((acc, mov, i) => {
+  console.log(`Iteration ${i}: ${acc}`);
+
+  if (acc > mov) return acc;
+  else return mov;
+}, movements[0]);
+console.log(max);
+console.log('---------------------------------------------------------');
+```
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/a5f1fb24-038e-459c-8621-ae96e9a4bdf9)
+
+### The Magic of Chaining Methods
+```js
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+// The Magic of Chaining Methods
+const eurToUsd = 1.1;
+console.log(movements);
+
+// PIPELINE
+const totalDepositsUSD = movements
+  .filter(mov => mov > 0)
+  .map((mov, i, arr) => {
+    // console.log(arr);
+    return mov * eurToUsd;
+  })
+  .reduce((acc, mov) => acc + mov, 0);
+console.log(totalDepositsUSD);
+
+```
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/5ef3012d-349b-4dad-94e6-25fa9d6937cb)
+
+### find 
+- is same like findFirst in java
+```js
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+// The find Method
+const firstWithdrawal = movements.find(mov => mov < 0);
+console.log(movements);
+console.log(firstWithdrawal);
+
+console.log(accounts);
+
+const account = accounts.find(acc => acc.owner === 'Jessica Davis');
+console.log(account); // single value
+
+const asd = accounts.filter(acc => acc.owner === 'Jessica Davis');
+console.log(asd);  // array of value
+```
+### some and every
+- some : anyMatch and every: allMatch in java
+```js
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+// some and every
+console.log(movements);
+console.log('--------------------------------------------------------');
+// EQUALITY
+console.log(movements.includes(-130));
+console.log('--------------------------------------------------------');
+
+// SOME: CONDITION
+console.log(movements.some(mov => mov === -130));
+console.log('--------------------------------------------------------');
+
+const anyDeposits = movements.some(mov => mov > 0);
+console.log(anyDeposits);
+console.log('--------------------------------------------------------');
+
+// EVERY
+console.log(movements.every(mov => mov > 0));
+console.log(account4.movements.every(mov => mov > 0));
+console.log('--------------------------------------------------------');
+
+// Separate callback
+const deposit = mov => mov > 0;
+console.log(movements.some(deposit));
+console.log(movements.every(deposit));
+console.log(movements.filter(deposit));
+console.log('--------------------------------------------------------');
+
+```
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/9d6d85c9-ffb6-4e5c-b1eb-0dfe91874d8d)
+
+### Flat an FlatMap
+
+```js
+// flat and flatMap
+const arr = [[1, 2, 3], [4, 5, 6], 7, 8];
+console.log(arr.flat());
+
+const arrDeep = [[[1, 2], 3], [4, [5, 6]], 7, 8];
+console.log(arrDeep.flat(2));
+
+// flat
+const overalBalance = accounts
+  .map(acc => acc.movements)
+  .flat()
+  .reduce((acc, mov) => acc + mov, 0);
+console.log(overalBalance);
+
+// flatMap
+const overalBalance2 = accounts
+  .flatMap(acc => acc.movements)
+  .reduce((acc, mov) => acc + mov, 0);
+console.log(overalBalance2);
+```
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/6f3f8b2a-394a-4308-9992-f2bd9ea937f1)
+
+### Sorting
+```js
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+// Strings
+const owners = ['Jonas', 'Zach', 'Adam', 'Martha'];
+console.log(owners.sort());
+console.log(owners);
+console.log('------------------------------------------------------');
+// Numbers
+console.log(movements);
+console.log(movements.sort());
+console.log('------------------------------------------------------');
+
+// return < 0, A, B (keep order)
+// return > 0, B, A (switch order)
+
+// Ascending
+// movements.sort((a, b) => {
+//   if (a > b) return 1;
+//   if (a < b) return -1;
+// });
+movements.sort((a, b) => a - b);
+console.log(movements);
+
+// Descending
+// movements.sort((a, b) => {
+//   if (a > b) return -1;
+//   if (a < b) return 1;
+// });
+movements.sort((a, b) => b - a);
+console.log(movements);
+```
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/2eb6ea92-d3ff-4cb7-a44e-e22f523b1887)
+
+### More Ways of Creating and Filling Arrays
+```js
+// More Ways of Creating and Filling Arrays
+const arr = [1, 2, 3, 4, 5, 6, 7];
+console.log(new Array(1, 2, 3, 4, 5, 6, 7));
+console.log('-----------------------------------------');
+// Emprty arrays + fill method
+const x = new Array(7);
+console.log(x);
+console.log('-----------------------------------------');
+
+// console.log(x.map(() => 5));
+x.fill(1, 3, 5);
+console.log(x);
+
+x.fill(1);
+console.log(x);
+console.log('-----------------------------------------');
+
+arr.fill(23, 2, 6);
+console.log(arr);
+console.log('-----------------------------------------');
+
+// Array.from
+const y = Array.from({ length: 7 }, () => 1);
+console.log(y);
+console.log('-----------------------------------------');
+
+const z = Array.from({ length: 7 }, (_, i) => i + 1);
+console.log(z);
+console.log('-----------------------------------------');
+
+```
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/06b0ddb6-eb91-4f21-a615-c9af26e53642)
+
+
