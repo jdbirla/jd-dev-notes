@@ -3,9 +3,12 @@
 ### The Scope Chain
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/c3b72eee-ccb1-44f5-ae3d-404beeaae123)
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/be8e44ae-efb1-4987-ab55-eb02de217186)
-
+---
 ### Object vs Premitives
-- Except primitives all are object even array is object.
+- Except primitives all are object even array is object and function is also object.
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/3dce021f-13f2-432c-98d2-6ab679035d16)
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/0ff3eacf-f92b-4efa-b8a1-45b9639f455a)
+
 ```js
 let age = 30;
 let oldAge = age;
@@ -35,13 +38,11 @@ console.log('Me', me);
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/e595abac-ca4c-4507-831e-fbbd80b146af)
 
 ---
-### Higher order function and callback
-![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/3680ce17-f921-444f-8008-323e3c01cef1)
-![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/5219b1fb-cb3f-4f43-8ffa-e60cf968ef6e)
-![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/e9f4f960-3b54-49cd-95a3-88ca6e5cb0a1)
+
 
 ---
-### Type conversion (manually) and Type Coersion (Auto)
+### Operations
+#### Type conversion (manually) and Type Coersion (Auto)
 ```js
 // type conversion
 const inputYear = "1991";
@@ -74,8 +75,8 @@ I am 23 years old
 10
 */
 ```
----
-### Truthy and Falsy values
+
+#### Truthy and Falsy values
 - fasly value means whe we convert those value into boolean it will give false , 5 false values in js
 ```js
 //5 falsy values: 0, '', undefined, null, NaN
@@ -109,8 +110,8 @@ Don •t spend it all ; )
 Height is UNDEFINED
 */
 ```
----
-### Equality Operators: == vs. ===
+
+#### Equality Operators: == vs. ===
 ```js
 // Equality Operators: == vs. ===
 const age = "18";
@@ -147,7 +148,7 @@ Why not 23?
 ```
 ---
 
-### Function 
+### Functions
 ```js
 // Function declaration
 function calcAge1(birthYeah) {
@@ -188,9 +189,12 @@ Bob retires in 8 years
 */
 
 ```
+#### Higher order function and callback
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/3680ce17-f921-444f-8008-323e3c01cef1)
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/5219b1fb-cb3f-4f43-8ffa-e60cf968ef6e)
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/e9f4f960-3b54-49cd-95a3-88ca6e5cb0a1)
 ---
-
-## Array Operations 
+## Array  
 ```js
 const friends = ["Michael", "Steven", "Peter"];
 
@@ -229,7 +233,6 @@ if (friends.includes("Steven")) {
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/ac0c3732-6d65-48ed-ad72-d9f137db470d)
 
 ---
-
 ## Object
 ```js
 // Dot vs. Bracket Notation
@@ -277,7 +280,7 @@ console.log(
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/1544c67a-d456-4b14-b82e-3d1cc67c80ef)
 
 
-## Object Methods
+### Object Methods
 ```js
 const jonas = {
   firstName: "Jonas",
@@ -325,33 +328,6 @@ Jonas is a 46-year old teacher, and he has a driver's license.
 46
 46
 */
-```
-
----
-### Loops
-
-```js
-onst jonas = [
-  "Jonas",
-  "Schmedtmann",
-  2037 - 1991,
-  "teacher",
-  ["Michael", "Peter", "Steven"],
-  true,
-];
-const types = [];
-
-for (let i = 0; i < jonas.length; i++) {
-  // Reading from jonas array
-  console.log(jonas[i], typeof jonas[i]);
-
-  // Filling types array
-  // types[i] = typeof jonas[i];
-  types.push(typeof jonas[i]);
-}
-
-console.log(types);
-
 ```
 ---
 
