@@ -711,7 +711,7 @@ console.log(guestCorrect1);
 
 ---
 ### All Loops in JS
-1. for loop: The standard for loop is used when you know the exact number of iterations you want to perform.
+##### 1. for loop: The standard for loop is used when you know the exact number of iterations you want to perform.
 ```js
 const numbers = [1, 2, 3, 4, 5];
 
@@ -727,7 +727,7 @@ for (let index = 0; index < numbers.length; index++) {
 5
 */
 ```
-2. forEach :The forEach loop is used specifically with arrays to iterate over each element in the array.
+##### 2. forEach :The forEach loop is used specifically with arrays to iterate over each element in the array.
 
 ```js
 const numbers = [1, 2, 3, 4, 5];
@@ -744,7 +744,7 @@ numbers.forEach(element => {
 */
 ```
 
-3. for...in :The for...in loop is used to iterate over the enumerable properties of an object.
+##### 3. for...in :The for...in loop is used to iterate over the enumerable properties of an object.
 ```js
 const person = {
   name: 'John',
@@ -762,7 +762,7 @@ city: New York
 */
 
 ```
-4.for...of loop: The for...of loop is used to iterate over iterable objects like arrays, strings, or other collections.
+##### 4. for...of loop: The for...of loop is used to iterate over iterable objects like arrays, strings, or other collections.
 ```js
 const colors = ['red', 'green', 'blue'];
 
@@ -776,7 +776,7 @@ blue
 */
 
 ```
-5. Iterate object using keys, values and entries
+##### 5. Iterate object using keys, values and entries
 ```js
 
 const restaurant = {
@@ -849,7 +849,7 @@ console.log('----------------------------------------');
 ```
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/2b8deafb-88fa-491a-9216-aabb189d2c90)
 
-6. Looping sets
+##### 6. Looping sets
 ```js
 
 const ordersSet = new Set([
@@ -869,7 +869,7 @@ Pizza
 Risotto
 */
 ```
-7. Looping maps
+##### 7. Looping maps
 ```js
 const question = new Map([
   ['question', 'What is the best programming language in the world?'],
