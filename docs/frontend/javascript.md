@@ -9,7 +9,7 @@
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/3dce021f-13f2-432c-98d2-6ab679035d16)
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/0ff3eacf-f92b-4efa-b8a1-45b9639f455a)
 
-```js
+```javascript
 let age = 30;
 let oldAge = age;
 age = 31;
@@ -25,8 +25,9 @@ friend.age = 27;
 console.log('Friend:', friend);
 console.log('Me', me);
 
- ```
- ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/42fc5343-9a3f-4590-82a1-c19e5d4b1a55)
+```
+
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/42fc5343-9a3f-4590-82a1-c19e5d4b1a55)
 
 ---
 
