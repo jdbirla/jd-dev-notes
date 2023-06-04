@@ -190,6 +190,210 @@ Bob retires in 8 years
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/3680ce17-f921-444f-8008-323e3c01cef1)
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/5219b1fb-cb3f-4f43-8ffa-e60cf968ef6e)
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/e9f4f960-3b54-49cd-95a3-88ca6e5cb0a1)
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/002c6f16-cfb1-48e0-886b-9dc5d4002819)
+
+- callback function
+```js
+// Functions Accepting Callback Functions
+const oneWord = function (str) {
+  return str.replace(/ /g, '').toLowerCase();
+};
+
+const upperFirstWord = function (str) {
+  const [first, ...others] = str.split(' ');
+  return [first.toUpperCase(), ...others].join(' ');
+};
+
+// Higher-order function
+const transformer = function (str, fn) {
+  console.log(`Original string: ${str}`);
+  const rrt = fn(str);
+  console.log(`Transformed string: ${rrt}`);
+
+  console.log(`Transformed by: ${fn.name}`);
+};
+
+transformer('JavaScript is the best!', upperFirstWord);
+transformer('JavaScript is the best!', oneWord);
+
+// JS uses callbacks all the time
+const high5 = function () {
+  console.log('👋');
+};
+document.body.addEventListener('click', high5);
+['Jonas', 'Martha', 'Adam'].forEach(high5);
+
+const high6 = function (ele) {
+  console.log('👋', ele);
+};
+
+['Jonas', 'Martha', 'Adam'].forEach(high6);
+
+```
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/a59fce23-e3ca-4ca1-8062-c70f9a6928f8)
+
+- Higher order function return function
+```js
+// Functions Returning Functions
+const greet = function (greeting) {
+  return function (name) {
+    console.log(`${greeting} ${name}`);
+  };
+};
+
+const greeterHey = greet('Hey');
+console.log(greeterHey);
+greeterHey('Jonas');
+greeterHey('Steven');
+console.log('--------------------------------------------');
+
+greet('Hello')('Jonas');
+console.log('--------------------------------------------');
+
+// Challenge
+const greetArr = greeting => name => console.log(`${greeting} ${name}`);
+
+greetArr('Hi')('Jonas');
+
+console.log('--------------------------------------------');
+const greet1 = function (greeting) {
+  if (greeting === 'mor') {
+    return function (name) {
+      console.log(` morning:  ${greeting} ${name}`);
+    };
+  } else {
+    return function (name) {
+      console.log(` not a morning:  ${greeting} ${name}`);
+    };
+  }
+};
+
+const fn = greet1('mor');
+
+fn('jd');
+
+const fn1 = greet1('morasd');
+
+fn1('jd');
+```
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/d90bf2cc-8a61-4a35-884e-7ec0f7410d04)
+
+#### call and apply and bind methods 
+```js
+// The call and apply Methods
+const lufthansa = {
+  airline: 'Lufthansa',
+  iataCode: 'LH',
+  bookings: [],
+  // book: function() {}
+  book(flightNum, name) {
+    console.log(
+      `${name} booked a seat on ${this.airline} flight ${this.iataCode}${flightNum}`
+    );
+    this.bookings.push({ flight: `${this.iataCode}${flightNum}`, name });
+  },
+};
+
+lufthansa.book(239, 'Jonas Schmedtmann');
+lufthansa.book(635, 'John Smith');
+console.log('----------------------------------------------------');
+const eurowings = {
+  airline: 'Eurowings',
+  iataCode: 'EW',
+  bookings: [],
+};
+
+const book = lufthansa.book;
+
+// Does NOT work
+// book(23, 'Sarah Williams');
+
+// // Call method
+console.log(eurowings);
+book.call(eurowings, 23, 'Sarah Williams');
+console.log('----------------------------------------------------');
+console.log(lufthansa);
+book.call(lufthansa, 239, 'Mary Cooper');
+console.log('----------------------------------------------------');
+
+const swiss = {
+  airline: 'Swiss Air Lines',
+  iataCode: 'LX',
+  bookings: [],
+};
+
+book.call(swiss, 583, 'Mary Cooper');
+console.log('----------------------------------------------------');
+console.log('---------------------Apply-------------------------------');
+
+// Apply method
+const flightData = [583, 'George Cooper'];
+console.log(swiss);
+book.apply(swiss, flightData);
+console.log('----------------------------------------------------');
+
+book.call(swiss, ...flightData);
+console.log('----------------------------------------------------');
+
+// book.call(eurowings, 23, 'Sarah Williams');
+console.log('---------------------Bind-------------------------------');
+
+const bookEW = book.bind(eurowings);
+bookEW(23, 'Steven Williams');
+console.log('----------------------------------------------------');
+
+const bookEW23 = book.bind(eurowings, 23);
+bookEW23('Jonas Schmedtmann');
+console.log('----------------------------------------------------');
+
+// With Event Listeners
+lufthansa.planes = 300;
+lufthansa.buyPlane = function () {
+  console.log(this);
+
+  this.planes++;
+  console.log(this.planes);
+};
+// lufthansa.buyPlane();
+
+document
+  .querySelector('.buy')
+  .addEventListener('click', lufthansa.buyPlane.bind(lufthansa));
+
+```
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/e5a973cc-0aeb-46ad-874b-6aa1012a89b0)
+
+#### Immediately Invoked Function Expressions (IIFE) 
+
+```js
+// Immediately Invoked Function Expressions (IIFE)
+const runOnce = function () {
+  console.log('This will never run again');
+};
+runOnce();
+
+// IIFE
+(function () {
+  console.log('This will never run again');
+  const isPrivate = 23;
+})();
+
+// console.log(isPrivate);
+
+(() => console.log('This will ALSO never run again'))();
+
+{
+  const isPrivate = 23;
+  var notPrivate = 46;
+}
+//console.log(isPrivate); //isPrivate is not defined
+console.log(notPrivate);
+
+```
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/f35cd8ff-1855-4cc6-aff1-97e467426377)
+
+ 
+
 ---
 ## Array  
 ### Array Operations
