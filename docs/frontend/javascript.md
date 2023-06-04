@@ -3,19 +3,20 @@
 ### The Scope Chain
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/c3b72eee-ccb1-44f5-ae3d-404beeaae123)
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/be8e44ae-efb1-4987-ab55-eb02de217186)
+
 ---
 ### Object vs Premitives
 - Except primitives all are object even array is object and function is also object.
+
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/3dce021f-13f2-432c-98d2-6ab679035d16)
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/0ff3eacf-f92b-4efa-b8a1-45b9639f455a)
 
-```javascript
+```js
 let age = 30;
 let oldAge = age;
 age = 31;
 console.log(age);
 console.log(oldAge);
-
 const me = {
   name: 'Jonas',
   age: 30,
@@ -24,13 +25,10 @@ const friend = me;
 friend.age = 27;
 console.log('Friend:', friend);
 console.log('Me', me);
-
 ```
-
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/42fc5343-9a3f-4590-82a1-c19e5d4b1a55)
 
 ---
-
 ### DOM manupulation
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/f4276cb2-fd04-4b69-acf2-382d32fd827f)
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/19e41a89-fed6-44bc-9469-62d8c87fe698)
@@ -40,8 +38,6 @@ console.log('Me', me);
 
 ---
 
-
----
 ### Operations
 #### Type conversion (manually) and Type Coersion (Auto)
 ```js
