@@ -1,11 +1,11 @@
 # JavaScript
 
-### The Scope Chain
+## The Scope Chain
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/c3b72eee-ccb1-44f5-ae3d-404beeaae123)
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/be8e44ae-efb1-4987-ab55-eb02de217186)
 
 ---
-### Object vs Premitives
+## Object vs Premitives
 - Except primitives all are object even array is object and function is also object.
 
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/3dce021f-13f2-432c-98d2-6ab679035d16)
@@ -29,17 +29,17 @@ console.log('Me', me);
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/42fc5343-9a3f-4590-82a1-c19e5d4b1a55)
 
 ---
-### DOM manupulation
+## DOM manupulation
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/f4276cb2-fd04-4b69-acf2-382d32fd827f)
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/19e41a89-fed6-44bc-9469-62d8c87fe698)
 
-#### Add event Listeners
+### Add event Listeners
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/e595abac-ca4c-4507-831e-fbbd80b146af)
 
 ---
 
-### Operations
-#### Type conversion (manually) and Type Coersion (Auto)
+## Operations
+### Type conversion (manually) and Type Coersion (Auto)
 ```js
 // type conversion
 const inputYear = "1991";
@@ -73,7 +73,7 @@ I am 23 years old
 */
 ```
 
-#### Truthy and Falsy values
+### Truthy and Falsy values
 - fasly value means whe we convert those value into boolean it will give false , 5 false values in js
 ```js
 //5 falsy values: 0, '', undefined, null, NaN
@@ -108,7 +108,7 @@ Height is UNDEFINED
 */
 ```
 
-#### Equality Operators: == vs. ===
+### Equality Operators: == vs. ===
 ```js
 // Equality Operators: == vs. ===
 const age = "18";
@@ -145,7 +145,7 @@ Why not 23?
 ```
 ---
 
-### Functions
+## Functions
 ```js
 // Function declaration
 function calcAge1(birthYeah) {
@@ -186,13 +186,13 @@ Bob retires in 8 years
 */
 
 ```
-#### Higher order function and callback
+### Higher order function and callback
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/3680ce17-f921-444f-8008-323e3c01cef1)
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/5219b1fb-cb3f-4f43-8ffa-e60cf968ef6e)
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/e9f4f960-3b54-49cd-95a3-88ca6e5cb0a1)
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/002c6f16-cfb1-48e0-886b-9dc5d4002819)
 
-- callback function
+#### callback function
 ```js
 // Functions Accepting Callback Functions
 const oneWord = function (str) {
@@ -232,7 +232,7 @@ const high6 = function (ele) {
 ```
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/a59fce23-e3ca-4ca1-8062-c70f9a6928f8)
 
-- Higher order function return function
+#### Higher order function return function
 ```js
 // Functions Returning Functions
 const greet = function (greeting) {
@@ -278,7 +278,7 @@ fn1('jd');
 ```
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/d90bf2cc-8a61-4a35-884e-7ec0f7410d04)
 
-#### call and apply and bind methods 
+### call and apply and bind methods 
 ```js
 // The call and apply Methods
 const lufthansa = {
@@ -363,7 +363,7 @@ document
 ```
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/e5a973cc-0aeb-46ad-874b-6aa1012a89b0)
 
-#### Immediately Invoked Function Expressions (IIFE) 
+### Immediately Invoked Function Expressions (IIFE) 
 
 ```js
 // Immediately Invoked Function Expressions (IIFE)
@@ -700,7 +700,7 @@ restaurant.orderDelivery({
 
 ---
 
-### The SpreadOperator
+## The SpreadOperator
 ```js
 const restaurant = {
   name: 'Classico Italiano',
@@ -805,7 +805,7 @@ console.log('----------------------------------');
 
 ---
 
-### Rest Patterns and Parameters
+## Rest Patterns and Parameters
 ```js
 
 const restaurant = {
@@ -895,7 +895,7 @@ console.log('--------------------------------------------');
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/18b91d85-b5af-45c9-9688-0077322bc6e6)
 
 ---
-### The Nullish Coalescing Operator ??
+## The Nullish Coalescing Operator ??
  - Nullish will give only true when nullish values are there not the falsy values
  - Nullish: null and undefined (NOT 0 or '')
  ```js
@@ -959,8 +959,8 @@ console.log(guestCorrect1);
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/74791eb2-00d7-44c2-acae-7fc19f1a0d89)
 
 ---
-### All Loops in JS
-##### 1. for loop: The standard for loop is used when you know the exact number of iterations you want to perform.
+## All Loops in JS
+### 1. for loop: The standard for loop is used when you know the exact number of iterations you want to perform.
 ```js
 const numbers = [1, 2, 3, 4, 5];
 
@@ -976,7 +976,7 @@ for (let index = 0; index < numbers.length; index++) {
 5
 */
 ```
-##### 2. forEach :The forEach loop is used specifically with arrays to iterate over each element in the array.
+### 2. forEach :The forEach loop is used specifically with arrays to iterate over each element in the array.
 
 ```js
 const numbers = [1, 2, 3, 4, 5];
@@ -1045,7 +1045,7 @@ EUR: EUR
 */
 ```
 
-##### 3. for...in :The for...in loop is used to iterate over the enumerable properties of an object.
+### 3. for...in :The for...in loop is used to iterate over the enumerable properties of an object.
 ```js
 const person = {
   name: 'John',
@@ -1063,7 +1063,7 @@ city: New York
 */
 
 ```
-##### 4. for...of loop: The for...of loop is used to iterate over iterable objects like arrays, strings, or other collections.
+### 4. for...of loop: The for...of loop is used to iterate over iterable objects like arrays, strings, or other collections.
 ```js
 const colors = ['red', 'green', 'blue'];
 
@@ -1102,7 +1102,7 @@ Movement 8: You deposited 1300
 
 
 ```
-##### 5. Iterate object using keys, values and entries
+### 5. Iterate object using keys, values and entries
 ```js
 
 const restaurant = {
@@ -1175,7 +1175,7 @@ console.log('----------------------------------------');
 ```
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/2b8deafb-88fa-491a-9216-aabb189d2c90)
 
-##### 6. Looping sets
+### 6. Looping sets
 ```js
 
 const ordersSet = new Set([
@@ -1195,7 +1195,7 @@ Pizza
 Risotto
 */
 ```
-##### 7. Looping maps
+### 7. Looping maps
 ```js
 const question = new Map([
   ['question', 'What is the best programming language in the world?'],
@@ -1218,7 +1218,7 @@ Answer 3: JavaScript
 */
 ```
 ---
-### optional chaining ?. like Optionla in Java
+## optional chaining ?. like Optionla in Java
 - This will be used when we are not sure about the value or properties is avaiable instead of throwing error with give undefined
 ```js
 
@@ -1300,7 +1300,7 @@ console.log('-------------------------------------');
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/83a584b5-eb7a-4549-ad03-b964838fa631)
 ---
 
-### Sets
+## Sets
 ```js
 const ordersSet = new Set([
   'Pasta',
@@ -1349,7 +1349,7 @@ console.log('------------------------------------------------');
 
 ---
 
-### Maps
+## Maps
 ```js
 const rest = new Map();
 rest.set('name', 'Classico Italiano');
@@ -1390,4 +1390,4 @@ console.log('----------------------------------------------');
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/1f756d83-7f74-4e8c-87af-54e39c4413d5)
 
 ---
-
+## Data Transformation
