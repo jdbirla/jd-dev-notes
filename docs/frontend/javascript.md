@@ -195,6 +195,7 @@ Bob retires in 8 years
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/e9f4f960-3b54-49cd-95a3-88ca6e5cb0a1)
 ---
 ## Array  
+### Array Operations
 ```js
 const friends = ["Michael", "Steven", "Peter"];
 
@@ -229,11 +230,39 @@ if (friends.includes("Steven")) {
 
 ```
 - output
-
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/ac0c3732-6d65-48ed-ad72-d9f137db470d)
 
+### Array Destruring
+```js
+const restaurant = {
+  name: 'Classico Italiano',
+  location: 'Via Angelo Tavanti 23, Firenze, Italy',
+  categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],
+  starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
+  mainMenu: ['Pizza', 'Pasta', 'Risotto'],
+};
+
+// Nested destructuring
+const nested = [2, 4, [5, 6]];
+// const [i, , j] = nested;
+const [i, , [j, k]] = nested;
+console.log(i, j, k);
+// Default values
+const [p = 1, q = 1, r = 1] = [8, 9];
+console.log(p, q, r);
+let [main, , secondary] = restaurant.categories;
+console.log(main, secondary);
+/*output 
+256
+891
+Italian Vegetarian
+*/
+```
+
 ---
+
 ## Object
+### Object Operations
 ```js
 // Dot vs. Bracket Notation
 const jonas = {
@@ -329,8 +358,293 @@ Jonas is a 46-year old teacher, and he has a driver's license.
 46
 */
 ```
+
+### Object Destructring
+```js
+const weekdays = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+
+const restaurant = {
+  name: 'Classico Italiano',
+  location: 'Via Angelo Tavanti 23, Firenze, Italy',
+  categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],
+  starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
+  mainMenu: ['Pizza', 'Pasta', 'Risotto'],
+
+  // ES6 enhanced object literals
+  openingHours: {
+    thu: { open: 12, close: 22 },
+    fri: { open: 11, close: 23 },
+    sat: {
+      open: 0, // Open 24 hours
+      close: 24,
+    },
+  },
+
+  order(starterIndex, mainIndex) {
+    return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
+  },
+
+  orderDelivery({ starterIndex = 1, mainIndex = 0, time = '20:00', address }) {
+    console.log(
+      `Order received! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}`
+    );
+  },
+
+  orderPasta(ing1, ing2, ing3) {
+    console.log(
+      `Here is your declicious pasta with ${ing1}, ${ing2} and ${ing3}`
+    );
+  },
+
+  orderPizza(mainIngredient, ...otherIngredients) {
+    console.log(mainIngredient);
+    console.log(otherIngredients);
+  },
+};
+const { name, openingHours, categories } = restaurant;
+console.log(name, openingHours, categories);
+
+// different name
+const {
+  name: restaurantName,
+  openingHours: hours,
+  categories: tags,
+} = restaurant;
+console.log(restaurantName, hours, tags);
+
+//Default values with diffrent name
+const { menu = [], starterMenu: starters = [] } = restaurant;
+console.log(menu, starters);
+
+// Mutating variables
+let a = 111;
+let b = 999;
+const obj = { a: 23, b: 7, c: 14 };
+
+({ a, b } = obj);
+console.log(a, b);
+
+// Nested objects
+const {
+  fri: { open: o, close: c },
+} = openingHours;
+console.log(o, c);
+
+const {
+  name: rest,
+  openingHours: {
+    fri: { open, close },
+  },
+} = restaurant;
+console.log(name, open, close);
+
+// Passing object as argument and receiving function doing destructing for this object
+restaurant.orderDelivery({
+  time: '22:30',
+  address: 'Via del Sole, 21',
+  mainIndex: 2,
+  starterIndex: 2,
+});
+
+```
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/120ebf59-f4b8-4050-bd78-e0ade0bbdb32)
+
 ---
 
+### The SpreadOperator
+```js
+const restaurant = {
+  name: 'Classico Italiano',
+  location: 'Via Angelo Tavanti 23, Firenze, Italy',
+  categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],
+  starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
+  mainMenu: ['Pizza', 'Pasta', 'Risotto'],
 
+  // ES6 enhanced object literals
+  openingHours: {
+    thu: { open: 12, close: 22 },
+    fri: { open: 11, close: 23 },
+    sat: {
+      open: 0, // Open 24 hours
+      close: 24,
+    },
+  },
+
+  order(starterIndex, mainIndex) {
+    return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
+  },
+
+  orderDelivery({ starterIndex = 1, mainIndex = 0, time = '20:00', address }) {
+    console.log(
+      `Order received! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}`
+    );
+  },
+
+  orderPasta(ing1, ing2, ing3) {
+    console.log(
+      `Here is your declicious pasta with ${ing1}, ${ing2} and ${ing3}`
+    );
+  },
+
+  orderPizza(mainIngredient, ...otherIngredients) {
+    console.log(mainIngredient);
+    console.log(otherIngredients);
+  },
+};
+
+// The Spread Operator (...)
+
+const arr = [7, 8, 9];
+const badNewArr = [1, 2, arr[0], arr[1], arr[2]];
+console.log(badNewArr);
+
+const newArr = [1, 2, ...arr];
+console.log(newArr);
+
+console.log(...newArr);
+console.log(1, 2, 7, 8, 9);
+
+const newMenu = [...restaurant.mainMenu, 'Gnocci'];
+console.log(newMenu);
+console.log('----------------------------------');
+
+// Copy array shallow copy of the array
+const mainMenuCopy = [...restaurant.mainMenu];
+console.log(mainMenuCopy);
+console.log('----------------------------------');
+
+// Join 2 arrays
+const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+console.log(menu);
+console.log('----------------------------------');
+
+// Iterables: arrays, strings, maps, sets. NOT objects
+const str = 'Jonas';
+const letters = [...str, ' ', 'S.'];
+console.log(letters);
+console.log(...str);
+// console.log(`${...str} Schmedtmann`);
+console.log('----------------------------------');
+
+// Real-world example
+const ingredients = [
+  // prompt("Let's make pasta! Ingredient 1?"),
+  // prompt('Ingredient 2?'),
+  // prompt('Ingredient 3'),
+];
+console.log(ingredients);
+console.log('----------------------------------');
+
+restaurant.orderPasta(ingredients[0], ingredients[1], ingredients[2]);
+restaurant.orderPasta(...ingredients);
+console.log('----------------------------------');
+
+// Objects
+const newRestaurant = { foundedIn: 1998, ...restaurant, founder: 'Guiseppe' };
+console.log(newRestaurant);
+
+//Shallow copy of the object
+const restaurantCopy = { ...restaurant };
+restaurantCopy.name = 'Ristorante Roma';
+console.log(restaurantCopy.name);
+console.log(restaurant.name);
+console.log('----------------------------------');
+
+
+```
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/3f4dba1d-4a8e-421b-b203-a543d31d9c53)
+
+---
+
+### Rest Patterns and Parameters
+```js
+
+const restaurant = {
+  name: 'Classico Italiano',
+  location: 'Via Angelo Tavanti 23, Firenze, Italy',
+  categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],
+  starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
+  mainMenu: ['Pizza', 'Pasta', 'Risotto'],
+
+  // ES6 enhanced object literals
+  openingHours: {
+    thu: { open: 12, close: 22 },
+    fri: { open: 11, close: 23 },
+    sat: {
+      open: 0, // Open 24 hours
+      close: 24,
+    },
+  },
+
+  order(starterIndex, mainIndex) {
+    return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
+  },
+
+  orderDelivery({ starterIndex = 1, mainIndex = 0, time = '20:00', address }) {
+    console.log(
+      `Order received! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}`
+    );
+  },
+
+  orderPasta(ing1, ing2, ing3) {
+    console.log(
+      `Here is your declicious pasta with ${ing1}, ${ing2} and ${ing3}`
+    );
+  },
+
+  orderPizza(mainIngredient, ...otherIngredients) {
+    console.log(mainIngredient);
+    console.log(otherIngredients);
+  },
+};
+
+// Rest Pattern and Parameters
+// 1) Destructuring
+
+// SPREAD, because on RIGHT side of =
+const arr = [1, 2, ...[3, 4]];
+console.log(arr);
+
+console.log('--------------------------------------------');
+// REST, because on LEFT side of =
+const [a, b, ...others] = [1, 2, 3, 4, 5];
+console.log(a, b, others);
+console.log('--------------------------------------------');
+
+const [pizza, , risotto, ...otherFood] = [
+  ...restaurant.mainMenu,
+  ...restaurant.starterMenu,
+];
+console.log(pizza, risotto, otherFood);
+console.log('--------------------------------------------');
+
+// Objects
+const { sat, ...weekdays } = restaurant.openingHours;
+console.log(weekdays);
+console.log('--------------------------------------------');
+
+// 2) Functions
+const add = function (...numbers) {
+  let sum = 0;
+  for (let i = 0; i < numbers.length; i++) sum += numbers[i];
+  console.log(sum);
+};
+
+add(2, 3);
+add(5, 3, 7, 2);
+add(8, 2, 5, 3, 2, 1, 4);
+
+const x = [23, 5, 7];
+add(...x);
+console.log('--------------------------------------------');
+
+restaurant.orderPizza('mushrooms', 'onion', 'olives', 'spinach');
+restaurant.orderPizza('mushrooms');
+console.log('--------------------------------------------');
+
+```
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/18b91d85-b5af-45c9-9688-0077322bc6e6)
+
+---
 
 
