@@ -1,14 +1,24 @@
 # JavaScript
+
+### The Scope Chain
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/c3b72eee-ccb1-44f5-ae3d-404beeaae123)
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/be8e44ae-efb1-4987-ab55-eb02de217186)
+
+
 ### DOM manupulation
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/f4276cb2-fd04-4b69-acf2-382d32fd827f)
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/19e41a89-fed6-44bc-9469-62d8c87fe698)
-### Add event Listeners
+
+#### Add event Listeners
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/e595abac-ca4c-4507-831e-fbbd80b146af)
+
+---
 ### Higher order function and callback
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/3680ce17-f921-444f-8008-323e3c01cef1)
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/5219b1fb-cb3f-4f43-8ffa-e60cf968ef6e)
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/e9f4f960-3b54-49cd-95a3-88ca6e5cb0a1)
 
+---
 ### Type conversion (manually) and Type Coersion (Auto)
 ```js
 // type conversion
@@ -42,6 +52,7 @@ I am 23 years old
 10
 */
 ```
+---
 ### Truthy and Falsy values
 - fasly value means whe we convert those value into boolean it will give false , 5 false values in js
 ```js
@@ -76,7 +87,7 @@ Don •t spend it all ; )
 Height is UNDEFINED
 */
 ```
-
+---
 ### Equality Operators: == vs. ===
 ```js
 // Equality Operators: == vs. ===
@@ -320,7 +331,7 @@ for (let i = 0; i < jonas.length; i++) {
 console.log(types);
 
 ```
-
+---
 
 
 
