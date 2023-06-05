@@ -1655,7 +1655,7 @@ console.log('-----------------------------------------');
  ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/da167a77-9a58-4f3c-9808-89d12f560605)
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/c66e5deb-8e02-41b1-a5c9-758da6cc2e2d)
 
-#### Consum Promise
+#### Consum fullfilled Promise 
 
 ```js
 const getCountryData = function (country) {
@@ -1702,5 +1702,73 @@ getCountryData('India');
 ```
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/ec435fc9-c90b-4cca-ab35-06329a42b935)
 
+#### Consum Handling rejected Promise 
+```js
+const getCountryData = function (country) {
+  fetch(`https://restcountries.com/v3.1/name/${country}`)
+    .then(response => {
+      console.log('response :', response);
+      return response.json();
+    })
+    .then(data => {
+      console.log(data);
+      console.log(data[0]);
+      const neightbour = data[0].borders?.[4];
+      return fetch(`https://restcountries.com/v3.1/alpha/${neightbour}`);
+    })
+    .then(res => {
+      console.log('res :', res);
+      return res.json();
+    })
+    .then(data1 => {
+      console.log('data1 :', data1);
+      return data1;
+    })
+    .catch(err => console.error(err))
+    .finally(() => {
+      console.log('finally');
+    });
+};
+getCountryData('India');
+
+```
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/b380f7c6-b6b9-4dad-b492-dc96e10c5cd9)
+
+
+#### Throwing error manually if promise not rejected even 404 
+```js
+
+const getCountryData = function (country) {
+  fetch(`https://restcountries.com/v3.1/name/${country}`)
+    .then(response => {
+      console.log('response :', response);
+      if (!response.ok) {
+        throw new Error(`Country not found : ${response.status}`);
+      }
+      return response.json();
+    })
+    .then(data => {
+      console.log(data);
+      console.log(data[0]);
+      const neightbour = data[0].borders?.[4];
+      return fetch(`https://restcountries.com/v3.1/alpha/${neightbour}`);
+    })
+    .then(res => {
+      console.log('res :', res);
+      return res.json();
+    })
+    .then(data1 => {
+      console.log('data1 :', data1);
+      return data1;
+    })
+    .catch(err => console.error(err))
+    .finally(() => {
+      console.log('finally');
+    });
+};
+getCountryData('Indiadfgfd');
+
+```
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/7b841e9e-ae21-4ed0-a963-f31742e797ab)
 
 
