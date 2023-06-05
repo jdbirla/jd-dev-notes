@@ -959,12 +959,11 @@ console.log('--------------------------------------------');
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/18b91d85-b5af-45c9-9688-0077322bc6e6)
 
 ---
-## The Nullish Coalescing Operator ??
+## The Nullish Coalescing Operator `??`
  - Nullish will give only true when nullish values are there not the falsy values
- - Nullish: null and undefined (NOT 0 or '')
+ - Nullish: null and undefined (`NOT 0 or ''`)
  
  ```js
-
 const restaurant = {
   name: 'Classico Italiano',
   location: 'Via Angelo Tavanti 23, Firenze, Italy',
@@ -1019,7 +1018,7 @@ console.log(guests1);
 // Nullish: null and undefined (NOT 0 or '')
 const guestCorrect1 = restaurant.mehman ?? 10;
 console.log(guestCorrect1);
- ```
+```
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/74791eb2-00d7-44c2-acae-7fc19f1a0d89)
 
 ---
