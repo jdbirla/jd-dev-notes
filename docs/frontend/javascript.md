@@ -898,8 +898,9 @@ console.log('--------------------------------------------');
 ## The Nullish Coalescing Operator ??
  - Nullish will give only true when nullish values are there not the falsy values
  - Nullish: null and undefined (NOT 0 or '')
- ```js
  
+ ```js
+
 const restaurant = {
   name: 'Classico Italiano',
   location: 'Via Angelo Tavanti 23, Firenze, Italy',
@@ -954,7 +955,6 @@ console.log(guests1);
 // Nullish: null and undefined (NOT 0 or '')
 const guestCorrect1 = restaurant.mehman ?? 10;
 console.log(guestCorrect1);
-
  ```
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/74791eb2-00d7-44c2-acae-7fc19f1a0d89)
 
@@ -1647,5 +1647,60 @@ console.log('-----------------------------------------');
 
 ```
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/06b0ddb6-eb91-4f21-a615-c9af26e53642)
+
+---
+## Asnchronous JavaScript
+### Promises
+- Promises is same like future and competableFuture in java
+ ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/da167a77-9a58-4f3c-9808-89d12f560605)
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/c66e5deb-8e02-41b1-a5c9-758da6cc2e2d)
+
+#### Consum Promise
+
+```js
+const getCountryData = function (country) {
+  fetch(`https://restcountries.com/v3.1/name/${country}`)
+    .then(response => {
+      console.log('response :', response);
+      return response.json();
+    })
+    .then(data => {
+      console.log(data);
+      console.log(data[0]);
+    });
+};
+getCountryData('India');
+
+```
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/d102639e-b3f7-4438-9619-a0fa32a40b7d)
+
+#### Chaining Promises
+```js
+const getCountryData = function (country) {
+  fetch(`https://restcountries.com/v3.1/name/${country}`)
+    .then(response => {
+      console.log('response :', response);
+      return response.json();
+    })
+    .then(data => {
+      console.log(data);
+      console.log(data[0]);
+      const neightbour = data[0].borders?.[4];
+      return fetch(`https://restcountries.com/v3.1/alpha/${neightbour}`);
+    })
+    .then(res => {
+      console.log('res :', res);
+      return res.json();
+    })
+    .then(data1 => {
+      console.log('data1 :', data1);
+      return data1;
+    });
+};
+getCountryData('India');
+
+```
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/ec435fc9-c90b-4cca-ab35-06329a42b935)
+
 
 
