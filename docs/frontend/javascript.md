@@ -61,9 +61,9 @@ let n = "1" + 1; // '11'
 n = n - 1;
 console.log(n);
 /* output
-1991
-Nan
-'1991'
+1991 '1991'
+2009
+NaN
 number
 23 23
 I am 23 years old
