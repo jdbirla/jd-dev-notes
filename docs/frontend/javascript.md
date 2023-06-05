@@ -230,8 +230,72 @@ const high6 = function (ele) {
 ['Jonas', 'Martha', 'Adam'].forEach(high6);
 
 ```
-![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/a59fce23-e3ca-4ca1-8062-c70f9a6928f8)
 
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/a59fce23-e3ca-4ca1-8062-c70f9a6928f8)
+####  JD's example with explicit function
+```js
+function addEvent(str, callback) {
+  let innerObj = {
+    name: 'jd',
+    lastName: 'birla',
+  };
+  const rtnFromCallBackExec = callback(str, innerObj);
+  // console.log('pass1 :', pass1);
+  console.log('rtnFromCallBackExec :', rtnFromCallBackExec);
+  return 'my value with call back result ' + rtnFromCallBackExec;
+}
+
+function calls(passValue, recivingVal) {
+  console.log('passValue : ', passValue);
+  console.log('recivingVal : ', recivingVal);
+
+  return ' birla ';
+}
+const sa = addEvent('I am bad', calls);
+console.log(sa);
+/*
+passValue :  I am bad
+recivingVal :  {name: 'jd', lastName: 'birla'}
+rtnFromCallBackExec :  birla 
+my value with call back result  birla 
+*/
+```
+####  JD's example with arrow function
+```js
+function addEvent(str, callback) {
+  let innerObj = {
+    name: 'jd',
+    lastName: 'birla',
+  };
+  const rtnFromCallBackExec = callback(str, innerObj);
+  // console.log('pass1 :', pass1);
+  console.log('rtnFromCallBackExec :', rtnFromCallBackExec);
+  return 'my value with call back result ' + rtnFromCallBackExec;
+}
+
+// function calls(passValue, recivingVal) {
+//   console.log('passValue : ', passValue);
+//   console.log('recivingVal : ', recivingVal);
+
+//   return ' birla ';
+// }
+// const sa = addEvent('I am bad', calls);
+// console.log(sa);
+
+const sa = addEvent('I am bad', (passValue, recivingVal) => {
+  console.log('passValue : ', passValue);
+  console.log('recivingVal : ', recivingVal);
+
+  return ' birla ';
+});
+console.log(sa);
+/*
+passValue :  I am bad
+recivingVal :  {name: 'jd', lastName: 'birla'}
+rtnFromCallBackExec :  birla 
+my value with call back result  birla 
+*/
+```
 #### Higher order function return function
 ```js
 // Functions Returning Functions
