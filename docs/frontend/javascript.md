@@ -1650,6 +1650,9 @@ console.log('-----------------------------------------');
 
 ---
 ## Asnchronous JavaScript
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/c75fa25e-b69a-4529-8e03-894f657aff80)
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/cf8ab2a7-8edc-4ff7-9da7-5693acb4e132)
+
 ### Promises
 - Promises is same like future and competableFuture in java
  ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/da167a77-9a58-4f3c-9808-89d12f560605)
@@ -1771,4 +1774,33 @@ getCountryData('Indiadfgfd');
 ```
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/7b841e9e-ae21-4ed0-a963-f31742e797ab)
 
+#### Bulding promises
 
+```js
+const lotteryPromise = new Promise((resolve, reject) => {
+  console.log('lotery is happing');
+  setTimeout(() => {
+    if (Math.random() >= 0.5) {
+      resolve('You win 🚗🚗');
+    } else {
+      reject(new Error('You lost money 🤢'));
+    }
+  }, 2000);
+});
+
+lotteryPromise.then(res => console.log(res)).catch(err => console.error(err));
+```
+#### Consuming promises using async/await
+```js
+const whereAmi = async country => {
+  try {
+    const res = await fetch(`https://restcountries.com/v3.1/name/${country}`);
+    const data = await res.json();
+    console.log(data?.[0]);
+  } catch (error) {
+    console.log(error);
+  }
+};
+whereAmi('India');
+console.log('FIRST');
+```
