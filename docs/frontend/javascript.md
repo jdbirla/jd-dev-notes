@@ -1804,3 +1804,40 @@ const whereAmi = async country => {
 whereAmi('India');
 console.log('FIRST');
 ```
+
+#### Promise All
+- ALL : When all promise will fulifilled
+- Rance :  When one of the promise hs been settleted
+- AllSettled : It will give all promise result even one of them is rejected
+```js
+const get3Countrues = async (c1, c2, c3) => {
+  try {
+    // const res1 = await fetch(`https://restcountries.com/v3.1/name/${c1}`);
+    // const data1 = await res1.json();
+    // console.log(data1?.[0]);
+
+    // const res2 = await fetch(`https://restcountries.com/v3.1/name/${c2}`);
+    // const data2 = await res2.json();
+    // console.log(data2?.[0]);
+
+    // const res3 = await fetch(`https://restcountries.com/v3.1/name/${c3}`);
+    // const data3 = await res3.json();
+    // console.log(data3?.[0]);
+    const res = await Promise.all([
+      fetch(`https://restcountries.com/v3.1/name/${c1}`),
+      fetch(`https://restcountries.com/v3.1/name/${c2}`),
+      fetch(`https://restcountries.com/v3.1/name/${c3}`),
+    ]);
+
+    res.map(async r => {
+      const data = await r.json();
+      console.log(data?.[0]);
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+get3Countrues('India', 'canada', 'china');
+```
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/db127aa4-6d5d-42c4-906c-aaba5310b93d)
