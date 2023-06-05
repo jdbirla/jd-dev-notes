@@ -20,6 +20,8 @@ ReactDOM.render(<h1>Hello World! {name}</h1>, document.getElementById("root"));
 - alt + click for mutiple select and edit
 - We have use JavaScript attribute for html element like camelCase `className`
 - <a>https://codesandbox.io/s/react-styling-practice-completed-forked-9cwg0n<a/>
+- [sanbox](https://codesandbox.io/s/react-styling-practice-completed-forked-9cwg0n)
+
 ```jsx
 import React from "react";
 import ReactDOM from "react-dom";
