@@ -56,7 +56,28 @@ ReactDOM.render(
 
 ```
 ---
-## React Component
+## Conditional Rendering in JSX
+### Using `&&`
+- This will execute anything when isOpen will true and it work with truthy and falsy values
+```js
+isOpen && <anything>
+```
+
+### Using ternary operator
+```js
+  numPizzas > 0 ? when true :when false
+```
+### Multiple Returns
+```js
+   if (pizzaObj.soldOut) return null;
+   
+   retrun(
+   <div>
+   asdsad
+   </div>
+   )
+
+```
 
 
 
