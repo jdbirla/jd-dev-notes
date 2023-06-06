@@ -58,4 +58,55 @@ https://replit.com/signup
 - Debuggin 
  ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/dfc30a0d-abdb-4ff6-b77f-8048343cbf91)
 
+- user snipet for react 
+- got to user snipet and paset below config
+```json
+{
+  "Print to console": {
+    "prefix": "cl",
+    "scope": "javascript,typescript,javascriptreact",
+    "body": ["console.log($1)"],
+    "description": "console.log"
+  },
+  "reactComponent": {
+    "prefix": "rfc",
+    "scope": "javascript,typescript,javascriptreact",
+    "body": [
+      "function ${1:${TM_FILENAME_BASE}}() {",
+      "\treturn (",
+      "\t\t<div>",
+      "\t\t\t$0",
+      "\t\t</div>",
+      "\t)",
+      "}",
+      "",
+      "export default ${1:${TM_FILENAME_BASE}}",
+      ""
+    ],
+    "description": "React component"
+  },
+  "reactStyledComponent": {
+    "prefix": "rsc",
+    "scope": "javascript,typescript,javascriptreact",
+    "body": [
+      "import styled from 'styled-components'",
+      "",
+      "const Styled${TM_FILENAME_BASE} = styled.$0``",
+      "",
+      "function ${TM_FILENAME_BASE}() {",
+      "\treturn (",
+      "\t\t<Styled${TM_FILENAME_BASE}>",
+      "\t\t\t${TM_FILENAME_BASE}",
+      "\t\t</Styled${TM_FILENAME_BASE}>",
+      "\t)",
+      "}",
+      "",
+      "export default ${TM_FILENAME_BASE}",
+      ""
+    ],
+    "description": "React styled component"
+  }
+}
+
+```
 
