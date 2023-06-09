@@ -113,4 +113,9 @@ https://replit.com/signup
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/97bddc20-a71d-470b-b1ff-bfa7d4db8e96)
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/78a09977-1a6d-4af6-89ad-d21374546a59)
 
+ - ESLint setup in vite project
+ ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/1ebeedc5-e492-4e5a-b1a1-2729d40862de)
+ ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/639fe8ea-e7be-4e7e-a9ce-86b25caf49e5)
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/b52aa325-c1d5-470c-a3c8-2d8eb4bfc5c0)
+
 
