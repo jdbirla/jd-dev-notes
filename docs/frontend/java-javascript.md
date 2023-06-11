@@ -99,8 +99,9 @@ public class Person {
 }
 Person person = new Person("John");
 person.sayHello();
+```
 JavaScript Example:
-javascript
+```javascript
 Copy code
 class Person {
     constructor(name) {
@@ -112,8 +113,10 @@ class Person {
 }
 let person = new Person("John");
 person.sayHello();
-Concept: Exception Handling
 ```
+## Concept: Exception Handling
+
+
 Java Example:
 ```java
 Copy code
@@ -122,8 +125,9 @@ try {
 } catch (Exception e) {
     // Exception handling code
 }
+```
 JavaScript Example:
-javascript
+```javascript
 Copy code
 try {
     // Code that may throw an error
