@@ -350,6 +350,5 @@ String str = "Hello, world!";
 
 ---
 ## Java Faker API
-- JavaFaker library to generate real-looking fake data. 
-- https://www.baeldung.com/java-faker
-- https://github.com/DiUS/java-faker
+- [](https://www.baeldung.com/java-faker) - avaFaker library to generate real-looking fake data!.
+- [](https://github.com/DiUS/java-faker) 
