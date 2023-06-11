@@ -10,19 +10,19 @@ import java.util.regex.Pattern;
 
 public class Main {
     public static void main(String[] args) {
-        String input = "example@domain.com";
-        Function<String, Boolean> validateInput = createInputValidator();
-        boolean result = validateInput.apply(input);
-        System.out.println(result); // Output: true
+         String input = "example@domain.com";
+    Predicate<String> validateInput = createInputValidator();
+    boolean result = validateInput.test(input);
+    System.out.println(result); // Output: true
     }
 
-    public static Function<String, Boolean> createInputValidator() {
-        Function<String, Boolean> notEmpty = s -> !s.isEmpty();
-        Function<String, Boolean> validEmail = s -> Pattern.matches("[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}", s);
-        Function<String, Boolean> minLength = s -> s.length() >= 6;
+public static Predicate<String> createInputValidator() {
+    Predicate<String> notEmpty = s -> !s.isEmpty();
+    Predicate<String> validEmail = s -> Pattern.matches("[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}", s);
+    Predicate<String> minLength = s -> s.length() >= 6;
 
-        return notEmpty.and(validEmail).and(minLength);
-    }
+    return notEmpty.and(validEmail).and(minLength);
+  }
 }
 
 ```
