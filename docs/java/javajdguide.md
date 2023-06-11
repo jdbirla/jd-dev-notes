@@ -352,3 +352,7 @@ String str = "Hello, world!";
 ## Java Faker API
 - [baeldung](https://www.baeldung.com/java-faker) - avaFaker library to generate real-looking fake data!.
 - [github ilinkj](https://github.com/DiUS/java-faker) 
+
+---
+## How to call Spring Boot Rest API’s Concurrently
+<https://levelup.gitconnected.com/how-to-call-spring-boot-rest-apis-concurrently-e23f93448d25>
