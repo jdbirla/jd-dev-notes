@@ -15,7 +15,7 @@
 ### @Query
  - We can write JPQL query 
   #### @Query JPQL using index parameters
-  ```java
+```java
   //JPQL Query using index params
     @Query("select p from Product p where p.name  =?1 or p.description=?2")
     public Product findByNameorDescriptionJPQLIndexParam(String name, String description);
@@ -26,16 +26,16 @@
     @Query("select p from Product p where p.name  =:name or p.description=:desc")
     public Product findByNameorDescriptionJPQLNamedParam(@Param("name") String name, @Param("desc") String description);
 ```
-  #### @Query for Native SQL Queries using index parameters
- ```java
+#### @Query for Native SQL Queries using index parameters
+```java
 
     //Native SQl Query using index params
     @Query(value = "select * from products p where p.name  =?1 or p.description=?2" , nativeQuery = true)
     public Product findByNameorDescriptionSQLIndexParam(String name, String description);
 ```
-  #### @Query for Native SQL Queries using named parameters
+#### @Query for Native SQL Queries using named parameters
 
- ```java
+```java
     //Native SQL Query using named params
 
     @Query(value = "select * from products p where p.name  =:name or p.description=:desc" , nativeQuery = true)
@@ -126,7 +126,7 @@ public class Order {
 
    - Parent entity will have OnetoMany relationship , Foreign key column in child table which referes to primary key of the parent table
    
-   ```java
+```java
    public class Order {
     //Default fetch type for one to many is LAZY
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
