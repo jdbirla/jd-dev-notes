@@ -377,6 +377,10 @@ String str = "Hello, world!";
 
 ### All annotation
 - <https://github.com/jdbirla/JD_spring-master-class/blob/master/Spring_Annotatoin_world.adoc>
+
+### DTO Pattern
+
+
 ----
 ## Utility
 ### Lombok
