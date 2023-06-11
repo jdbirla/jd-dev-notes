@@ -346,7 +346,7 @@ String str = "Hello, world!";
 ---
 ## Generics in Java
 
-- https://salithachathuranga94.medium.com/generics-in-java-3c791555e924
+- <https://salithachathuranga94.medium.com/generics-in-java-3c791555e924>
 
 ---
 ## Java Faker API
