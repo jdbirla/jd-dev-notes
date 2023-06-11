@@ -1,4 +1,7 @@
 # AI Tools
+## AI Tools
+![AI_images](https://github.com/jdbirla/jd-dev-notes/assets/69948118/2d9fe29f-39c1-4f48-b4dc-5a68e51cafc8)
+
 
 ## Chatgpt
 - Do any research
