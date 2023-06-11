@@ -378,4 +378,10 @@ String str = "Hello, world!";
 <https://howtodoinjava.com/?s=lombok>
 <https://www.baeldung.com/?s=lombok>
 
-###
+### Flyway
+<https://medium.com/javarevisited/database-migration-in-spring-boot-using-flyway-ee791db8aea0>
+
+---
+## Java Performance
+<https://github.com/jdbirla/JD_IP_All_Together/blob/master/Interview_Q_A.md#java-performance>
+<https://medium.com/@ddwen/6-techniques-for-java-performance-optimization-c6d853d24e6d>
