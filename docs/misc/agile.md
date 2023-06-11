@@ -1,0 +1,11 @@
+# Agile Scrum
+![SCRUM_00001](https://github.com/jdbirla/jd-dev-notes/assets/69948118/f4d63612-076e-45da-9f80-4a5bebaaf696)
+![SCRUM_00002](https://github.com/jdbirla/jd-dev-notes/assets/69948118/be62cbd0-d35e-4ae6-9491-d33ed0b0c6de)
+![SCRUM_00003](https://github.com/jdbirla/jd-dev-notes/assets/69948118/ead84197-1426-421c-9308-57360ee6e7ae)
+![SCRUM_00004](https://github.com/jdbirla/jd-dev-notes/assets/69948118/5201cbf8-928e-4ca9-80d3-55eb175510d7)
+![SCRUM_00005](https://github.com/jdbirla/jd-dev-notes/assets/69948118/46f7ff38-0643-4916-a53b-1c8e5093e370)
+![SCRUM_00006](https://github.com/jdbirla/jd-dev-notes/assets/69948118/c97ff4b3-e9b8-400b-9754-4f6887cc0a69)
+![SCRUM_00007](https://github.com/jdbirla/jd-dev-notes/assets/69948118/d5035fbf-c871-4535-9515-78596cb2adfb)
+![SCRUM_00008](https://github.com/jdbirla/jd-dev-notes/assets/69948118/e2295762-499a-4b34-bfa7-79682f211dd7)
+![SCRUM_00009](https://github.com/jdbirla/jd-dev-notes/assets/69948118/72d5e02d-5a42-48c0-a2c7-ffda8c925101)
+![SCRUM_00010](https://github.com/jdbirla/jd-dev-notes/assets/69948118/ef21b440-436b-4b99-b80c-dec54936e755)
