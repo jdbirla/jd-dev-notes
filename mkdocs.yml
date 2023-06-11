@@ -38,6 +38,7 @@ nav:
     - HTML_CSS: frontend/html_css.md
     - JavaScript: frontend/javascript.md
     - React: frontend/react.md
+    - Java-javascript: frontend/java-javascript.md
   - DevOps:
     - Tools: devops/devops.md
     - Linux:
