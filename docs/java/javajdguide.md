@@ -139,7 +139,7 @@ public class Main {
         ValidationResult result = isEmailValid()
                 .and(isPhoneNumberValid())
                 .and(isAnAdult())
-                .apply(customer);
+                .apply(customer); 
 
         System.out.println(result);
 
