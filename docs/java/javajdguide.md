@@ -155,6 +155,9 @@ public class Main {
     }
 }
 ```
+### Design Patterns
+<https://github.com/jdbirla/JD_JAVA_Learning/blob/master/Java_Design_Patterns/Notes_Design_Pattern.md>
+<https://github.com/jdbirla/JD_JAVA_Learning/blob/master/Java_Design_Patterns/Bharath_Thippireddy/README.md>
 
 ### Java Coding Tips and Tricks
 - Use efficient data structures: Use the appropriate data structure for your use case. For example, use a HashSet instead of a List when you need to check for the presence of an element.
@@ -372,6 +375,8 @@ String str = "Hello, world!";
 - <https://howtodoinjava.com/spring-boot/info-endpoint-custom-info/>
 - <https://howtodoinjava.com/spring-boot/actuator-endpoints-example/>
 
+### All annotation
+- <https://github.com/jdbirla/JD_spring-master-class/blob/master/Spring_Annotatoin_world.adoc>
 ----
 ## Utility
 ### Lombok
@@ -381,6 +386,10 @@ String str = "Hello, world!";
 ### Flyway
 <https://medium.com/javarevisited/database-migration-in-spring-boot-using-flyway-ee791db8aea0>
 
+### Java Tools
+- <https://github.com/jdbirla/JD_JAVA_Learning/tree/master/Java_Tools>
+
+### 
 ---
 ## Java Performance
 <https://github.com/jdbirla/JD_IP_All_Together/blob/master/Interview_Q_A.md#java-performance>
