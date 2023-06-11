@@ -58,7 +58,7 @@ nav:
       - VSCode: tools/vscode.md
   - Misc:
     - CleanArchitecture: misc/clean-architecture.md
-
+    - Agile: misc/agile.md
 # Customization
 extra:
   manifest: "manifest.webmanifest"
