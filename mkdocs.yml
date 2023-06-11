@@ -19,6 +19,7 @@ nav:
   - JDIdeas: jdideas.md
   - AI Tools: aitools.md
   - Shortcuts: shortcuts.md
+  - Common_Abbreviations: CommonAbbreviations.md
   - BackEnd:
     - Java:
       - Ecosystem: java/ecosystem.md
