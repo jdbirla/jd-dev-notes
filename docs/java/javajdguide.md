@@ -356,3 +356,28 @@ String str = "Hello, world!";
 ---
 ## How to call Spring Boot Rest API’s Concurrently
 <https://levelup.gitconnected.com/how-to-call-spring-boot-rest-apis-concurrently-e23f93448d25>
+
+---
+## java-date-time
+<https://github.com/jdbirla/JD_JAVA_Learning/blob/master/JavaDateTime_A-Z.md>
+
+---
+## Actuator Implementation
+- <https://github.com/jdbirla/JD_Spring_Boot_Master/blob/master/Actuator.md>
+- <https://howtodoinjava.com/spring-boot/info-endpoint-custom-info/>
+- <https://howtodoinjava.com/spring-boot/actuator-endpoints-example/>
+---
+## Spring Boot 
+### Banner
+<https://www.baeldung.com/spring-boot-custom-banners>
+<https://www.baeldung.com/spring-boot-color-banner>
+
+###
+
+----
+## Utility
+### Lombok
+<https://howtodoinjava.com/?s=lombok>
+<https://www.baeldung.com/?s=lombok>
+
+###
