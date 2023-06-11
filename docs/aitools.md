@@ -6,34 +6,34 @@
 ## Chatgpt
 - Do any research
 
-##  gamma.app
+##  <gamma.app>
 - Create PPT using AI
 
-## https://slidesgo.com/
+## <https://slidesgo.com/>
 - Free Google Slides and PowerPoint templates to boost your presentations
 
-## https://slidesgpt.com/ 
+##  <https://slidesgpt.com/> 
 - using chat GPT research and PPT presentation
 
-## https://unroll.me/
+##  <https://unroll.me/>
 - A cleaner inbox is just a click away
 
-## https://12ft.io/
+##  <https://12ft.io/>
 - Show me a 10ft paywall, I’ll show you a 12ft ladder. For free reading from medium , economic times etc
 
-## https://chrome.google.com/webstore/detail/merlin-chatgpt-assistant/camppjleccjaphfdbohjdohecfnoikec
+##  <https://chrome.google.com/webstore/detail/merlin-chatgpt-assistant/camppjleccjaphfdbohjdohecfnoikec>
 -  summarize any long article/bog /linked post or any type of content
 
-## https://askyourpdf.com/
+##  <https://askyourpdf.com/>
 - Transforming the way you interact with PDFs Powered by ChatGPT Upload Any Doc And Get Answers Straight From The Source! Breeze Through Contracts, Research, And More!
 
-## https://www.chatpdf.com/
+##  <https://www.chatpdf.com/>
 - Chat with any PDF
 
-## https://app.yoodli.ai/
+##  <https://app.yoodli.ai/>
 - Improve your communication skills with personalized and private feedback from our AI speech coach - for free
 
-## https://formula.dog/
+##  <https://formula.dog/>
 - Try Formula Dog 🐶
 - English to MS Excel/Google Sheet/Airtable
 - English to Regex
@@ -42,28 +42,28 @@
 - Code/Formulas/SQL to English
 
 
-## https://www.signalhire.com/
+##  <https://www.signalhire.com/>
 - Find Valid Emails and Phone Numbers Real-time verified contact info for recruiters, sales professionals, and marketers. Personal & work contacts.
 
-## https://durable.co/ai-website-builder
+##  <https://durable.co/ai-website-builder>
 - Build websites with AI
 
-## http://charley.ai/
+##  <http://charley.ai/>
 - Effortless Writing. Turn 3 words into 10,000
 
-## https://cohesive.so/
+##  <https://cohesive.so/>
 - Create magical content with the most powerful AI editor
 
-## https://www.longshot.ai/
+##  <https://www.longshot.ai/>
 - From an Idea to a Blog in minutes
 
-## https://monica.im/
+##  <https://monica.im/>
 - ChatGPT Copilot in Chrome
 
-## Blaze.today 
+##  <Blaze.today> 
 - Speed up typing
 
-## https://stockimg.ai/
+##  <https://stockimg.ai/>
 - Create images with AI
 
 
