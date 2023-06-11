@@ -7,7 +7,8 @@ This repo will contain my ideas to implement or solving any problem using a tech
  |2  |IG-Spring-AOP-impl |DXC use       |Done    |-    |[Details](#ig-spring-aop-impl)	  |
  |3  |Project Documnetation in github wiki| Persy | Not started | NA | NA |
  |4  |If there are any validation then use combinator for chaining mutiple validaitons| Persy |not-started | [link](https://jdbirla-dev-notes.netlify.app/java/javajdguide/#combinator-pattern) | NA |
- |5  |Project Documnetation in github wiki| Persy | Not started | NA | NA |
+ |5  |Clone script create for auto clone and remote setup| Persy | Not started | NA | NA |
+ 
 
 
 ## Tools and Technologies portal
