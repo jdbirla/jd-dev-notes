@@ -60,7 +60,7 @@ const booksAfterAdd = [...books, newBook];
 function handleAddItems(item) {
     setItems((items) => [...items, item]);
   }
-  ```
+```
 ### Delete book object from array
 ```js
 const booksAfterDelete = booksAfterAdd.filter((book) => book.id !== 3);
@@ -69,7 +69,7 @@ const booksAfterDelete = booksAfterAdd.filter((book) => book.id !== 3);
 function handleDeleteItem(id) {
     setItems((items) => items.filter((item) => item.id !== id));
   }
-  ```
+ ```
 
 ### Update book object in the array
 ```js
