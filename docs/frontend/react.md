@@ -151,18 +151,26 @@ function Pizza({ pizzaObj }) {}
 ```
 ---
 ## State
- - Always update state using callback
+### Always update state using callback
 ```js
  if (step < 3) {
       setStep((s) => s + 1);  // Correct way
       // setStep(step + 1); //incorrect way
     }
 ```
+### Thinking in react for State
+
 ---
 ## Rendering
 - React reacts to state changes by re-rendering the UI
 - Rendering or re-rendering basically executes the component function
 - Child component Re-render when props changed by parent
+---
+## Thinking in react at 10000 Feet
+
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/dba0cf80-41af-446e-ac98-e80c69e41003)
+
+
 ---
 ## Reusability in react
 ### Component Composition: 
