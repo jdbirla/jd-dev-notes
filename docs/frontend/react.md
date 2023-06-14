@@ -120,6 +120,102 @@ isOpen && <anything>
    )
 
 ```
+## Reusability in react
+### Component Composition: 
+- This technique involves composing smaller, reusable components together to build larger components or user interfaces. By breaking down your UI into smaller, self-contained components, you can reuse them across different parts of your application. For example, you can create a Button component and reuse it in various places wherever a button is needed.
+```js
+// Reusable Button component
+function Button(props) {
+  return <button onClick={props.onClick}>{props.label}</button>;
+}
+
+// Example usage
+function App() {
+  return (
+    <div>
+      <h1>Component Composition Example</h1>
+      <Button label="Click me" onClick={() => console.log("Button clicked")} />
+    </div>
+  );
+}
+
+```
+### Props:
+- Props allow you to pass data from a parent component to its child components. By passing different values to the props, you can reuse a component with varying data and behavior. For example, you can create a List component that receives an array of items as props, making it reusable for displaying different lists of items.
+```js
+
+// Reusable List component
+function List(props) {
+  return (
+    <ul>
+      {props.items.map((item) => (
+        <li key={item.id}>{item.name}</li>
+      ))}
+    </ul>
+  );
+}
+
+// Example usage
+function App() {
+  const items = [
+    { id: 1, name: "Item 1" },
+    { id: 2, name: "Item 2" },
+    { id: 3, name: "Item 3" },
+  ];
+
+  return (
+    <div>
+      <h1>Props Example</h1>
+      <List items={items} />
+    </div>
+  );
+}
+
+```
+### Higher-Order Components (HOCs):
+- HOCs are functions that take a component as input and return a new enhanced component. They allow you to add additional functionality or modify the behavior of a component without directly modifying its source code. HOCs can be used for cross-cutting concerns like authentication, data fetching, or logging. For example, you can create an withLogger HOC that wraps a component and adds logging capabilities to it.
+```js
+// HOC that adds logging functionality to a component
+function withLogger(WrappedComponent) {
+  return function WithLogger(props) {
+    useEffect(() => {
+      console.log(`Component ${WrappedComponent.name} mounted`);
+      return () => {
+        console.log(`Component ${WrappedComponent.name} unmounted`);
+      };
+    }, []);
+
+    return <WrappedComponent {...props} />;
+  };
+}
+
+// Example usage
+function MyComponent(props) {
+  return <div>My Component</div>;
+}
+
+const EnhancedComponent = withLogger(MyComponent);
+
+function App() {
+  return (
+    <div>
+      <h1>HOC Example</h1>
+      <EnhancedComponent />
+    </div>
+  );
+}
+
+```
+### Render Props: 
+- The Render Props pattern involves passing a function as a prop to a component, allowing the component to render the content provided by that function. It enables sharing logic or data between components by making the rendering behavior customizable. For example, you can create a Toggle component that uses a render prop to determine what to render when a button is toggled.
+
+https://codesandbox.io/s/react-render-props-final-elme76
+
+### Hooks: 
+- Hooks are a feature introduced in React 16.8 that allow you to reuse stateful logic within functional components. By creating custom hooks, you can encapsulate reusable logic and use it in multiple components. Hooks like useState, useEffect, and useContext are built-in hooks that promote code reuse and modularity.
+
+## Component Libraries: 
+- Utilizing component libraries or UI frameworks can provide pre-built, reusable components and styles for your application. Libraries like Material-UI, Ant Design, or Bootstrap offer a wide range of reusable components that you can leverage in your projects, saving development time and effort.
 
 
 
