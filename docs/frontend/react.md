@@ -45,8 +45,54 @@ I will try to keep this list updated over time. If you have additional suggestio
    - In the Development environment components two times render because of React.StrictMode but not in production
 ### React Developer Tools
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/31ff09cd-4690-455a-b775-dddbbb5c12fa)
+---
+## Immutable Operations in React
+### Add object to array
+```js
+const newBook = {
+  id: 6,
+  title: "Harry Potter and the Chamber of Secrets",
+  author: "J. K. Rowling",
+};
+const booksAfterAdd = [...books, newBook];
+```
+### Delete book object from array
+```js
+const booksAfterDelete = booksAfterAdd.filter((book) => book.id !== 3);
+```
+### Update book object in the array
+```js
+const booksAfterUpdate = booksAfterDelete.map((book) =>
+  book.id === 1 ? { ...book, pages: 1210 } : book
+);
+```
+### Add property in Object
+```js
+const originalObject = { foo: 'bar' };
+const newObject = { ...originalObject, baz: 'qux' };
 
+console.log(originalObject); // Output: { foo: 'bar' }
+console.log(newObject); // Output: { foo: 'bar', baz: 'qux' }
+```
 
+### Update a property in Object
+```js
+const originalObject = { foo: 'bar', baz: 'qux' };
+const updatedObject = { ...originalObject, baz: 'updated value' };
+
+console.log(originalObject); // Output: { foo: 'bar', baz: 'qux' }
+console.log(updatedObject); // Output: { foo: 'bar', baz: 'updated value' }
+```
+### Deletea property in Object
+```js
+const originalObject = { foo: 'bar', baz: 'qux' };
+const { baz, ...newObject } = originalObject;
+
+console.log(originalObject); // Output: { foo: 'bar', baz: 'qux' }
+console.log(newObject); // Output: { foo: 'bar' }
+
+```
+---
 
 ## JSX
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/4ec16f61-f3fd-461b-8d4c-e4832fc232c0)
@@ -172,6 +218,8 @@ function Pizza({ pizzaObj }) {}
 
 
 ---
+
+
 ## Reusability in react
 ### Component Composition: 
 - This technique involves composing smaller, reusable components together to build larger components or user interfaces. By breaking down your UI into smaller, self-contained components, you can reuse them across different parts of your application. For example, you can create a Button component and reuse it in various places wherever a button is needed.
