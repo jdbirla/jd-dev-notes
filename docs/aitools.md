@@ -2,6 +2,8 @@
 ## AI Tools
 ![AI_images](https://github.com/jdbirla/jd-dev-notes/assets/69948118/2d9fe29f-39c1-4f48-b4dc-5a68e51cafc8)
 
+## How to use AI
+![WhatsApp Image 2023-06-14 at 10 13 34 AM](https://github.com/jdbirla/jd-dev-notes/assets/69948118/4766f508-fd23-423a-ba15-38f308f40915)
 
 ## Chatgpt
 - Do any research
