@@ -158,7 +158,7 @@ function Pizza({ pizzaObj }) {}
       // setStep(step + 1); //incorrect way
     }
 ```
-### Thinking in react for State
+### State uplifting
 
 ---
 ## Rendering
