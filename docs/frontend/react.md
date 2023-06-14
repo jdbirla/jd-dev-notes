@@ -43,7 +43,9 @@ I will try to keep this list updated over time. If you have additional suggestio
 ## Debugging
 ### Double Rendering
    - In the Development environment components two times render because of React.StrictMode but not in production
-###
+### React Developer Tools
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/31ff09cd-4690-455a-b775-dddbbb5c12fa)
+
 
 
 ## JSX
@@ -147,7 +149,21 @@ function Pizza(props) {
 function Pizza({ pizzaObj }) {}
   
 ```
-
+---
+## State
+ - Always update state using callback
+```js
+ if (step < 3) {
+      setStep((s) => s + 1);  // Correct way
+      // setStep(step + 1); //incorrect way
+    }
+```
+---
+## Rendering
+- React reacts to state changes by re-rendering the UI
+- Rendering or re-rendering basically executes the component function
+- 
+---
 ## Reusability in react
 ### Component Composition: 
 - This technique involves composing smaller, reusable components together to build larger components or user interfaces. By breaking down your UI into smaller, self-contained components, you can reuse them across different parts of your application. For example, you can create a Button component and reuse it in various places wherever a button is needed.
