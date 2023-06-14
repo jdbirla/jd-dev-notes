@@ -56,16 +56,39 @@ const newBook = {
 };
 const booksAfterAdd = [...books, newBook];
 ```
+```js
+function handleAddItems(item) {
+    setItems((items) => [...items, item]);
+  }
+  ```
 ### Delete book object from array
 ```js
 const booksAfterDelete = booksAfterAdd.filter((book) => book.id !== 3);
 ```
+```js
+function handleDeleteItem(id) {
+    setItems((items) => items.filter((item) => item.id !== id));
+  }
+  ```
+
 ### Update book object in the array
 ```js
 const booksAfterUpdate = booksAfterDelete.map((book) =>
   book.id === 1 ? { ...book, pages: 1210 } : book
 );
 ```
+```js
+  function handleToggleItem(id) {
+    setItems((items) =>
+      items.map((item) =>
+        item.id === id ? { ...item, packed: !item.packed } : item
+      )
+    );
+  }
+  
+```
+  
+
 ### Add property in Object
 ```js
 const originalObject = { foo: 'bar' };
