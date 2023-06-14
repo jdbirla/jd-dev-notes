@@ -40,6 +40,11 @@ These resources are 100% optional, but might give you additional insights or pro
 
 
 I will try to keep this list updated over time. If you have additional suggestions, please add them to the Q&A of this lecture.
+## Debugging
+### Double Rendering
+   - In the Development environment components two times render because of React.StrictMode but not in production
+###
+
 
 ## JSX
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/4ec16f61-f3fd-461b-8d4c-e4832fc232c0)
@@ -120,6 +125,29 @@ isOpen && <anything>
    )
 
 ```
+---
+## Props
+- Get all the props in props object or deconstruct at the time of receiving args
+ ```jsx
+  <Pizza pizzaObj={pizza} key={pizza.name} jd="birla" />
+function Pizza(props) {
+  console.log(props); 
+/*  {
+    "pizzaObj": {
+        "name": "Pizza Prosciutto",
+        "ingredients": "Tomato, mozarella, ham, aragula, and burrata cheese",
+        "price": 18,
+        "photoName": "pizzas/prosciutto.jpg",
+        "soldOut": false
+    },
+    "jd": "birla"
+    -----
+    birla
+}*/
+function Pizza({ pizzaObj }) {}
+  
+```
+
 ## Reusability in react
 ### Component Composition: 
 - This technique involves composing smaller, reusable components together to build larger components or user interfaces. By breaking down your UI into smaller, self-contained components, you can reuse them across different parts of your application. For example, you can create a Button component and reuse it in various places wherever a button is needed.
