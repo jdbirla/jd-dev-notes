@@ -174,6 +174,7 @@ function App() {
 ```
 ### Higher-Order Components (HOCs):
 - HOCs are functions that take a component as input and return a new enhanced component. They allow you to add additional functionality or modify the behavior of a component without directly modifying its source code. HOCs can be used for cross-cutting concerns like authentication, data fetching, or logging. For example, you can create an withLogger HOC that wraps a component and adds logging capabilities to it.
+- https://codesandbox.io/s/react-render-props-final-elme76?file=/src/HOC.js
 ```js
 // HOC that adds logging functionality to a component
 function withLogger(WrappedComponent) {
@@ -209,7 +210,7 @@ function App() {
 ### Render Props: 
 - The Render Props pattern involves passing a function as a prop to a component, allowing the component to render the content provided by that function. It enables sharing logic or data between components by making the rendering behavior customizable. For example, you can create a Toggle component that uses a render prop to determine what to render when a button is toggled.
 
-https://codesandbox.io/s/react-render-props-final-elme76
+- https://codesandbox.io/s/react-render-props-final-elme76
 
 ### Hooks: 
 - Hooks are a feature introduced in React 16.8 that allow you to reuse stateful logic within functional components. By creating custom hooks, you can encapsulate reusable logic and use it in multiple components. Hooks like useState, useEffect, and useContext are built-in hooks that promote code reuse and modularity.
