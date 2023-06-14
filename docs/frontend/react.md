@@ -162,7 +162,7 @@ function Pizza({ pizzaObj }) {}
 ## Rendering
 - React reacts to state changes by re-rendering the UI
 - Rendering or re-rendering basically executes the component function
-- 
+- Child component Re-render when props changed by parent
 ---
 ## Reusability in react
 ### Component Composition: 
