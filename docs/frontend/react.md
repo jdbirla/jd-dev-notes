@@ -198,7 +198,7 @@ isOpen && <anything>
 ```
 ---
 ## Props
-- Get all the props in props object or deconstruct at the time of receiving args
+### Get all the props in props object or deconstruct at the time of receiving args
  ```jsx
   <Pizza pizzaObj={pizza} key={pizza.name} jd="birla" />
 function Pizza(props) {
@@ -218,6 +218,9 @@ function Pizza(props) {
 function Pizza({ pizzaObj }) {}
   
 ```
+### Children Prop
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/51772edf-bd6c-40af-a4de-0f69df62ad12)
+
 ---
 ## State
 ### Always update state using callback
@@ -252,6 +255,9 @@ onAddItems(newItem);
 }
 
 ```
+### Derived State
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/8def28cb-e36c-443e-969d-d8acf5661481)
+
 
 ---
 ## Rendering
