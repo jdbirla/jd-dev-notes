@@ -123,21 +123,35 @@ isOpen && <anything>
 ## Reusability in react
 ### Component Composition: 
 - This technique involves composing smaller, reusable components together to build larger components or user interfaces. By breaking down your UI into smaller, self-contained components, you can reuse them across different parts of your application. For example, you can create a Button component and reuse it in various places wherever a button is needed.
+- Component Composition is a pattern where smaller, reusable components are composed together to build larger components or user interfaces. Each component remains independent and doesn't rely on specific knowledge or state from other components.
+- 
 ```js
-// Reusable Button component
-function Button(props) {
-  return <button onClick={props.onClick}>{props.label}</button>;
+// Reusable components
+function Header() {
+  return <h1>Header</h1>;
 }
 
-// Example usage
+function Sidebar() {
+  return <div>Sidebar</div>;
+}
+
+function Content() {
+  return <div>Content</div>;
+}
+
+// Composition of components
 function App() {
   return (
     <div>
-      <h1>Component Composition Example</h1>
-      <Button label="Click me" onClick={() => console.log("Button clicked")} />
+      <Header />
+      <div className="container">
+        <Sidebar />
+        <Content />
+      </div>
     </div>
   );
 }
+
 
 ```
 ### Props:
@@ -218,5 +232,6 @@ function App() {
 ## Component Libraries: 
 - Utilizing component libraries or UI frameworks can provide pre-built, reusable components and styles for your application. Libraries like Material-UI, Ant Design, or Bootstrap offer a wide range of reusable components that you can leverage in your projects, saving development time and effort.
 
-
-
+## Compound Components:
+- Compound Components is a pattern where a parent component wraps multiple child components and controls their behavior and state. The child components are designed to work together as a group and are tightly coupled with the parent component. They share a common context or state managed by the parent.
+- https://codesandbox.io/s/react-compound-components-final-igzh7c
