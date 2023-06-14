@@ -205,6 +205,30 @@ function Pizza({ pizzaObj }) {}
     }
 ```
 ### State uplifting
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/4ef0ba05-4667-4f0f-adcc-1397dd125ee8)
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/4b2876ed-7b67-4b38-a3ea-65e9fe6fa4cf)
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/fa0c32ca-d30c-4a76-859c-366bda326572)
+
+```js
+export default function App() {
+  const [items, setItems] = useState([]);
+   
+    function handleAddItems(item) {
+    setItems((items) => [...items, item]);
+  }
+
+   
+<Form onAddItems={handleAddItems} />
+      <PackingList
+        items={items}
+   />
+}
+
+export default function Form({ onAddItems }) {
+onAddItems(newItem);
+}
+
+```
 
 ---
 ## Rendering
