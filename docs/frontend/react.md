@@ -194,6 +194,9 @@ function Pizza({ pizzaObj }) {}
       // setStep(step + 1); //incorrect way
     }
 ```
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/ca249702-402b-4ccb-97a7-d2f3453d98e2)
+
+
 ### State uplifting
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/4ef0ba05-4667-4f0f-adcc-1397dd125ee8)
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/4b2876ed-7b67-4b38-a3ea-65e9fe6fa4cf)
@@ -280,7 +283,9 @@ useEffect(
   );
 
 ```
-### custom hook
+### useRef
+- How not to select DOM element in react
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/2b39cc70-d24a-46af-862c-2e20a96c9fcd)
 
 
 ---
