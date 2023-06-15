@@ -246,6 +246,10 @@ onAddItems(newItem);
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/2dcae7c2-8bde-43d0-996f-a93e8bf1ba1c)
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/4731d726-5805-473f-83ab-1d24f4b02a3b)
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/3f288117-a426-4ed8-b878-8fdb6d357143)
+### Practical Summary
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/2aec1dbb-314c-4146-b2c0-90245fa5efc5)
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/d939836d-b8e4-4ba0-80c7-510f441b6e90)
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/3d14da2b-4057-4a48-9ff6-6c5c37602348)
 
 ---
 ## Reusability in react
