@@ -286,7 +286,11 @@ useEffect(
 ### useRef
 - How not to select DOM element in react
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/2b39cc70-d24a-46af-862c-2e20a96c9fcd)
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/044faef8-2b92-4a62-b5ad-583dac841bd1)
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/8bcd0280-2868-4fda-96c7-18c800f6fb81)
 
+### custom Hooks
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/bdd82100-ab04-4b64-8fc7-62e3e8045e63)
 
 ---
 ## Rendering
