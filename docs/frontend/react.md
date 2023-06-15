@@ -221,7 +221,8 @@ onAddItems(newItem);
 ```
 ### Derived State
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/8def28cb-e36c-443e-969d-d8acf5661481)
-
+---
+## Hooks
 ### useEffect
 - Sideeffect must be run in evenhandler or useEffect not in render logic
 - useEffect always executes after browser paint
@@ -279,6 +280,7 @@ useEffect(
   );
 
 ```
+### custom hook
 
 
 ---
