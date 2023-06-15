@@ -181,6 +181,10 @@ function Pizza({ pizzaObj }) {}
 ### Children Prop
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/51772edf-bd6c-40af-a4de-0f69df62ad12)
 
+### Passing element (jsx) as prop 
+- it alternative to children's prop
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/05cd42f9-04d0-404a-8160-438076db0019)
+
 ---
 ## State
 ### Always update state using callback
@@ -226,9 +230,12 @@ onAddItems(newItem);
 - Child component Re-render when props changed by parent
 ---
 ## Thinking in react at 10000 Feet
-
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/dba0cf80-41af-446e-ac98-e80c69e41003)
-
+### UI to components
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/ea3687b9-18b5-4c5a-bb18-9eb6658031e8)
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/3a6e6cf5-0342-486a-891e-55c94bd2da40)
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/79f37268-d54a-4c03-a2f4-a3a05d862c12)
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/12a1598d-449e-45fb-a0f1-486571b85365)
 
 ---
 
