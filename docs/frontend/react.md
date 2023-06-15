@@ -222,12 +222,73 @@ onAddItems(newItem);
 ### Derived State
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/8def28cb-e36c-443e-969d-d8acf5661481)
 
+### useEffect
+- Sideeffect must be run in evenhandler or useEffect not in render logic
+- useEffect always executes after browser paint
+- ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/14137f9c-7feb-4c5f-8149-f2b143b3a729)
+- _Every state variable and prop used inside the effect MUST be included in the dependency array_
+- ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/dbaed0fb-629a-4561-b042-5c1d4b1e119e)
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/e2d0a3c6-4046-4378-a220-23c5d535b181)
+- cleaning up a data fetching
+```js
+useEffect(
+    function () {
+      const controller = new AbortController();
+      async function fetchMovies() {
+        try {
+          setIsLoading(true);
+          setError("");
+
+          const res = await fetch(
+            `http://www.omdbapi.com/?apikey=${KEY}&s=${query}`,
+            { signal: controller.signal }
+          );
+
+          if (!res.ok)
+            throw new Error("Something went wrong with fetching movies");
+
+          const data = await res.json();
+          if (data.Response === "False") throw new Error("Movie not found");
+
+          setMovies(data.Search);
+          setError("");
+        } catch (err) {
+          if (err.name !== "AbortError") {
+            console.log(err.message);
+            setError(err.message);
+          }
+        } finally {
+          setIsLoading(false);
+        }
+      }
+
+      if (query.length < 3) {
+        setMovies([]);
+        setError("");
+        return;
+      }
+
+      handleCloseMovie();
+      fetchMovies();
+
+      return function () {
+        controller.abort();
+      };
+    },
+    [query]
+  );
+
+```
+
 
 ---
 ## Rendering
 - React reacts to state changes by re-rendering the UI
 - Rendering or re-rendering basically executes the component function
 - Child component Re-render when props changed by parent
+- 
+- 
+
 ---
 ## Thinking in react at 10000 Feet
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/dba0cf80-41af-446e-ac98-e80c69e41003)
