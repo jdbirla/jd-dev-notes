@@ -310,6 +310,9 @@ useEffect(
 - This hook helps us in automatically navigation and back navigation
 - 
 ### useContext
+- This hook help child componet of provider to subcribe the context and get the value from providers
+` const { onClearPosts } = useContext(PostContext);`
+
 
 ---
 ## Rendering
@@ -439,6 +442,82 @@ function BackButton() {
 ```
 ---
 ## Context API
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/2c5325a4-fa24-465f-929b-d4fcf0d13551)
+- Context api mostly using by Custom Provider
+- Create seprate context file
+- Create custome componet like below `PostProvider` create context obejct in the file
+- Put all your state logic here which we have to pass in all child components
+- Return `    <PostContext.Provider value={value}>{children}</PostContext.Provider> ` whree value will be value object which contains all the states and function which are required for child components
+- Create custom hook for `useContext` so that all subscribe can direcly use this custom hook and no required for `useContext` hook
+
+```js
+
+function createRandomPost() {
+  return {
+    title: `${faker.hacker.adjective()} ${faker.hacker.noun()}`,
+    body: faker.hacker.phrase(),
+  };
+}
+
+// 1) CREATE A CONTEXT
+const PostContext = createContext();
+
+function PostProvider({ children }) {
+  const [posts, setPosts] = useState(() =>
+    Array.from({ length: 30 }, () => createRandomPost())
+  );
+  const [searchQuery, setSearchQuery] = useState("");
+
+  // Derived state. These are the posts that will actually be displayed
+  const searchedPosts =
+    searchQuery.length > 0
+      ? posts.filter((post) =>
+          `${post.title} ${post.body}`
+            .toLowerCase()
+            .includes(searchQuery.toLowerCase())
+        )
+      : posts;
+
+  function handleAddPost(post) {
+    setPosts((posts) => [post, ...posts]);
+  }
+
+  function handleClearPosts() {
+    setPosts([]);
+  }
+
+  const value = useMemo(() => {
+    return {
+      posts: searchedPosts,
+      onAddPost: handleAddPost,
+      onClearPosts: handleClearPosts,
+      searchQuery,
+      setSearchQuery,
+    };
+  }, [searchedPosts, searchQuery]);
+
+  return (
+    // 2) PROVIDE VALUE TO CHILD COMPONENTS
+    <PostContext.Provider value={value}>{children}</PostContext.Provider>
+  );
+}
+
+function usePosts() {
+  const context = useContext(PostContext);
+  if (context === undefined)
+    throw new Error("PostContext was used outside of the PostProvider");
+  return context;
+}
+
+export { PostProvider, usePosts };
+//------------------------------------------
+// 3) CONSUMING CONTEXT VALUE
+  const { onClearPosts } = usePosts();
+
+
+```
+
+
 
 ---
 ## Thinking in react at 10000 Feet
