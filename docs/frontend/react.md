@@ -293,6 +293,9 @@ useEffect(
 ### custom Hooks
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/bdd82100-ab04-4b64-8fc7-62e3e8045e63)
 
+### useReducer
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/89763412-c7b5-4173-821d-6a008f68e444)
+
 ---
 ## Rendering
 - React reacts to state changes by re-rendering the UI
@@ -443,3 +446,4 @@ function App() {
 ### Compound Components:
 - Compound Components is a pattern where a parent component wraps multiple child components and controls their behavior and state. The child components are designed to work together as a group and are tightly coupled with the parent component. They share a common context or state managed by the parent.
 - https://codesandbox.io/s/react-compound-components-final-igzh7c
+
