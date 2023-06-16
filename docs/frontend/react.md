@@ -302,13 +302,10 @@ useEffect(
 
 ### useParams
 - This hooks help in getting param value from URL in react router
-
 ### useSearchParams
 - This hook helps in getting and setting queryString values in URL
-
 ### useNavigate
 - This hook helps us in automatically navigation and back navigation
-  
 ### useContext
 - This hook help child componet of provider to subcribe the context and get the value from providers
 ` const { onClearPosts } = useContext(PostContext);`
@@ -319,8 +316,7 @@ useEffect(
 - React reacts to state changes by re-rendering the UI
 - Rendering or re-rendering basically executes the component function
 - Child component Re-render when props changed by parent
-- 
-- 
+
 ---
 ## React Router
 - Routing
@@ -371,7 +367,7 @@ useEffect(
         </li>
       </ul>
     </nav>
- ```
+```
 ### Nested Routes
 - in the above Routing you can check app link which has nested routing
 - All the components of app router will render inside `  <AppLayout />` we can put it anywhere inside the app layout or child of `  <AppLayout />` component using ` <Outlet />` tag
@@ -423,7 +419,7 @@ const { id } = useParams();
     navigate("/app/cities");
 ```
 - Ex2
- ```js
+```js
 function BackButton() {
   const navigate = useNavigate();
 
