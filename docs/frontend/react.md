@@ -132,6 +132,9 @@ ReactDOM.render(
 );
 
 ```
+### Styling options in React App
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/3e2e817e-ccce-46dc-950c-6f39fcb366fd)
+
 ---
 ## Conditional Rendering in JSX
 ### Using `&&`
@@ -295,7 +298,18 @@ useEffect(
 
 ### useReducer
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/89763412-c7b5-4173-821d-6a008f68e444)
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/65feea24-b104-414d-b785-9a5b0d8bb3aa)
 
+### useParams
+- This hooks help in getting param value from URL in react router
+
+### useSearchParams
+- This hook helps in getting and setting queryString values in URL
+
+### useNavigate
+- This hook helps us in automatically navigation and back navigation
+- 
+###
 ---
 ## Rendering
 - React reacts to state changes by re-rendering the UI
@@ -303,8 +317,61 @@ useEffect(
 - Child component Re-render when props changed by parent
 - 
 - 
-
 ---
+## React Router
+- Routing
+```jsx
+ <BrowserRouter>
+          <Suspense fallback={<SpinnerFullPage />}>
+            <Routes>
+              <Route index element={<Homepage />} />
+              <Route path="product" element={<Product />} />
+              <Route path="pricing" element={<Pricing />} />
+              <Route path="login" element={<Login />} />
+              <Route
+                path="app"
+                element={
+                  <ProtectedRoute>
+                    <AppLayout />
+                  </ProtectedRoute>
+                }
+              >
+                <Route index element={<Navigate replace to="cities" />} />
+                <Route path="cities" element={<CityList />} />
+                <Route path="cities/:id" element={<City />} />
+                <Route path="countries" element={<CountryList />} />
+                <Route path="form" element={<Form />} />
+              </Route>
+              <Route path="*" element={<PageNotFound />} />
+            </Routes>
+          </Suspense>
+        </BrowserRouter>
+```
+- Navingation using Link and Navlink
+- The <NavLink> component extends the functionality of <Link> by providing additional features specifically for styling and active class assignment. It adds an extra CSS class to the rendered element when it matches the current URL, allowing you to apply custom styles to the active link. 
+```jsx
+      <nav className={styles.nav}>
+      <Logo />
+
+      <ul>
+        <li>
+          <NavLink to="/pricing">Pricing</NavLink>
+        </li>
+        <li>
+          <NavLink to="/product">Product</NavLink>
+        </li>
+        <li>
+          <NavLink to="/login" className={styles.ctaLink}>
+            Login
+          </NavLink>
+        </li>
+      </ul>
+    </nav>
+ ```
+### Nested Routes
+- in the above Routing you can check app link which has nested routing
+- All the components of app router will render inside `  <AppLayout />` we can put it anywhere inside the app layout or child of `  <AppLayout />` component using ` <Outlet />` tag
+- 
 ## Thinking in react at 10000 Feet
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/dba0cf80-41af-446e-ac98-e80c69e41003)
 ### UI to components
@@ -312,6 +379,73 @@ useEffect(
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/3a6e6cf5-0342-486a-891e-55c94bd2da40)
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/79f37268-d54a-4c03-a2f4-a3a05d862c12)
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/12a1598d-449e-45fb-a0f1-486571b85365)
+
+### URL for State Management
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/56f0eba5-5a99-48a9-81d8-482a5d9491d0)
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/6f3b9068-c8ba-453e-ba1e-3724fe713698)
+### for Param
+- http://localhost:5173/app/cities/**17806751**
+```js
+// create new route
+ <Route path="cities/:id" element={<City />} />
+
+// Create link on items
+  <Link
+        className={`${styles.cityItem} ${
+          id === currentCity.id ? styles["cityItem--active"] : ""
+        }`}
+  to={`${id}`}
+>
+// get that param value in componnet `<City />`
+const { id } = useParams();
+ <Link
+        className={`${styles.cityItem} ${
+          id === currentCity.id ? styles["cityItem--active"] : ""
+        }`}
+  to={`${id}`}
+```
+### For Query String
+```js
+// create link 
+<Link
+        className={`${styles.cityItem} ${
+          id === currentCity.id ? styles["cityItem--active"] : ""
+        }`}
+        to={`${id}?lat=${position.lat}&lng=${position.lng}`}
+>
+// get the query string data
+  const [searchParams, setSearchParams] = useSearchParams();
+  const lat = searchParams.get("lat");
+  const lng = searchParams.get("lng");
+
+
+```
+### Programmatic navigation
+- Navigate automatically from one page to another page and even back in history
+- Ex1
+```js
+   const navigate = useNavigate();
+    navigate("/app/cities");
+```
+- Ex2
+ ```js
+function BackButton() {
+  const navigate = useNavigate();
+
+  return (
+    <Button
+      type="back"
+      onClick={(e) => {
+        e.preventDefault();
+        navigate(-1);
+      }}
+    >
+      &larr; Back
+    </Button>
+  );
+}
+```
+
 
 ---
 ## React Behind the scene
@@ -325,10 +459,12 @@ useEffect(
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/4731d726-5805-473f-83ab-1d24f4b02a3b)
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/3f288117-a426-4ed8-b878-8fdb6d357143)
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/eeb75ec8-4642-4bdf-b642-12c2e05e84c7)
+
 ### Practical Summary
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/2aec1dbb-314c-4146-b2c0-90245fa5efc5)
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/d939836d-b8e4-4ba0-80c7-510f441b6e90)
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/3d14da2b-4057-4a48-9ff6-6c5c37602348)
+
 ---
 ## Utility
 ### Json server
@@ -463,4 +599,16 @@ function App() {
 ### Compound Components:
 - Compound Components is a pattern where a parent component wraps multiple child components and controls their behavior and state. The child components are designed to work together as a group and are tightly coupled with the parent component. They share a common context or state managed by the parent.
 - https://codesandbox.io/s/react-compound-components-final-igzh7c
+
+---
+## State tool decision
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/72a2c252-23a2-4e06-8316-9c392dfce7e8)
+
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/db4482b3-1801-4ca0-b88b-66cb190d87af)
+
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/b9cb0fbd-7eec-432d-965f-fcb0838b9ade)
+
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/d5041f87-dc12-4e04-9d3f-6f7b75c1ddb5)
+
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/02a5c0ae-3a16-4def-a6cc-8d6c31fb571c)
 
