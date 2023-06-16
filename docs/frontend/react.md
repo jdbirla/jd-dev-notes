@@ -308,7 +308,7 @@ useEffect(
 
 ### useNavigate
 - This hook helps us in automatically navigation and back navigation
-- 
+  
 ### useContext
 - This hook help child componet of provider to subcribe the context and get the value from providers
 ` const { onClearPosts } = useContext(PostContext);`
