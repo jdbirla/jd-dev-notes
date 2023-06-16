@@ -380,6 +380,8 @@ String str = "Hello, world!";
 
 ### DTO Pattern
 
+### How to follow good coding standards in Spring Boot
+https://levelup.gitconnected.com/how-to-follow-good-coding-standards-in-spring-boot-a22dd735e3ec
 
 ----
 ## Utility
