@@ -136,6 +136,8 @@ ReactDOM.render(
 ## Conditional Rendering in JSX
 ### Using `&&`
 - This will execute anything when isOpen will true and it work with truthy and falsy values
+- //5 falsy values: 0, '', undefined, null, NaN
+
 ```js
 isOpen && <anything>
 ```
