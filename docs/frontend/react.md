@@ -160,7 +160,7 @@ isOpen && <anything>
 ---
 ## Props
 ### Get all the props in props object or deconstruct at the time of receiving args
- ```jsx
+```jsx
   <Pizza pizzaObj={pizza} key={pizza.name} jd="birla" />
 function Pizza(props) {
   console.log(props); 
