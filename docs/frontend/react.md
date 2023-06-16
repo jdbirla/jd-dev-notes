@@ -516,9 +516,110 @@ export { PostProvider, usePosts };
 
 
 ```
+---
+## Authentication
+- Create login context
+- Use that login xontext in login , logout components
+- Create a protected componet and wrappe whole application inside the protected component
+```js
+import { createContext, useContext, useReducer } from "react";
 
+const AuthContext = createContext();
 
+const initialState = {
+  user: null,
+  isAuthenticated: false,
+};
 
+function reducer(state, action) {
+  switch (action.type) {
+    case "login":
+      return { ...state, user: action.payload, isAuthenticated: true };
+    case "logout":
+      return { ...state, user: null, isAuthenticated: false };
+    default:
+      throw new Error("Unknown action");
+  }
+}
+
+const FAKE_USER = {
+  name: "Jack",
+  email: "jack@example.com",
+  password: "qwerty",
+  avatar: "https://i.pravatar.cc/100?u=zz",
+};
+
+function AuthProvider({ children }) {
+  const [{ user, isAuthenticated }, dispatch] = useReducer(
+    reducer,
+    initialState
+  );
+
+  function login(email, password) {
+    if (email === FAKE_USER.email && password === FAKE_USER.password)
+      dispatch({ type: "login", payload: FAKE_USER });
+  }
+
+  function logout() {
+    dispatch({ type: "logout" });
+  }
+
+  return (
+    <AuthContext.Provider value={{ user, isAuthenticated, login, logout }}>
+      {children}
+    </AuthContext.Provider>
+  );
+}
+
+function useAuth() {
+  const context = useContext(AuthContext);
+  if (context === undefined)
+    throw new Error("AuthContext was used outside AuthProvider");
+  return context;
+}
+
+export { AuthProvider, useAuth };
+```
+- Protected component
+```js
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../contexts/FakeAuthContext";
+
+function ProtectedRoute({ children }) {
+  const { isAuthenticated } = useAuth();
+  const navigate = useNavigate();
+
+  useEffect(
+    function () {
+      if (!isAuthenticated) navigate("/login");
+    },
+    [isAuthenticated, navigate]
+  );
+
+  return isAuthenticated ? children : null;
+}
+
+export default ProtectedRoute;
+
+```
+- Wrapping application in protected component
+```jsx
+  <Route
+                path="app"
+                element={
+                  <ProtectedRoute>
+                    <AppLayout />
+                  </ProtectedRoute>
+                }
+              >
+                <Route index element={<Navigate replace to="cities" />} />
+                <Route path="cities" element={<CityList />} />
+                <Route path="cities/:id" element={<City />} />
+                <Route path="countries" element={<CountryList />} />
+                <Route path="form" element={<Form />} />
+              </Route>
+```
 ---
 ## Thinking in react at 10000 Feet
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/dba0cf80-41af-446e-ac98-e80c69e41003)
