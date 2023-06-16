@@ -329,7 +329,24 @@ useEffect(
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/2aec1dbb-314c-4146-b2c0-90245fa5efc5)
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/d939836d-b8e4-4ba0-80c7-510f441b6e90)
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/3d14da2b-4057-4a48-9ff6-6c5c37602348)
-
+---
+## Utility
+### Json server
+- json server is creating a fake API using json file , we can use this for frontend development while backend is in development
+- install json server `$ npm i json-server`
+- Change in package.json file as below for json run command
+```json
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "server": "json-server --watch data/questions.json --port 9000"
+  },
+```
+- put your json file in data folder questions.json
+- start the json server `$ npm run server`
+- use API using http://localhost:9000/questions
 ---
 ## Reusability in react
 ### Component Composition: 
