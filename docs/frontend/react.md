@@ -1,5 +1,4 @@
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/eeb75ec8-4642-4bdf-b642-12c2e05e84c7)# React
-## Useful resources
 ## Debugging
 ### Double Rendering
    - In the Development environment components two times render because of React.StrictMode but not in production
