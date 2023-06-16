@@ -312,6 +312,8 @@ useEffect(
 
 ---
 ## React Behind the scene
+![react-behind-scene](https://github.com/jdbirla/jd-dev-notes/assets/69948118/b394b498-0c89-4816-8f43-974d19ab6da8)
+
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/cf36def3-9a0d-44f8-881c-120546b16706)
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/6b190f85-a807-4cc7-a309-ff3ad3f95dd5)
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/91a448e5-2c5e-4f51-b467-5f0b18f4c31f)
@@ -435,9 +437,9 @@ function App() {
 ### Hooks: 
 - Hooks are a feature introduced in React 16.8 that allow you to reuse stateful logic within functional components. By creating custom hooks, you can encapsulate reusable logic and use it in multiple components. Hooks like useState, useEffect, and useContext are built-in hooks that promote code reuse and modularity.
 
-## Component Libraries: 
+### Component Libraries: 
 - Utilizing component libraries or UI frameworks can provide pre-built, reusable components and styles for your application. Libraries like Material-UI, Ant Design, or Bootstrap offer a wide range of reusable components that you can leverage in your projects, saving development time and effort.
 
-## Compound Components:
+### Compound Components:
 - Compound Components is a pattern where a parent component wraps multiple child components and controls their behavior and state. The child components are designed to work together as a group and are tightly coupled with the parent component. They share a common context or state managed by the parent.
 - https://codesandbox.io/s/react-compound-components-final-igzh7c
