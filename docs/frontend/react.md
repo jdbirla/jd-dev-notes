@@ -309,7 +309,8 @@ useEffect(
 ### useNavigate
 - This hook helps us in automatically navigation and back navigation
 - 
-###
+### useContext
+
 ---
 ## Rendering
 - React reacts to state changes by re-rendering the UI
@@ -371,15 +372,6 @@ useEffect(
 ### Nested Routes
 - in the above Routing you can check app link which has nested routing
 - All the components of app router will render inside `  <AppLayout />` we can put it anywhere inside the app layout or child of `  <AppLayout />` component using ` <Outlet />` tag
-- 
-## Thinking in react at 10000 Feet
-![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/dba0cf80-41af-446e-ac98-e80c69e41003)
-### UI to components
-![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/ea3687b9-18b5-4c5a-bb18-9eb6658031e8)
-![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/3a6e6cf5-0342-486a-891e-55c94bd2da40)
-![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/79f37268-d54a-4c03-a2f4-a3a05d862c12)
-![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/12a1598d-449e-45fb-a0f1-486571b85365)
-
 ### URL for State Management
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/56f0eba5-5a99-48a9-81d8-482a5d9491d0)
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/6f3b9068-c8ba-453e-ba1e-3724fe713698)
@@ -445,6 +437,19 @@ function BackButton() {
   );
 }
 ```
+---
+## Context API
+
+---
+## Thinking in react at 10000 Feet
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/dba0cf80-41af-446e-ac98-e80c69e41003)
+### UI to components
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/ea3687b9-18b5-4c5a-bb18-9eb6658031e8)
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/3a6e6cf5-0342-486a-891e-55c94bd2da40)
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/79f37268-d54a-4c03-a2f4-a3a05d862c12)
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/12a1598d-449e-45fb-a0f1-486571b85365)
+
+
 
 
 ---
