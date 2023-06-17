@@ -632,6 +632,189 @@ export default ProtectedRoute;
               </Route>
 ```
 ---
+## Redux
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/be7ddc3b-e958-457b-8177-318e78b7efc3)
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/90b97cd3-2eb3-4931-ac26-9b447423ca5b)
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/a6f24c22-aa2d-4723-b89e-8be9d628b5eb)
+
+### Redux in Isolation without react using classic redux
+- We can't change state and no asynchronous logic
+```js
+import { combineReducers, createStore } from "redux";
+
+const initialStateAccount = {
+  balance: 0,
+  loan: 0,
+  loanPurpose: "",
+};
+
+const initialStateCustomer = {
+  fullName: "",
+  nationalID: "",
+  createdAt: "",
+};
+
+function accountReducer(state = initialStateAccount, action) {
+  switch (action.type) {
+    case "account/deposit":
+      return { ...state, balance: state.balance + action.payload };
+    case "account/withdraw":
+      return { ...state, balance: state.balance - action.payload };
+    case "account/requestLoan":
+      if (state.loan > 0) return state;
+      // LATER
+      return {
+        ...state,
+        loan: action.payload.amount,
+        loanPurpose: action.payload.purpose,
+        balance: state.balance + action.payload.amount,
+      };
+    case "account/payLoan":
+      return {
+        ...state,
+        loan: 0,
+        loanPurpose: "",
+        balance: state.balance - state.loan,
+      };
+
+    default:
+      return state;
+  }
+}
+
+function customerReducer(state = initialStateCustomer, action) {
+  switch (action.type) {
+    case "customer/createCustomer":
+      return {
+        ...state,
+        fullName: action.payload.fullName,
+        nationalID: action.payload.nationalID,
+        createdAt: action.payload.createdAt,
+      };
+    case "customer/updateName":
+      return { ...state, fullName: action.payload };
+    default:
+      return state;
+  }
+}
+
+const rootReducer = combineReducers({
+  account: accountReducer,
+  customer: customerReducer,
+});
+
+const store = createStore(rootReducer);
+
+// store.dispatch({ type: "account/deposit", payload: 500 });
+// store.dispatch({ type: "account/withdraw", payload: 200 });
+// console.log(store.getState());
+// store.dispatch({
+//   type: "account/requestLoan",
+//   payload: { amount: 1000, purpose: "Buy a car" },
+// });
+// console.log(store.getState());
+// store.dispatch({ type: "account/payLoan" });
+// console.log(store.getState());
+
+// const ACOOUNT_DEPOSIT = "account/deposit";
+
+function deposit(amount) {
+  return { type: "account/deposit", payload: amount };
+}
+
+function withdraw(amount) {
+  return { type: "account/withdraw", payload: amount };
+}
+
+function requestLoan(amount, purpose) {
+  return {
+    type: "account/requestLoan",
+    payload: { amount, purpose },
+  };
+}
+
+function payLoan() {
+  return { type: "account/payLoan" };
+}
+
+store.dispatch(deposit(500));
+store.dispatch(withdraw(200));
+console.log(store.getState());
+
+store.dispatch(requestLoan(1000, "Buy a cheap car"));
+console.log(store.getState());
+store.dispatch(payLoan());
+console.log(store.getState());
+
+function createCustomer(fullName, nationalID) {
+  return {
+    type: "customer/createCustomer",
+    payload: { fullName, nationalID, createdAt: new Date().toISOString() },
+  };
+}
+
+function updateName(fullName) {
+  return { type: "account/updateName", payload: fullName };
+}
+
+store.dispatch(createCustomer("Jonas Schmedtmann", "24343434"));
+store.dispatch(deposit(250));
+console.log(store.getState());
+
+```
+### Create a slice of the store based on features
+
+### React- redux
+- Connect redux with react
+```js
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { Provider } from "react-redux";
+import "./index.css";
+import App from "./App";
+
+import store from "./store";
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(
+  <React.StrictMode>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </React.StrictMode>
+);
+//------------------------------------------------------
+import { applyMiddleware, combineReducers, createStore } from "redux";
+import thunk from "redux-thunk";
+import { composeWithDevTools } from "redux-devtools-extension";
+
+import accountReducer from "./features/accounts/accountSlice";
+import customerReducer from "./features/customers/customerSlice";
+
+const rootReducer = combineReducers({
+  account: accountReducer,
+  customer: customerReducer,
+});
+
+const store = createStore(
+  rootReducer
+);
+
+export default store;
+//------------------------------------------------------
+import { useSelector } from "react-redux";
+
+function Customer() {
+  const customer = useSelector((store) => store.customer.fullName);
+
+  return <h2>👋 Welcome, {customer}</h2>;
+}
+
+export default Customer;
+
+```
+
+---
 ## Performance Optimization
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/9a757535-1e74-4b83-9776-4cf572eb6c2a)
 
