@@ -4,6 +4,15 @@
    - In the Development environment components two times render because of React.StrictMode but not in production
 ### React Developer Tools
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/31ff09cd-4690-455a-b775-dddbbb5c12fa)
+
+### Profiler
+- go in profile and update setting for reson for re render
+- start recroding
+- change state means do any operation which will change state
+- stop recording and you can see why each compone re render
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/89b22199-d1a1-4704-949f-5b50ff8aa73e)
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/96a823f3-6248-42f2-b4ba-d916f1700d3e)
+
 ---
 ## Immutable Operations in React
 ### Add object to array
@@ -287,6 +296,12 @@ useEffect(
   );
 
 ```
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/b1dfaec6-d591-4d85-b330-4bbb2901af56)
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/b2fadf48-f067-4730-88a5-2e93b18edc61)
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/6eaa0827-bac0-446e-a7f9-4eb5fdf96d87)
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/9857aba8-c04c-4c6f-9059-08b085730c96)
+
+
 ### useRef
 - How not to select DOM element in react
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/2b39cc70-d24a-46af-862c-2e20a96c9fcd)
@@ -616,6 +631,123 @@ export default ProtectedRoute;
                 <Route path="form" element={<Form />} />
               </Route>
 ```
+---
+## Performance Optimization
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/9a757535-1e74-4b83-9776-4cf572eb6c2a)
+
+### 1. Child re render
+- When parent componet has a state and a slow componet is child componet and when changing state in parent is re rendering the slow compone as well and if slow compone is not using that state it isolate then
+- we have to pass that slow component as children prop in parent component so that children compone won't re render while changing state in parent component
+```js
+function Counter({ children }) {
+  const [count, setCount] = useState(0);
+  return (
+    <div>
+      <h1>Slow counter?!?</h1>
+      <button onClick={() => setCount((c) => c + 1)}>Increase: {count}</button>
+
+      {children}
+    </div>
+  );
+}
+
+export default function Test() {
+  // const [count, setCount] = useState(0);
+  // return (
+  //   <div>
+  //     <h1>Slow counter?!?</h1>
+  //     <button onClick={() => setCount((c) => c + 1)}>Increase: {count}</button>
+
+  //     <SlowComponent />
+  //   </div>
+  // );
+
+  return (
+    <div>
+      <h1>Slow counter?!?</h1>
+      <Counter>
+        <SlowComponent />
+      </Counter>
+    </div>
+  )
+
+```
+### Memoization
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/a843402c-9f99-4507-a3d5-0edacd2ebd39)
+#### The Memo function
+- Memoizing the component
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/4d6664ac-22d1-4665-8e6a-c71df8ff983b)
+- its required when child componets prop is not changing frequently,`memo` function chache the result if prop is not changing , if prop is changin only  then it will re rendered 
+```js
+const Archive = memo( component)
+```
+#### useMemo and useCALLBACK
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/b469173e-b911-42e3-a16d-24c3c34809d8)
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/a99b7e3e-cf8a-4278-8769-6fd9c4c43287)
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/16f227b1-e81f-4b2a-9d61-f2cb8a72769e)
+- useMemo
+- memo not working in object and function when we pass as en prop for that for object we have to use `useMemo` and pass the dependency when this object has to re created else fetch from cache
+```js
+const archiveOptions = useMemo(() => {
+    return {
+      show: false,
+      title: `Post archive in addition to ${posts.length} main posts`,
+    };
+  }, [posts.length]);
+   <Archive
+        archiveOptions={archiveOptions}
+        onAddPost={handleAddPost}
+        setIsFakeDark={setIsFakeDark}
+      />
+```
+```js
+ const value = useMemo(() => {
+    return {
+      posts: searchedPosts,
+      onAddPost: handleAddPost,
+      onClearPosts: handleClearPosts,
+      searchQuery,
+      setSearchQuery,
+    };
+  }, [searchedPosts, searchQuery]);
+
+  return (
+    // 2) PROVIDE VALUE TO CHILD COMPONENTS
+    <PostContext.Provider value={value}>{children}</PostContext.Provider>
+  );
+```
+- useCallback
+- memo not working in object and function when we pass as an prop for that for function we have to use `useCallback` and pass the dependency when this function has to re created else fetch from cache
+```js
+  const handleAddPost = useCallback(function handleAddPost(post) {
+    setPosts((posts) => [post, ...posts]);
+  }, []);
+  
+   <Archive
+        archiveOptions={archiveOptions}
+        onAddPost={handleAddPost}
+        setIsFakeDark={setIsFakeDark}
+      />
+```
+### Optimizing Bundle size
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/e28afdfd-9e0c-4f69-bfc7-340166c706c6)
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/d177785c-f63e-4032-b31d-13e207c368c5)
+- Split bundle based on per page
+```js
+const Homepage = lazy(() => import("./pages/Homepage"));
+const Product = lazy(() => import("./pages/Product"));
+const Pricing = lazy(() => import("./pages/Pricing"));
+const Login = lazy(() => import("./pages/Login"));
+const AppLayout = lazy(() => import("./pages/AppLayout"));
+const PageNotFound = lazy(() => import("./pages/PageNotFound"));
+
+
+-  Suspense will suspend while js downloading from server       
+```js
+<Suspense fallback={<SpinnerFullPage />}>
+```
+
+
 ---
 ## Thinking in react at 10000 Feet
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/dba0cf80-41af-446e-ac98-e80c69e41003)
