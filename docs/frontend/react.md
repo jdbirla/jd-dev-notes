@@ -825,7 +825,7 @@ export default Customer;
     if (!fullName || !nationalId) return;
     dispatch(createCustomer(fullName, nationalId));
   }
-  ```
+```
 ### Redux Middleware
 - For Asynchronous API call
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/c91c4ad1-1ac5-4a40-9455-3ddcf6058cea)
@@ -1010,6 +1010,9 @@ export function deposit(amount, currency) {
 
 export default accountSlice.reducer;
 ```
+---
+## React Router for 
+- New way of fetching data right inside React Router (v6.4+) that is worth exploring (“render-as-you-fetch” instead of “fetch-onrender”). Not really state management, as it doesn't persist state.
 
 ---
 ## Performance Optimization
