@@ -4,6 +4,11 @@
    - In the Development environment components two times render because of React.StrictMode but not in production
 ### React Developer Tools
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/31ff09cd-4690-455a-b775-dddbbb5c12fa)
+### Redux Devtool
+- Add chrome extension Redux devtool
+- install `npm I redux-devtools-extension`
+- wrap inside `composeWithDevTools`
+  ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/f156d2a7-8d0c-4569-a533-13e6de09f7eb)
 
 ### Profiler
 - go in profile and update setting for reson for re render
@@ -812,6 +817,198 @@ function Customer() {
 
 export default Customer;
 
+//------------------------------------------------------
+
+  const dispatch = useDispatch();
+
+  function handleClick() {
+    if (!fullName || !nationalId) return;
+    dispatch(createCustomer(fullName, nationalId));
+  }
+  ```
+### Redux Middleware
+- For Asynchronous API call
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/c91c4ad1-1ac5-4a40-9455-3ddcf6058cea)
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/5c2f4485-d3dc-46fb-a9ff-1f109d408010)
+- For thunk we should call sync function before returning the dispatch function in action creator funciton
+- accountslice.js
+```js
+  export default function accountReducer(state = initialState, action) {
+  switch (action.type) {
+    case "account/deposit":
+      return {
+        ...state,
+        balance: state.balance + action.payload,
+        isLoading: false,
+      };
+    case "account/withdraw":
+      return { ...state, balance: state.balance - action.payload };
+    case "account/requestLoan":
+      if (state.loan > 0) return state;
+      // LATER
+      return {
+        ...state,
+        loan: action.payload.amount,
+        loanPurpose: action.payload.purpose,
+        balance: state.balance + action.payload.amount,
+      };
+    case "account/payLoan":
+      return {
+        ...state,
+        loan: 0,
+        loanPurpose: "",
+        balance: state.balance - state.loan,
+      };
+    case "account/convertingCurrency":
+      return { ...state, isLoading: true };
+
+    default:
+      return state;
+  }
+}
+
+export function deposit(amount, currency) {
+  if (currency === "USD") return { type: "account/deposit", payload: amount };
+
+  return async function (dispatch, getState) {
+    dispatch({ type: "account/convertingCurrency" });
+
+    const res = await fetch(
+      `https://api.frankfurter.app/latest?amount=${amount}&from=${currency}&to=USD`
+    );
+    const data = await res.json();
+    const converted = data.rates.USD;
+
+    dispatch({ type: "account/deposit", payload: converted });
+  };
+}
+
+export function withdraw(amount) {
+  return { type: "account/withdraw", payload: amount };
+}
+
+export function requestLoan(amount, purpose) {
+  return {
+    type: "account/requestLoan",
+    payload: { amount, purpose },
+  };
+}
+
+export function payLoan() {
+  return { type: "account/payLoan" };
+}
+```
+- store.js
+```js
+import { applyMiddleware, combineReducers, createStore } from "redux";
+import thunk from "redux-thunk";
+import { composeWithDevTools } from "redux-devtools-extension";
+
+import accountReducer from "./features/accounts/accountSlice";
+import customerReducer from "./features/customers/customerSlice";
+
+const rootReducer = combineReducers({
+  account: accountReducer,
+  customer: customerReducer,
+});
+
+const store = createStore(
+  rootReducer,
+  composeWithDevTools(applyMiddleware(thunk))
+);
+
+export default store;
+
+```
+### Reduxc Tool Kit
+- Modern way to write redux code
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/08774d5f-72e8-4da4-87f2-d20371908d46)
+- We can write code that “mutates” state inside reducers (will be converted to immutable logic behind the scenes by “Immer” library)
+- Action creators are automatically created and Automatic setup of thunk middleware and DevTools
+- store.js
+```js
+
+import { configureStore } from "@reduxjs/toolkit";
+
+import accountReducer from "./features/accounts/accountSlice";
+import customerReducer from "./features/customers/customerSlice";
+
+const store = configureStore({
+  reducer: {
+    account: accountReducer,
+    customer: customerReducer,
+  },
+});
+
+export default store;
+```
+- accountslice.js
+```js
+import { createSlice } from "@reduxjs/toolkit";
+
+const initialState = {
+  balance: 0,
+  loan: 0,
+  loanPurpose: "",
+  isLoading: false,
+};
+
+const accountSlice = createSlice({
+  name: "account",
+  initialState,
+  reducers: {
+    deposit(state, action) {
+      state.balance += action.payload;
+      state.isLoading = false;
+    },
+    withdraw(state, action) {
+      state.balance -= action.payload;
+    },
+    requestLoan: {
+      prepare(amount, purpose) {
+        return {
+          payload: { amount, purpose },
+        };
+      },
+
+      reducer(state, action) {
+        if (state.loan > 0) return;
+
+        state.loan = action.payload.amount;
+        state.loanPurpose = action.payload.purpose;
+        state.balance = state.balance + action.payload.amount;
+      },
+    },
+    payLoan(state) {
+      state.balance -= state.loan;
+      state.loan = 0;
+      state.loanPurpose = "";
+    },
+    convertingCurrency(state) {
+      state.isLoading = true;
+    },
+  },
+});
+
+export const { withdraw, requestLoan, payLoan } = accountSlice.actions;
+
+export function deposit(amount, currency) {
+  if (currency === "USD") return { type: "account/deposit", payload: amount };
+
+  return async function (dispatch, getState) {
+    dispatch({ type: "account/convertingCurrency" });
+
+    const res = await fetch(
+      `https://api.frankfurter.app/latest?amount=${amount}&from=${currency}&to=USD`
+    );
+    const data = await res.json();
+    const converted = data.rates.USD;
+
+    dispatch({ type: "account/deposit", payload: converted });
+  };
+}
+
+export default accountSlice.reducer;
 ```
 
 ---
