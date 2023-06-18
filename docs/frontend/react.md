@@ -2,7 +2,7 @@
 ## Debugging
 [An Internal Link to a Section Heading](https://github.com/jdbirla/jd-dev-notes/blob/master/docs/frontend/react-state-decision.html)
 
-[An Internal Link to a Section Heading](/docs/frontend/react-state-decision.html)
+[An Internal Link to a Section Heading](/react-state-decision.html)
 
 
 ### Double Rendering
