@@ -1,5 +1,8 @@
 # React
 ## Debugging
+[An Internal Link to a Section Heading](https://github.com/jdbirla/jd-dev-notes/blob/master/docs/frontend/react-state-decision.drawio.html)
+
+[An Internal Link to a Section Heading](/docs/frontend/react-state-decision.drawio.html)
 ### Double Rendering
    - In the Development environment components two times render because of React.StrictMode but not in production
 ### React Developer Tools
@@ -1256,6 +1259,8 @@ function Cabins() {
 export default Cabins;
 
 ```
+
+
 ---
 ## Thinking in react at 10000 Feet
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/dba0cf80-41af-446e-ac98-e80c69e41003)
