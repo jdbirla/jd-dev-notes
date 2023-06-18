@@ -1314,6 +1314,8 @@ export default Cabins;
 - use API using http://localhost:9000/questions
 ---
 ## Reusability in react
+![Reusability drawio](https://github.com/jdbirla/jd-dev-notes/assets/69948118/b18ecb6c-bd8a-4e95-99ff-44ac9d671349)
+
 ### Component Composition: 
 - This technique involves composing smaller, reusable components together to build larger components or user interfaces. By breaking down your UI into smaller, self-contained components, you can reuse them across different parts of your application. For example, you can create a Button component and reuse it in various places wherever a button is needed.
 - Component Composition is a pattern where smaller, reusable components are composed together to build larger components or user interfaces. Each component remains independent and doesn't rely on specific knowledge or state from other components.
