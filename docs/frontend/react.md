@@ -1403,7 +1403,7 @@ function ParentComponent({ children }) {
 ```
 ### Higher-Order Components (HOCs):
 - HOCs are functions that take a component as input and return a new enhanced component. They allow you to add additional functionality or modify the behavior of a component without directly modifying its source code. HOCs can be used for cross-cutting concerns like authentication, data fetching, or logging. For example, you can create an withLogger HOC that wraps a component and adds logging capabilities to it.
-- https://codesandbox.io/s/react-render-props-final-elme76?file=/src/HOC.js
+- <https://codesandbox.io/s/react-render-props-final-elme76?file=/src/HOC.js>
 ```js
 // HOC that adds logging functionality to a component
 function withLogger(WrappedComponent) {
@@ -1439,7 +1439,7 @@ function App() {
 ### Render Props: 
 - The Render Props pattern involves passing a function as a prop to a component, allowing the component to render the content provided by that function. It enables sharing logic or data between components by making the rendering behavior customizable. For example, you can create a Toggle component that uses a render prop to determine what to render when a button is toggled.
 
-- https://codesandbox.io/s/react-render-props-final-elme76
+- <https://codesandbox.io/s/react-render-props-final-elme76>
 - 
 ```js
 
@@ -1549,7 +1549,7 @@ export default MyComponent;
 
 ### Compound Components:
 - Compound Components is a pattern where a parent component wraps multiple child components and controls their behavior and state. The child components are designed to work together as a group and are tightly coupled with the parent component. They share a common context or state managed by the parent.
-- https://codesandbox.io/s/react-compound-components-final-igzh7c
+- <https://codesandbox.io/s/react-compound-components-final-igzh7c>
 ```js
 import { createContext, useContext, useState } from "react";
 
