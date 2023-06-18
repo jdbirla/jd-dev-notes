@@ -1439,8 +1439,50 @@ function App() {
 
 - https://codesandbox.io/s/react-render-props-final-elme76
 
-### Hooks: 
-- Hooks are a feature introduced in React 16.8 that allow you to reuse stateful logic within functional components. By creating custom hooks, you can encapsulate reusable logic and use it in multiple components. Hooks like useState, useEffect, and useContext are built-in hooks that promote code reuse and modularity.
+### Custom Hook: 
+- By creating custom hooks, you can encapsulate complex logic and state management in a reusable manner
+```js
+import { useState, useEffect } from 'react';
+
+function useCustomHook(initialValue) {
+  const [count, setCount] = useState(initialValue);
+
+  useEffect(() => {
+    // Custom logic using useEffect
+    document.title = `Count: ${count}`;
+  }, [count]);
+
+  const increment = () => {
+    setCount(prevCount => prevCount + 1);
+  };
+
+  const decrement = () => {
+    setCount(prevCount => prevCount - 1);
+  };
+
+  return { count, increment, decrement };
+}
+
+export default useCustomHook;
+
+import React from 'react';
+import useCustomHook from './useCustomHook';
+
+function MyComponent() {
+  const { count, increment, decrement } = useCustomHook(0);
+
+  return (
+    <div>
+      <p>Count: {count}</p>
+      <button onClick={increment}>Increment</button>
+      <button onClick={decrement}>Decrement</button>
+    </div>
+  );
+}
+
+export default MyComponent;
+
+```
 
 ### Component Libraries: 
 - Utilizing component libraries or UI frameworks can provide pre-built, reusable components and styles for your application. Libraries like Material-UI, Ant Design, or Bootstrap offer a wide range of reusable components that you can leverage in your projects, saving development time and effort.
@@ -1450,14 +1492,4 @@ function App() {
 - https://codesandbox.io/s/react-compound-components-final-igzh7c
 
 ---
-## State tool decision
-![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/72a2c252-23a2-4e06-8316-9c392dfce7e8)
-
-![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/db4482b3-1801-4ca0-b88b-66cb190d87af)
-
-![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/b9cb0fbd-7eec-432d-965f-fcb0838b9ade)
-
-![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/d5041f87-dc12-4e04-9d3f-6f7b75c1ddb5)
-
-![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/02a5c0ae-3a16-4def-a6cc-8d6c31fb571c)
 
