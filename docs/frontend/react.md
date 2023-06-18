@@ -1,8 +1,10 @@
 # React
 ## Debugging
-[An Internal Link to a Section Heading](https://github.com/jdbirla/jd-dev-notes/blob/master/docs/frontend/react-state-decision.drawio.html)
+[An Internal Link to a Section Heading](https://github.com/jdbirla/jd-dev-notes/blob/master/docs/frontend/react-state-decision.html)
 
-[An Internal Link to a Section Heading](/docs/frontend/react-state-decision.drawio.html)
+[An Internal Link to a Section Heading](/docs/frontend/react-state-decision.html)
+
+
 ### Double Rendering
    - In the Development environment components two times render because of React.StrictMode but not in production
 ### React Developer Tools
