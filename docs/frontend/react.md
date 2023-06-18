@@ -1379,6 +1379,26 @@ function App() {
 }
 
 ```
+### Children Prop
+- By using the children prop, you can create reusable components that can receive and render different child components or elements. This allows for flexible composition of components and promotes code reuse.
+```js
+function ParentComponent({ children }) {
+  return (
+    <div>
+      <h1>Parent Component</h1>
+      {children}
+      <footer>Some footer content</footer>
+    </div>
+  );
+}
+
+<ParentComponent>
+  <ChildComponent1 />
+  <ChildComponent2 />
+  <div>Some text</div>
+</ParentComponent>
+
+```
 ### Higher-Order Components (HOCs):
 - HOCs are functions that take a component as input and return a new enhanced component. They allow you to add additional functionality or modify the behavior of a component without directly modifying its source code. HOCs can be used for cross-cutting concerns like authentication, data fetching, or logging. For example, you can create an withLogger HOC that wraps a component and adds logging capabilities to it.
 - https://codesandbox.io/s/react-render-props-final-elme76?file=/src/HOC.js
