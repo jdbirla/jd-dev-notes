@@ -1438,6 +1438,64 @@ function App() {
 - The Render Props pattern involves passing a function as a prop to a component, allowing the component to render the content provided by that function. It enables sharing logic or data between components by making the rendering behavior customizable. For example, you can create a Toggle component that uses a render prop to determine what to render when a button is toggled.
 
 - https://codesandbox.io/s/react-render-props-final-elme76
+- 
+```js
+
+function List({ title, items, render1 }) {
+  const [isOpen, setIsOpen] = useState(true);
+  const [isCollapsed, setIsCollapsed] = useState(false);
+
+  const displayItems = isCollapsed ? items.slice(0, 3) : items;
+
+  function toggleOpen() {
+    setIsOpen((isOpen) => !isOpen);
+    setIsCollapsed(false);
+  }
+
+  return (
+    <div className="list-container">
+      <div className="heading">
+        <h2>{title}</h2>
+        <button onClick={toggleOpen}>
+          {isOpen ? <span>&or;</span> : <span>&and;</span>}
+        </button>
+      </div>
+      {isOpen && <ul className="list">{displayItems.map(render1)}</ul>}
+
+      <button onClick={() => setIsCollapsed((isCollapsed) => !isCollapsed)}>
+        {isCollapsed ? `Show all ${items.length}` : "Show less"}
+      </button>
+    </div>
+  );
+}
+
+export default function App() {
+  return (
+    <div>
+      <h1>Render Props Demo</h1>
+
+      <div className="col-2">
+        <List
+          title="Products"
+          items={products}
+          render1={(product) => (
+            <ProductItem key={product.productName} product={product} />
+          )}
+        />
+
+        <List
+          title="Companies"
+          items={companies}
+          render1={(company) => (
+            <CompanyItem
+              key={company.companyName}
+              company={company}
+              defaultVisibility={false}
+            />
+          )}
+        />
+      </div>
+```
 
 ### Custom Hook: 
 - By creating custom hooks, you can encapsulate complex logic and state management in a reusable manner
@@ -1490,6 +1548,89 @@ export default MyComponent;
 ### Compound Components:
 - Compound Components is a pattern where a parent component wraps multiple child components and controls their behavior and state. The child components are designed to work together as a group and are tightly coupled with the parent component. They share a common context or state managed by the parent.
 - https://codesandbox.io/s/react-compound-components-final-igzh7c
+```js
+import { createContext, useContext, useState } from "react";
 
+// 1. Create a context
+const CounterContext = createContext();
+
+// 2. Create parent component
+function Counter({ children }) {
+  const [count, setCount] = useState(0);
+  const increase = () => setCount((c) => c + 1);
+  const decrease = () => setCount((c) => c - 1);
+
+  return (
+    <CounterContext.Provider value={{ count, increase, decrease }}>
+      <span>{children}</span>
+    </CounterContext.Provider>
+  );
+}
+
+// 3. Create child components to help implementing the common task
+function Count() {
+  const { count } = useContext(CounterContext);
+  return <span>{count}</span>;
+}
+
+function Label({ children }) {
+  return <span>{children}</span>;
+}
+
+function Increase({ icon }) {
+  const { increase } = useContext(CounterContext);
+  return <button onClick={increase}>{icon}</button>;
+}
+
+function Decrease({ icon }) {
+  const { decrease } = useContext(CounterContext);
+  return <button onClick={decrease}>{icon}</button>;
+}
+// 4. Add child components as proeprties to parent component
+Counter.Count = Count;
+Counter.Label = Label;
+Counter.Increase = Increase;
+Counter.Decrease = Decrease;
+
+export default Counter;
+//-------------
+import Counter from "./Counter";
+import "./styles.css";
+
+export default function App() {
+  return (
+    <div>
+      <h1>Compound Component Pattern</h1>
+      {/* <Counter
+        iconIncrease="+"
+        iconDecrease="-"
+        label="My NOT so flexible counter"
+        hideLabel={false}
+        hideIncrease={false}
+        hideDecrease={false}
+        positionCount="top"
+      /> */}
+
+      <Counter>
+        <Counter.Label>My super flexible counter</Counter.Label>
+        <Counter.Decrease icon="-" />
+        <Counter.Increase icon="+" />
+        <Counter.Count />
+      </Counter>
+
+      <div>
+        <Counter>
+          <Counter.Decrease icon="◀️" />
+          <div>
+            <Counter.Count />
+          </div>
+          <Counter.Increase icon="▶️" />
+        </Counter>
+      </div>
+    </div>
+  );
+}
+
+```
 ---
 
