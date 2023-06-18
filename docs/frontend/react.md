@@ -1,9 +1,5 @@
 # React
 ## Debugging
-[An Internal Link to a Section Heading](https://github.com/jdbirla/jd-dev-notes/blob/master/docs/frontend/react-state-decision.html)
-
-[An Internal Link to a Section Heading](/react-state-decision.html)
-
 
 ### Double Rendering
    - In the Development environment components two times render because of React.StrictMode but not in production
@@ -218,6 +214,8 @@ function Pizza({ pizzaObj }) {}
 
 ---
 ## State
+![react-state-decision drawio](https://github.com/jdbirla/jd-dev-notes/assets/69948118/07685b16-e7f5-4829-ae03-c691e71a19bd)
+
 ### Always update state using callback
 ```js
  if (step < 3) {
@@ -1266,6 +1264,8 @@ export default Cabins;
 ---
 ## Thinking in react at 10000 Feet
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/dba0cf80-41af-446e-ac98-e80c69e41003)
+![Untitled-2023-06-15-0819](https://github.com/jdbirla/jd-dev-notes/assets/69948118/98ade034-ac83-4332-abb2-9f577d3fd7f5)
+
 ### UI to components
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/ea3687b9-18b5-4c5a-bb18-9eb6658031e8)
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/3a6e6cf5-0342-486a-891e-55c94bd2da40)
@@ -1278,6 +1278,7 @@ export default Cabins;
 ---
 ## React Behind the scene
 ![react-behind-scene](https://github.com/jdbirla/jd-dev-notes/assets/69948118/b394b498-0c89-4816-8f43-974d19ab6da8)
+![Untitled-2023-06-15-0819](https://github.com/jdbirla/jd-dev-notes/assets/69948118/31406045-d8ca-4215-8aba-5b122c10da53)
 
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/cf36def3-9a0d-44f8-881c-120546b16706)
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/6b190f85-a807-4cc7-a309-ff3ad3f95dd5)
