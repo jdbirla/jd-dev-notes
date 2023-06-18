@@ -17,6 +17,14 @@
 - stop recording and you can see why each compone re render
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/89b22199-d1a1-4704-949f-5b50ff8aa73e)
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/96a823f3-6248-42f2-b4ba-d916f1700d3e)
+### React Query Dev Tool
+ Install `@tanstack/react-query-devtools`
+```
+<QueryClientProvider client={queryClient}>
+      <ReactQueryDevtools initialIsOpen={false} />
+```
+
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/68f8b5ab-1847-46d1-8dbc-f66a351926de)
 
 ---
 ## Immutable Operations in React
@@ -1129,8 +1137,125 @@ const PageNotFound = lazy(() => import("./pages/PageNotFound"));
 ```js
 <Suspense fallback={<SpinnerFullPage />}>
 ```
+---
+## React Query
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/1b765ed2-4f60-4717-bdd1-49f761dc6dda)
 
+- setting the wild oasis project
+- get the api key from supabase and put into supabase api variable
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/016c9885-46a3-4ca1-808c-f6b845fc30a5)
+- app.js
+```js
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      // staleTime: 60 * 1000,
+      staleTime: 0,
+    },
+  },
+});
 
+<QueryClientProvider client={queryClient}>
+      <ReactQueryDevtools initialIsOpen={false} />
+
+      <GlobalStyles />
+      <BrowserRouter>
+        <Routes>
+          <Route element={<AppLayout />}>
+            <Route index element={<Navigate replace to="dashboard" />} />
+            <Route path="dashboard" element={<Dashboard />} />
+            <Route path="bookings" element={<Bookings />} />
+            <Route path="cabins" element={<Cabins />} />
+            <Route path="users" element={<Users />} />
+            <Route path="settings" element={<Settings />} />
+            <Route path="account" element={<Account />} />
+          </Route>
+
+          <Route path="login" element={<Login />} />
+          <Route path="*" element={<PageNotFound />} />
+        </Routes>
+      </BrowserRouter>
+
+      <Toaster
+        position="top-center"
+        gutter={12}
+        containerStyle={{ margin: "8px" }}
+        toastOptions={{
+          success: {
+            duration: 3000,
+          },
+          error: {
+            duration: 5000,
+          },
+          style: {
+            fontSize: "16px",
+            maxWidth: "500px",
+            padding: "16px 24px",
+            backgroundColor: "var(--color-grey-0)",
+            color: "var(--color-grey-700)",
+          },
+        }}
+      />
+    </QueryClientProvider>
+```
+- apiCabins.js
+```js
+export async function getCabins() {
+  const { data, error } = await supabase.from("cabins").select("*");
+
+  if (error) {
+    console.error(error);
+    throw new Error("Cabins could not be loaded");
+  }
+
+  return data;
+}
+```
+- useCabins.js
+```js
+import { useQuery } from "@tanstack/react-query";
+import { getCabins } from "../../services/apiCabins";
+
+export function useCabins() {
+  const {
+    isLoading,
+    data: cabins,
+    error,
+  } = useQuery({
+    queryKey: ["cabins"],
+    queryFn: getCabins,
+  });
+
+  return { isLoading, error, cabins };
+}
+```
+- Cabins.js
+```js
+function Cabins() {
+  const [showForm, setShowForm] = useState(false);
+
+  return (
+    <>
+      <Row type="horizontal">
+        <Heading as="h1">All cabins</Heading>
+        <p>Filter / Sort</p>
+      </Row>
+
+      <Row>
+        <CabinTable />
+
+        <Button onClick={() => setShowForm((show) => !show)}>
+          Add new cabin
+        </Button>
+        {showForm && <CreateCabinForm />}
+      </Row>
+    </>
+  );
+}s
+
+export default Cabins;
+
+```
 ---
 ## Thinking in react at 10000 Feet
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/dba0cf80-41af-446e-ac98-e80c69e41003)
