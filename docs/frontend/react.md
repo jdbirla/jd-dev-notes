@@ -470,6 +470,7 @@ function BackButton() {
 ---
 ## Context API
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/2c5325a4-fa24-465f-929b-d4fcf0d13551)
+
 - Context api mostly using by Custom Provider
 - Create seprate context file
 - Create custome componet like below `PostProvider` create context obejct in the file
