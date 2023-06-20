@@ -183,6 +183,10 @@ isOpen && <anything>
    )
 
 ```
+###  Using Style Property
+```js
+<div style={{ display: showInfo ? "block" : "none" }}>info</div>
+```
 ---
 ## Props
 ### Get all the props in props object or deconstruct at the time of receiving args
