@@ -109,6 +109,39 @@ https://replit.com/signup
 }
 
 ```
+- user setting json
+```json
+{
+  "editor.fontSize": 15,
+  "editor.tabSize": 2,
+  "editor.multiCursorModifier": "ctrlCmd",
+  "editor.wordWrap": "on",
+  "editor.formatOnSave": true,
+  "window.confirmBeforeClose": "always",
+  "window.openFoldersInNewWindow": "on",
+  "[html]": {
+    "editor.defaultFormatter": "vscode.html-language-features"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "yaml.schemas": {
+    "kubernetes": "*.yaml"
+  },
+  "redhat.telemetry.enabled": true,
+  "workbench.colorTheme": "Monokai Pro",
+  "code-runner.showExecutionMessage": false,
+  "code-runner.clearPreviousOutput": true,
+  "editor.minimap.enabled": false,
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "code-runner.executorMap": {
+    "typescript": "ts-node"
+  },
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "workbench.iconTheme": "material-icon-theme",
+  "eslint.run": "onSave"
+}
+```
 - Quokka : a javascript run tool 
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/97bddc20-a71d-470b-b1ff-bfa7d4db8e96)
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/78a09977-1a6d-4af6-89ad-d21374546a59)
