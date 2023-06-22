@@ -1640,4 +1640,458 @@ export default function App() {
 
 ```
 ---
+## React Quick Ref
+### ApiMarsFetchList
+```jsx
+import { useState, useEffect } from "react";
 
+export default function ApiMarsFetchList() {
+  const [mars, setMars] = useState([]);
+  useEffect(() => {
+    fetch("https://fakestoreapi.com/products/")
+      .then((res) => res.json())
+      .then((data) => setMars(data))
+      .catch((err) => console.log(err));
+  }, []);
+
+  mars.map((item, index) => console.log(item.id));
+
+  return (
+    <>
+      <ul>
+        {mars.map((item, index) => (
+          <li>{item.title}</li>
+        ))}
+      </ul>
+    </>
+  );
+}
+
+```
+### ApiMarsFetchTable
+```jsx
+import { useEffect, useState } from "react";
+
+export function ApiMarsFetchTable() {
+  const [mars, setMars] = useState([]);
+
+  useEffect(() => {
+    fetch(
+      "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=DEMO_KEY"
+    )
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error(`mars not found : ${res.status}`);
+        }
+        return res.json();
+      })
+      .then((data) => setMars(data.photos))
+      .catch((err) => console.error(err))
+      .finally(() => {
+        console.log("finally");
+      });
+  }, []);
+
+  return (
+    <div className="container-fluid">
+      <h2>Mars Rover Photos</h2>
+      <table className="table table-hover">
+        <thead>
+          <tr>
+            <th>Photo Id</th>
+            <th>Preview</th>
+            <th>Camera</th>
+            <th>Rover</th>
+          </tr>
+        </thead>
+        <tbody>
+          {mars.map((item) => (
+            <tr key={item.id}>
+              <td>{item.id}</td>
+              <td>
+                <img src={item.img_src} width="100" height="100" />
+              </td>
+              <td>{item.camera.full_name}</td>
+              <td>{item.rover.name}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
+```
+
+### ApiUserAxiosList
+```jsx
+import { useState, useEffect } from "react";
+import axios from "axios";
+
+export default function ApiUserAxiosList() {
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    axios.get("https://reqres.in/api/users?page=1").then((response) => {
+      setUsers(response.data.data);
+    });
+  }, []);
+
+  return (
+    <div>
+      <ul>
+        {users.map((user) => (
+          <li key={user.id}>
+            {user.first_name} {user.last_name}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+```
+### Classlifecycle
+```jsx
+import React from "react";
+
+export default class Header extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { favoritecolor: "red" };
+  }
+  // static getDerivedStateFromProps(props, state) {
+  //   return { favoritecolor: props.favcol };
+  // }
+  componentDidMount() {
+    setTimeout(() => {
+      this.setState({ favoritecolor: "yellow" });
+    }, 1000);
+  }
+  render() {
+    return <h1>My Favorite Color is {this.state.favoritecolor}</h1>;
+  }
+}
+
+```
+### ContextApi
+```jsx
+import { useState, useContext } from "react";
+import React from "react";
+const CountContext = React.createContext();
+const Counter = () => {
+  const { count, increase, decrease } = useContext(CountContext);
+  return (
+    <h2>
+      <button className="btn btn-danger" onClick={decrease}>
+        Decrement
+      </button>
+      <span className="count">{count}</span>
+      <button className="btn btn-success" onClick={increase}>
+        Increment
+      </button>
+    </h2>
+  );
+};
+
+// App.js
+
+const ContextApi = () => {
+  const [count, setCount] = useState(0);
+
+  const increase = () => {
+    setCount(count + 1);
+  };
+  const decrease = () => {
+    setCount(count - 1);
+  };
+
+  return (
+    <div>
+      <CountContext.Provider value={{ count, increase, decrease }}>
+        <Counter />
+      </CountContext.Provider>
+    </div>
+  );
+};
+
+export default ContextApi;
+
+```
+### CounterReducer
+```jsx
+import { useReducer } from "react";
+
+let initialState1 = { count: 0 };
+function reducer1(state, action) {
+  switch (action.type) {
+    case "add":
+      return { count: state.count + 1 };
+    case "remove":
+      return { count: state.count - 1 };
+    case "reset":
+      return { count: 0 };
+    default:
+      throw new Error("not a valide case");
+  }
+}
+
+export function CounterApp() {
+  const [state1, dispatch1] = useReducer(reducer1, initialState1);
+
+  function AddClick() {
+    dispatch1({ type: "add" });
+  }
+  function RemoveClick() {
+    dispatch1({ type: "remove" });
+  }
+  function reset() {
+    dispatch1({ type: "reset" });
+  }
+  return (
+    <div className="container-fluid">
+      {/* <p>Cat Itmes [{state1.count}]</p> */}
+      <h2>Count: {state1.count}</h2>
+      <button className="btn btn-warning m-2" onClick={AddClick}>
+        Add
+      </button>
+      <button className="btn btn-dark m-2" onClick={RemoveClick}>
+        Delete
+      </button>
+      <button className="btn btn-danger m-2" onClick={reset}>
+        Reset
+      </button>
+    </div>
+  );
+}
+
+```
+
+### CounterUseState
+```jsx
+import React, { useState } from "react";
+
+function CounterUseState() {
+  const [count, setCount] = useState(0);
+
+  function increment() {
+    setCount((prevCount) => prevCount + 1);
+  }
+
+  function decrement() {
+    setCount((prevCount) => prevCount - 1);
+  }
+
+  function reset() {
+    setCount(0);
+  }
+
+  return (
+    <div>
+      <h2>Count: {count}</h2>
+      <button className="btn btn-warning m-2" onClick={increment}>
+        Increment
+      </button>
+      <button className="btn btn-dark  m-2" onClick={decrement}>
+        Decrement
+      </button>
+      <button className="btn btn-danger  m-2" onClick={reset}>
+        Reset
+      </button>
+    </div>
+  );
+}
+
+export default CounterUseState;
+
+```
+### JsWithDifferentUIElement
+```jsx
+var product = {
+  Name: "Samsung TV",
+  Price: 46500.44,
+  Stock: true,
+  questions: ["small", "medium", "big"],
+};
+const questions = [
+  {
+    question: "Which is the most popular JavaScript framework?",
+    options: ["Angular", "React", "Svelte", "Vue"],
+    correctOption: 1,
+    points: 10,
+  },
+  {
+    question: "Which company invented React?",
+    options: ["Google", "Apple", "Netflix", "Facebook"],
+    correctOption: 3,
+    points: 10,
+  },
+  {
+    question: "What's the fundamental building block of React apps?",
+    options: ["Components", "Blocks", "Elements", "Effects"],
+    correctOption: 0,
+    points: 10,
+  },
+];
+export default function JsWithDifferentUIElement() {
+  return (
+    <div>
+      <div className="container-fluid">
+        <h3 className="text-success">
+          -----------------Product Object Data List:Start-----------------
+        </h3>
+
+        <h5>Product Details</h5>
+        <dl>
+          <dt>Name</dt>
+          <dd>{product.Name}</dd>
+          <dd>
+            <input type="text" defaultValue={product.Name} />
+          </dd>
+          <dt>Price</dt>
+          <dd>{product.Price}</dd>
+          <dt>Stock</dt>
+          <dd>{product.Stock == true ? "Available" : "Out of Stock"}</dd>
+          <dd>
+            <input type="checkbox" defaultChecked={product.Stock} /> Available
+          </dd>
+          <dt>questions</dt>
+          {product.questions.map((que, index) => (
+            <dd key={index}>{que}</dd>
+          ))}
+        </dl>
+        <h3 className="text-success">
+          -----------------Product Object Data List:End-----------------
+        </h3>
+      </div>
+      <div className="container-fluid mt-2">
+        <div>
+          <h3 className="text-success">
+            -----------------questions Array Table:Start-----------------
+          </h3>
+          <table className="table table-hover table-dark">
+            <thead>
+              <tr>
+                <th>Questions</th>
+              </tr>
+            </thead>
+            <tbody>
+              {questions.map((que, index) => (
+                <tr key={index}>
+                  <td>{que.question}</td>
+                  <td>{que.options.join(",")}</td>
+                  <td>{que.correctOption}</td>
+                  <td>{que.points}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          <h3 className="text-success">
+            -----------------questions Array Table:End-----------------
+          </h3>
+        </div>
+        <h3 className="text-success">
+          -----------------questions Array button:Start-----------------
+        </h3>
+
+        <div className="w-25">
+          {questions.map((que, index) => (
+            <div key={index}>
+              {que.options.map((opt, index) => (
+                <button
+                  key={index}
+                  className="btn btn-link mb-2 w-100"
+                >{`${index} -> ${opt}`}</button>
+              ))}
+            </div>
+          ))}
+        </div>
+        <h3 className="text-success">
+          -----------------questions Array button:End-----------------
+        </h3>
+        <div>
+          <h2>Toolbar</h2>
+          <div className="btn-toolbar bg-danger mb-2">
+            <div className="btn-group">
+              {questions.map((que, index) => (
+                <button className="btn btn-danger">{que.question}</button>
+              ))}
+            </div>
+          </div>
+        </div>
+        <div className="row">
+          <div className="col">
+            <ol>
+              {questions.map((que, index) => (
+                <li key={index}>{que.question}</li>
+              ))}
+            </ol>
+          </div>
+          <div className="col">
+            <select>
+              {questions.map((que, index) => (
+                <option key={index}>{que.question}</option>
+              ))}
+            </select>
+          </div>
+          <div className="col">
+            <ul className="list-unstyled">
+              {questions.map((que, index) => (
+                <li key={index}>
+                  <input type="checkbox" /> {que.question}{" "}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+```
+### PassDataFromChildToParent
+
+```jsx
+import React, { useState } from "react";
+
+export function ParentComponent() {
+  const [parentData, setParentData] = useState("");
+  const [valueFromChild, setValueFromChild] = useState(0);
+
+  function handleChildDataChange(data, valueFromChild) {
+    setParentData(data);
+    setValueFromChild(valueFromChild);
+  }
+
+  return (
+    <div>
+      <h2>Parent Data: {parentData}</h2>
+      <h2>valueFromChild Data: {valueFromChild}</h2>
+
+      <ChildComponent
+        onChildDataChange={handleChildDataChange}
+        counterValue={valueFromChild}
+      />
+    </div>
+  );
+}
+
+function ChildComponent(props) {
+  const [childData, setChildData] = useState("");
+  let childCounterValue = props.counterValue;
+
+  function handleInputChange(event) {
+    setChildData(event.target.value);
+    props.onChildDataChange(event.target.value, childCounterValue + 1);
+  }
+
+  return (
+    <div>
+      <input type="text" value={childData} onChange={handleInputChange} />
+    </div>
+  );
+}
+
+```
+### 
