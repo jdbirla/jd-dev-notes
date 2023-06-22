@@ -103,7 +103,7 @@ console.log(newObject); // Output: { foo: 'bar' }
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/4ec16f61-f3fd-461b-8d4c-e4832fc232c0)
 - {} this one for putting js in html
 - ${} this one is for putting into js string 
-```jsx
+```js
 import React from "react";
 import ReactDOM from "react-dom";
 
@@ -121,7 +121,7 @@ ReactDOM.render(<h1>Hello World! {name}</h1>, document.getElementById("root"));
 - We have use JavaScript attribute for html element like camelCase `className`
 - [React Styling Practice ](https://codesandbox.io/s/react-styling-practice-completed-forked-9cwg0n)
 
-```jsx
+```js
 import React from "react";
 import ReactDOM from "react-dom";
 
@@ -190,7 +190,7 @@ isOpen && <anything>
 ---
 ## Props
 ### Get all the props in props object or deconstruct at the time of receiving args
-```jsx
+```js
   <Pizza pizzaObj={pizza} key={pizza.name} jd="birla" />
 function Pizza(props) {
   console.log(props); 
@@ -355,7 +355,7 @@ useEffect(
 ---
 ## React Router
 - Routing
-```jsx
+```js
  <BrowserRouter>
           <Suspense fallback={<SpinnerFullPage />}>
             <Routes>
@@ -384,7 +384,7 @@ useEffect(
 ```
 - Navingation using Link and Navlink
 - The <NavLink> component extends the functionality of <Link> by providing additional features specifically for styling and active class assignment. It adds an extra CSS class to the rendered element when it matches the current URL, allowing you to apply custom styles to the active link. 
-```jsx
+```js
       <nav className={styles.nav}>
       <Logo />
 
@@ -636,7 +636,7 @@ export default ProtectedRoute;
 
 ```
 - Wrapping application in protected component
-```jsx
+```js
   <Route
                 path="app"
                 element={
@@ -1642,7 +1642,7 @@ export default function App() {
 ---
 ## React Quick Ref
 ### ApiMarsFetchList
-```jsx
+```js
 import { useState, useEffect } from "react";
 
 export default function ApiMarsFetchList() {
@@ -1669,7 +1669,7 @@ export default function ApiMarsFetchList() {
 
 ```
 ### ApiMarsFetchTable
-```jsx
+```js
 import { useEffect, useState } from "react";
 
 export function ApiMarsFetchTable() {
@@ -1724,7 +1724,7 @@ export function ApiMarsFetchTable() {
 ```
 
 ### ApiUserAxiosList
-```jsx
+```js
 import { useState, useEffect } from "react";
 import axios from "axios";
 
@@ -1752,7 +1752,7 @@ export default function ApiUserAxiosList() {
 
 ```
 ### Classlifecycle
-```jsx
+```js
 import React from "react";
 
 export default class Header extends React.Component {
@@ -1775,7 +1775,7 @@ export default class Header extends React.Component {
 
 ```
 ### ContextApi
-```jsx
+```js
 import { useState, useContext } from "react";
 import React from "react";
 const CountContext = React.createContext();
@@ -1819,7 +1819,7 @@ export default ContextApi;
 
 ```
 ### CounterReducer
-```jsx
+```js
 import { useReducer } from "react";
 
 let initialState1 = { count: 0 };
@@ -1868,7 +1868,7 @@ export function CounterApp() {
 ```
 
 ### CounterUseState
-```jsx
+```js
 import React, { useState } from "react";
 
 function CounterUseState() {
@@ -1906,7 +1906,7 @@ export default CounterUseState;
 
 ```
 ### JsWithDifferentUIElement
-```jsx
+```js
 var product = {
   Name: "Samsung TV",
   Price: 46500.44,
@@ -2052,7 +2052,7 @@ export default function JsWithDifferentUIElement() {
 ```
 ### PassDataFromChildToParent
 
-```jsx
+```js
 import React, { useState } from "react";
 
 export function ParentComponent() {
