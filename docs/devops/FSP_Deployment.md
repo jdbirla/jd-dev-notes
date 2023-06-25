@@ -192,7 +192,212 @@ customer=> select * from customer;
 ```
 
 ## Deploy Automatically using Github Actions
+### CI
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/7c9687a9-96fc-4576-941e-dd3d9cff550a)
+- create folder  `.github\workflows` in repo
+- Create `backend-ci.yml` file
+- JD
+```yml
+name: CI - Build Backend
+
+on:
+  pull_request:
+    branches:
+      - master
+    paths:
+      - spring-boot-example/**
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    services:
+      # Label used to access the service container
+      postgres:
+        # Docker Hub image
+        image: postgres:15.3
+        # Provide the password for postgres
+        env:
+          POSTGRES_USER: amigoscode
+          POSTGRES_PASSWORD: password
+          POSTGRES_DB: customer
+        ports:
+          - 5332:5432
+          # Set health checks to wait until postgres has started
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+    defaults:
+      run:
+        working-directory: ./spring-boot-example
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+          cache: 'maven'
+      - name : Build and run Unit/Integration Test with Maven
+        run: mvn -ntp -B verify
+```
+- Commit and push this workflow into github
+- Create new branch `git checkout -b testing-ci-build-workflow`
+- Now commit this changes into this new branch and push
+- create pull request from new branch to master branch
+ ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/3c62bb80-57b0-4122-a87e-4503637ff9db)
+- The work flow will start automatically
+
+ ### CD
+ ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/9c62cc4a-1010-44b6-aae7-c0a3f8d53f47)
+- create file into workflow `backend-cd.yaml`
+- Follow these steps and create Dockerhub access token https://docs.docker.com/docker-hub/access-tokens/
+- Then add the following as Secrets in Github. Follow steps here https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository
+```
+    DOCKERHUB_USERNAME = your username
+    DOCKERHUB_ACCESS_TOKEN = you access token from step 1
+```
+```
+date '+%d.%m.%Y.%H.%M.%S'
+```
+- Creating new users for deployment
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/121a3208-4f49-483a-8ad0-d17a20405eaf)
+- Create a group and attache permission to group
+- AWS Permissions
+- It should be enough for your AWS user to have the policies AWSElasticBeanstalkWebTier and AWSElasticBeanstalkManagedUpdatesCustomerRolePolicy attached to be able to deploy your project.
+![image](https://github.com/jdbirla/JD_FSP/assets/69948118/021fc460-3efa-4065-91b4-58ecc73ebfa3)
+![image](https://github.com/jdbirla/JD_FSP/assets/69948118/d7b115e7-de7b-4b87-af73-68c22dce178e)
+- download access key and secrek key
+- Create github secrets
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/60ab6550-9e94-45b5-b515-fbff4c3c8aa9)
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/dfc867ca-51fd-4675-8184-2ae37c9e75e1)
+- Add secrets for EB_APPLICATION_NAME , EB_ENVIRONMENT_NAME and EB_REGION
+- Commit some change in master and push
+- CD job will start automatically
 
 
 
+### JD Slack Integration
+- JD slack integration CD
+```yml
+name: CD - Deploy Backend
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - master
+    paths:
+      - spring-boot-example/**
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    services:
+      # Label used to access the service container
+      postgres:
+        # Docker Hub image
+        image: postgres:15.3
+        # Provide the password for postgres
+        env:
+          POSTGRES_USER: amigoscode
+          POSTGRES_PASSWORD: password
+          POSTGRES_DB: customer
+        ports:
+          - 5332:5432
+          # Set health checks to wait until postgres has started
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+    defaults:
+      run:
+        working-directory: ./spring-boot-example
+    steps:
+      - uses: actions/checkout@v3
+      - name: Slack commit message and sha
+        run: >
+            curl -X POST -H 'Content-type: application/json'
+            --data '{"text":":github: https://github.com/amigoscode/spring-boot-full-stack/commit/${{ github.sha }} - ${{ github.event.head_commit.message }}"}' 
+            ${{ secrets.SLACK_WEBHOOK_URL }}
+      - name: Send Slack Message
+        run: >
+            curl -X POST -H 'Content-type: application/json'
+            --data '{"text":"Deployment started :progress_bar: :fingerscrossed:"}' 
+            ${{ secrets.SLACK_WEBHOOK_URL }}
+      - uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+          cache: 'maven'
+      - name: Login to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{secrets.DOCKERHUB_USERNAME }}
+          password: ${{secrets.DOCKERHUB_ACCESS_TOKEN }}
+      - name: Set Build Number
+        id: build-number
+        run: echo "BUILD_NUMBER=$(date '+%d.%m.%Y.%H.%M.%S')" >> $GITHUB_OUTPUT
+      - name: Send Slack Message
+        run: >
+            curl -X POST -H 'Content-type: application/json' 
+            --data '{"text":":maven: Building with Maven"}' 
+            ${{ secrets.SLACK_WEBHOOK_URL }}
+      - name: Build Package Push with Maven
+        run: mvn -ntp -B verify -Ddocker.image.tag=${{steps.build-number.outputs.BUILD_NUMBER}} jib:build
+      - name: Send Slack Message
+        run: >
+             curl -X POST -H 'Content-type: application/json' 
+             --data '{"text":":docker: Image tag:${{steps.build-number.outputs.BUILD_NUMBER}} pushed to https://hub.docker.com/repository/docker/amigoscode/amigoscode-api"}' 
+             ${{ secrets.SLACK_WEBHOOK_URL }}
+      - name: Update Dockerrun.aws.json api image tag with new build number
+        run: |
+            echo "Dockerrun.aws.json before updating tag"
+            cat Dockerrun.aws.json
+            sed -i -E 's_(jbirla/spring-boot-api:)([^"]*)_\1'${{steps.build-number.outputs.BUILD_NUMBER}}'_' Dockerrun.aws.json
+            echo "Dockerrun.aws.json after updating tag"
+            cat Dockerrun.aws.json
+      - name: Send Slack Message
+        run: >
+            curl -X POST -H 'Content-type: application/json' 
+            --data '{"text":":aws: Starting deployment to Elastic Beanstalk"}' 
+            ${{ secrets.SLACK_WEBHOOK_URL }}
+      - name: Deploy to Elastic Bean
+        uses: einaregilsson/beanstalk-deploy@v21
+        with:
+            aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
+            aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+            application_name: ${{ secrets.EB_APPLICATION_NAME }}
+            environment_name: ${{ secrets.EB_ENVIRONMENT_NAME }}
+            version_label: ${{ steps.build-number.outputs.BUILD_NUMBER }}
+            version_description: ${{github.SHA}}
+            region: ${{ secrets.EB_REGION }}
+            deployment_package: spring-boot-example/Dockerrun.aws.json
+      - name: Send Slack Message
+        run: >
+            curl -X POST -H 'Content-type: application/json' 
+            --data '{"text":":githubloading: Committing to repo https://github.com/amigoscode/spring-boot-full-stack/"}' 
+            ${{ secrets.SLACK_WEBHOOK_URL }}
+      - name: Commit and Push Dockerrun.aws.json
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add Dockerrun.aws.json
+          git commit -m "Update Dockerrun.aws.json docker image with new tag ${{ steps.build-number.outputs.BUILD_NUMBER }}"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.YOUR_ACCESS_TOKEN }}
+      - name: Send Slack Message
+        run: >
+            curl -X POST -H 'Content-type: application/json' 
+            --data '{"text":"Deployment and commit completed :github-check-mark: :party_blob: - http://amigoscodeapi-env.eba-ymxutmev.eu-west-1.elasticbeanstalk.com/"}' 
+            ${{ secrets.SLACK_WEBHOOK_URL }}
+      - name: Send Slack Message
+        if: always()
+        run: >
+              curl -X POST -H 'Content-type: application/json' 
+              --data '{"text":"Job Status ${{ job.status }}"}' 
+              ${{ secrets.SLACK_WEBHOOK_URL }}
+```
 
