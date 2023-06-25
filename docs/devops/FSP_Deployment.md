@@ -1,7 +1,9 @@
 # FSP Deployment Steps
 - Elastic Beans talk, ECS, EC2, RDS
-![image](https://github.com/jdbirla/JD_FSP/assets/69948118/021fc460-3efa-4065-91b4-58ecc73ebfa3)
-![image](https://github.com/jdbirla/JD_FSP/assets/69948118/d7b115e7-de7b-4b87-af73-68c22dce178e)
+- ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/51c0753e-0ecf-414a-80cc-17ab82758942)
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/f1fda7e6-8768-4155-990e-7fb79382b55b)
+
+
 
 ## EC2 Generate New Key Pair 
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/db148d3a-fbae-4f80-aa98-9ad6d8a773e2)
