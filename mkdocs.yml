@@ -52,7 +52,7 @@ nav:
     - Terraform: devops/terraform.md
     - AWS: devops/aws.md
     - Kubernetes_CS: devops/kubernetescs.md
-    - FSP_Deployment: FSP_Deployment.md
+    - FSP_Deployment: devops/FSP_Deployment.md
   - Tools:
     - IDE:
       - Intellij: tools/intellij.md
@@ -60,7 +60,7 @@ nav:
   - Misc:
     - CleanArchitecture: misc/clean-architecture.md
     - Agile: misc/agile.md
-    - Daily_Commands: misc./Daily_Commands.md
+    - Daily_Commands: misc/Daily_Commands.md
 # Customization
 extra:
   manifest: "manifest.webmanifest"
