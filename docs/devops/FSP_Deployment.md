@@ -8,7 +8,7 @@
 - Download .pem file [private key]
 
 ##  Getting Started With Elastic Beanstalk 
-### Create application
+### Create application deploy manually
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/ba5777d9-701b-4057-8e90-65e4c67d3215)
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/e8c5f487-5780-4cf6-b793-d8e57de8d3b4)
 - https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create_deploy_docker_ecs.html
@@ -106,9 +106,11 @@ docker ps
 docker logs -f container-id
 ```
 - JD Practice
-- As We need to connect postgress DB we need `psql` client there are two way for this either we can install psql in EC2 using
+- **As We need to connect postgress DB we need `psql` client there are two way for this either we can install psql in EC2 using
   `sudo apt update
-sudo apt install postgresql-client` or we can run docke image of postgress DB which will default provid the psql client
+sudo apt install postgresql-client` or we can run docker image of postgress DB and bash into enter into psql**
+
+
 ```sh
 
 [ec2-user@ip-172-31-14-241 ~]$ sudo -i
@@ -187,17 +189,10 @@ customer=> select * from customer;
   1 | Kelsie Abernathy | kelsie.abernathy@amigoscode.com |  23
 (1 row)
 
-
-
-
-
-
-sudo -i
-docker run --rm -it postgres:alpine bash
-psql -U amigoscode -h host -d postgres 
-or
-psql -U amigoscode -h host -d ebdb
-create database customer;
-docker ps
-docker logs -f container-id
 ```
+
+## Deploy Automatically using Github Actions
+
+
+
+
