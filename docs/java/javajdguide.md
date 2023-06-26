@@ -197,6 +197,7 @@ public class Main {
 ## Java 8
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/2d50633c-d41c-4644-b0a6-08c36453a5c7)
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/0a039b27-5141-4cae-ac31-6b2d3098ce6c)
+![java-8 drawio](https://github.com/jdbirla/jd-dev-notes/assets/69948118/48bcdbc0-6401-42fd-83c9-75d609fdfd90)
 
 ---
 ## Callback Functions in java
