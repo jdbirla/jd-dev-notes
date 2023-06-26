@@ -560,3 +560,125 @@ volumes:
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/8d5c9dc8-3eea-4804-b1e6-70f8b62fa6f8)
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/d9117ee8-f896-4f63-a066-57b9434ded42)
 
+### Add Create React App in Github workflow
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/7aefedca-f6a6-4da1-8301-8628632bd69d)
+
+- Create forntend-react-cd.yml file for workflow
+```yml
+name: CD - Deploy React Frontend
+
+on:
+  workflow_dispatch:
+  push:
+   branches:
+     - master
+   paths:
+     - frontend/react/**
+
+jobs:
+  deploy:
+    ##if: false # put false if you don't want to github action to deploy this as we already configured deployment using amplify else true
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./frontend/react
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Slack commit message and sha
+        run: >
+          curl -X POST -H 'Content-type: application/json'
+          --data '{"text":":github: ${{ github.server_url }}/${{ github.repository }}/commit/${{ github.sha }} - ${{ github.event.head_commit.message }}"}' 
+          ${{ secrets.SLACK_WEBHOOK_URL }}
+      - name: Send Slack Message
+        run: >
+          curl -X POST -H 'Content-type: application/json'
+          --data '{"text":"Deployment started :progress_bar: :fingerscrossed:"}' 
+          ${{ secrets.SLACK_WEBHOOK_URL }}
+      - name: Set build number
+        id: build-number
+        run: echo "BUILD_NUMBER=$(date '+%d.%m.%Y.%H.%M.%S')" >> $GITHUB_OUTPUT
+      - name: Login to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_ACCESS_TOKEN }}
+      - name: Docker Build and push
+        run: |
+          chmod +x ../../.ci/build-publish.sh
+          USERNAME=jbirla \
+          REPO=jbirla-react \
+          TAG=${{ steps.build-number.outputs.BUILD_NUMBER }} \
+          ../../.ci/build-publish.sh . \
+            --build-arg api_base_url=http://amigoscode-fsp-prod.ap-south-1.elasticbeanstalk.com:8080
+      - name: Send Slack Message
+        run: >
+          curl -X POST -H 'Content-type: application/json' 
+          --data '{"text":":docker: Image tag:${{steps.build-number.outputs.BUILD_NUMBER}} pushed to https://hub.docker.com/repository/docker/amigoscode/amigoscode-react"}' 
+          ${{ secrets.SLACK_WEBHOOK_URL }}
+      - name: Update Dockerrun.aws.json react image tag with new build number
+        run: |
+          echo "Dockerrun.aws.json before updating tag"
+          cat ../../Dockerrun.aws.json
+          sed -i -E 's_(jbirla/jbirla-react:)([^"]*)_\1'${{steps.build-number.outputs.BUILD_NUMBER}}'_' ../../Dockerrun.aws.json
+          echo "Dockerrun.aws.json after updating tag"
+          cat ../../Dockerrun.aws.json
+      - name: Send Slack Message
+        run: >
+          curl -X POST -H 'Content-type: application/json' 
+          --data '{"text":":aws: Starting deployment to Elastic Beanstalk"}' 
+          ${{ secrets.SLACK_WEBHOOK_URL }}
+      - name: Deploy to Elastic Beanstalk
+        uses: einaregilsson/beanstalk-deploy@v21
+        with:
+          aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          application_name: ${{ secrets.EB_APPLICATION_NAME }}
+          environment_name: ${{ secrets.EB_ENVIRONMENT_NAME }}
+          version_label: ${{ steps.build-number.outputs.BUILD_NUMBER }}
+          version_description: ${{ github.SHA }}
+          region: ${{ secrets.EB_REGION }}
+          deployment_package: Dockerrun.aws.json
+          wait_for_environment_recovery: 60
+      - name: Send Slack Message
+        run: >
+          curl -X POST -H 'Content-type: application/json' 
+          --data '{"text":":githubloading: Committing to repo https://github.com/amigoscode/spring-boot-full-stack/"}' 
+          ${{ secrets.SLACK_WEBHOOK_URL }}
+      - name: Commit and push Dockerrun.aws.json
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add ../../Dockerrun.aws.json
+          git commit -m "Update Dockerrun.aws.json docker image with new tag ${{ steps.build-number.outputs.BUILD_NUMBER }}"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.YOUR_ACCESS_TOKEN }}
+      - name: Send Slack Message
+        run: >
+          curl -X POST -H 'Content-type: application/json' 
+          --data '{"text":"Deployment and commit completed :github-check-mark: :party_blob: - http://amigoscodeapi-env.eba-ymxutmev.eu-west-1.elasticbeanstalk.com/"}' 
+          ${{ secrets.SLACK_WEBHOOK_URL }}
+      - name: Send Slack Message
+        if: always()
+        run: >
+          curl -X POST -H 'Content-type: application/json' 
+          --data '{"text":"Job Status ${{ job.status }}"}' 
+          ${{ secrets.SLACK_WEBHOOK_URL }}
+```
+- build-publish.sh
+```sh
+: "${USERNAME:?USERNAME not set or empty}"
+: "${REPO:?REPO not set or empty}"
+: "${TAG:?TAG not set or empty}"
+
+docker buildx create --use
+
+docker buildx build \
+    --platform=linux/amd64,linux/arm64 \
+    -t "${USERNAME}/${REPO}:${TAG}" \
+    -t "${USERNAME}/${REPO}:latest" \
+    "${@:2}" \
+    --push \
+    "$1"
+```
