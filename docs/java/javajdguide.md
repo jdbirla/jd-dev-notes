@@ -193,9 +193,12 @@ public class Main {
 - Use the static keyword to create utility methods that can be used without instantiating an object
 - Use final keyword to make variables and methods immutable or constant.
 - Use the @Override annotation when overriding a method to ensure that you are actually overriding a method and not creating a new one.
+---
+## Java 8
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/2d50633c-d41c-4644-b0a6-08c36453a5c7)
 
-
-### Callback Functions in java
+---
+## Callback Functions in java
 #### Callback.java
 ```java
 package finalsection;
