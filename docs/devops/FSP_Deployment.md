@@ -403,3 +403,160 @@ jobs:
               ${{ secrets.SLACK_WEBHOOK_URL }}
 ```
 
+### Dockerize the React app and run manually in local
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/70f0cc8a-09c9-44f3-b18f-5bae5abc95cb)
+- Here we will use Dockerfile for image generation
+- Below Docker file insructions : In summary, this Dockerfile sets up a Node.js environment, installs the application's dependencies, copies the application code into the container, sets an environment variable, exposes a port, and specifies the command to run the application when the container starts.
+
+1. `FROM node:19-alpine`: This line specifies the base image for the Docker image. In this case, it's using the `node:19-alpine` image, which is a lightweight image based on Alpine Linux that includes Node.js.
+
+2. `ARG api_base_url`: This line declares an argument named `api_base_url`. Arguments in Dockerfiles are used to provide values that can be passed at build time.
+
+3. `WORKDIR /app`: This line sets the working directory within the container to `/app`. It means that any subsequent commands will be executed relative to this directory.
+
+4. `COPY package*.json .`: This line copies the `package.json` and `package-lock.json` files from the host machine to the current directory (`.`) in the container. These files are necessary for installing dependencies.
+
+5. `RUN npm i --silent`: This line runs the command `npm i --silent` in the container. It installs the dependencies specified in the `package.json` file. The `--silent` flag is used to suppress verbose output during the installation process.
+
+6. `COPY . .`: This line copies all the files and directories from the host machine's current directory to the current directory (`.`) in the container. It includes the application source code.
+Please nota that it won't copy `.dockerignore` file contains
+```.dockerignore
+node_modules
+Dockerfile
+.env
+.dockerignore
+```
+8. `RUN echo "VITE_API_BASE_URL = ${api_base_url}" > .env`: This line creates an `.env` file in the container and writes a line with the environment variable `VITE_API_BASE_URL` and its value, which is the value of the `api_base_url` argument passed during the build process.
+
+9. `EXPOSE 5173`: This line exposes port 5173 in the container. It indicates that the container will listen on this port at runtime.
+
+10. `CMD ["npm", "run", "dev"]`: This line specifies the default command to run when the container starts. It runs the command `npm run dev`, which is typically a script defined in the `package.json` file. This command is responsible for starting the application.
+
+
+- Dockerfile
+```Docker
+ FROM node:19-alpine
+ARG api_base_url
+WORKDIR /app
+COPY package*.json .
+RUN npm i --silent
+COPY . .
+RUN echo "VITE_API_BASE_URL = ${api_base_url}" > .env
+EXPOSE 5173
+CMD ["npm", "run", "dev"]
+```
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/887ceeda-d982-4058-a4de-7df6f016fe86)
+
+- execute below commands for generating image
+```
+docker build . -t amigoscode/amigoscode-react
+docker push amigoscode/amigoscode-react
+```
+- Look inside the container
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/d859d61c-4dae-4e61-b975-fc3306103d7a)
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/d896214f-99be-4061-808b-343391348c01)
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/b185e2ea-8777-4c5d-bb4f-c180cb8f9947)
+
+### Create compose file for running all services locally in docker
+- docker-compose.yml
+```yml
+services:
+  db:
+    container_name: postgres
+    image: postgres:15.3
+    environment:
+      POSTGRES_USER: amigoscode
+      POSTGRES_PASSWORD: password
+      PGDATA: /data/postgres
+    volumes:
+      - db:/data/postgres
+    ports:
+      - "5332:5432"
+    networks:
+      - db
+    restart: unless-stopped
+  amigoscode-api:
+    container_name: spring-boot-api
+    image: jbirla/spring-boot-api:latest
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/customer
+    ports:
+      - "8088:8080"
+    networks:
+      - db
+    depends_on:
+      - db
+    restart: unless-stopped
+
+  amigoscode-react:
+      container_name: amigoscode-react
+      image: jbirla/jbirla-react:latest
+      build:
+        context: frontend/react
+        args:
+          api_base_url: http://localhost:8088
+      ports:
+          - "3000:5173"
+      depends_on:
+          - amigoscode-api
+      restart: unless-stopped
+
+
+networks:
+  db:
+    driver: bridge
+
+volumes:
+  db:
+```
+
+## Deploy React App into EBS manually
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/271e72b2-07ad-4569-982f-566e629342a3)
+- Creating Docker app image based on EBS  backend host url using pass api_base_ulr arg
+ ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/7c8a7c32-a5dc-42ab-aebe-771a08140dcd)
+- Push this image inot dockerhub
+- Now up[date Dockerrun.aws.json for react app for deploying manually into EBS
+- We are udating the react app host port to 80 for http by default port
+```Json
+{
+  "AWSEBDockerrunVersion": 2,
+  "containerDefinitions": [
+    {
+      "name": "jbirla-react",
+      "image": "jbirla/jbirla-react:30.05.2023.11.43.57",
+      "essential": true,
+      "memory": 256,
+      "portMappings": [
+        {
+          "hostPort": 80,
+          "containerPort": 5173
+        }
+      ]
+    },
+    {
+      "name": "jdbirla-api",
+      "image": "jbirla/spring-boot-api:02.06.2023.06.36.17",
+      "essential": true,
+      "memory": 512,
+      "portMappings": [
+        {
+          "hostPort": 8080,
+          "containerPort": 8080
+        }
+      ],
+      "environment": [
+        {
+          "name": "SPRING_DATASOURCE_URL",
+          "value": "EBS RDS URL"
+        }
+      ]
+    }
+  ]
+}
+```
+- upload and deploy latest docker.run.json
+-  But the frontend can't access backend as now due to security group permission, we have to add inbound rule for 8080
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/6376d77a-2fcc-43b5-9a35-d162922f0fc3)
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/8d5c9dc8-3eea-4804-b1e6-70f8b62fa6f8)
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/d9117ee8-f896-4f63-a066-57b9434ded42)
+
