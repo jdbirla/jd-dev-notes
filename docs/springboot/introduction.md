@@ -5,9 +5,7 @@
 * <https://github.com/spring-projects/spring-boot>
 * <https://github.com/spring-io/start.spring.io>
 * <https://github.com/spring-io/initializr>
-
-## How to call Spring Boot Rest API’s Concurrently
-- https://levelup.gitconnected.com/how-to-call-spring-boot-rest-apis-concurrently-e23f93448d25
+---
 
 ## Spring Boot Project Folder Structure
 ```
@@ -51,3 +49,47 @@
     └── README.md
 
 ```
+---
+## Featrues
+### Banner
+<https://www.baeldung.com/spring-boot-custom-banners>
+<https://www.baeldung.com/spring-boot-color-banner>
+
+### Disable H2 in Spring Boot Test
+- Disable H2 DB `@AutoConfigurationTestDataBase(replace = AutoConfigurationTestDatabase.Replace.NONE)
+![image](https://user-images.githubusercontent.com/69948118/236414915-80f23a38-90fa-481e-bdf7-ed4d696c1149.png)
+
+### Actuator Implementation
+- <https://github.com/jdbirla/JD_Spring_Boot_Master/blob/master/Actuator.md>
+- <https://howtodoinjava.com/spring-boot/info-endpoint-custom-info/>
+- <https://howtodoinjava.com/spring-boot/actuator-endpoints-example/>
+
+### All annotation
+- <https://github.com/jdbirla/JD_spring-master-class/blob/master/Spring_Annotatoin_world.adoc>
+
+### DTO Pattern
+
+### How to follow good coding standards in Spring Boot
+https://levelup.gitconnected.com/how-to-follow-good-coding-standards-in-spring-boot-a22dd735e3ec
+
+
+### How to call Spring Boot Rest API’s Concurrently
+<https://levelup.gitconnected.com/how-to-call-spring-boot-rest-apis-concurrently-e23f93448d25>
+
+----
+## Utility
+### Lombok
+<https://howtodoinjava.com/?s=lombok>
+<https://www.baeldung.com/?s=lombok>
+
+### Flyway
+<https://medium.com/javarevisited/database-migration-in-spring-boot-using-flyway-ee791db8aea0>
+
+### Java Tools
+- <https://github.com/jdbirla/JD_JAVA_Learning/tree/master/Java_Tools>
+
+### Java Faker API
+- [baeldung](https://www.baeldung.com/java-faker) - avaFaker library to generate real-looking fake data!.
+- [github ilinkj](https://github.com/DiUS/java-faker) 
+
+---
