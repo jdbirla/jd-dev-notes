@@ -82,7 +82,80 @@ https://levelup.gitconnected.com/how-to-follow-good-coding-standards-in-spring-b
 ### Flyway Migration
 - <https://springframework.guru/database-migration-with-flyway/>
 
-  
+### Using Filters in Spring Web Applications
+- <https://springframework.guru/using-filters-in-spring-web-applications/>
+- Some of the common use cases of filters are:
+   - Logging requests and response
+   - Logging request processing time
+   - Formatting of request body or header
+   - Verifying authentication tokens
+   - Compressing response
+   - Performing Image conversions
+
+### Scheduling in Spring Boot
+- <https://springframework.guru/scheduling-in-spring-boot/>
+
+### MySQL Stored Procedures with Spring Boot
+#### Approach 1 – @NamedStoredProcedureQuery Annotation
+#### Approach-2 @Procedure Annotation
+```sql
+CREATE PROCEDURE 'GET_TOTAL_BLOGS_BY_TITLE' (IN title_in VARCHAR(50), OUT count_out INT)
+BEGIN
+ SELECT COUNT(*) into count_out from blog WHERE title = title_in;
+END
+```
+```java
+@Repository
+public interface BlogRepository extends JpaRepository<Blog,Integer> {
+
+    @Procedure
+    int GET_TOTAL_BLOGS_BY_TITLE(String title);
+
+    @Procedure("GET_TOTAL_BLOGS_BY_TITLE")
+    int getTotalBlogsByTitle(String title);
+
+    @Procedure(procedureName = "GET_TOTAL_BLOGS_BY_TITLE")
+    int getTotalBlogsByTitleProcedureName(String model);
+
+    @Procedure(value = "GET_TOTAL_BLOGS_BY_TITLE")
+    int getTotalBlogsByTitleValue(String model);
+
+    @Procedure(name = "Blog.getTotalBlogsByTitleEntiy")
+    int getTotalBlogsByTitleEntiy(@Param("model_in") String model);
+
+
+
+}
+```
+```java
+@Service
+public class BlogService {
+    @Autowired
+    private BlogRepository blogRepository;
+
+    public int getTotalBlogsByTitle(String title) {
+        return blogRepository.getTotalBlogsByTitle(title);
+    }
+
+    public int getTotalBlogsByTitleProcedureName(String title) {
+        return blogRepository.getTotalBlogsByTitleProcedureName(title);
+    }
+
+    public int getTotalBlogsByTitleValue(String title) {
+        return blogRepository.getTotalBlogsByTitleValue(title);
+    }
+
+    public int getTotalBlogsByTitleExplicit(String title) {
+        return blogRepository.GET_TOTAL_BLOGS_BY_TITLE(title);
+    }
+
+    public int getTotalBlogsByTitleEntity(String title) {
+        return blogRepository.getTotalBlogsByTitleEntiy(title);
+    }
+
+}
+```
+
 ----
 ## Utility
 ### Lombok
