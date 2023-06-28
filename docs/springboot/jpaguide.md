@@ -199,6 +199,7 @@ public class User {
 ```
 ## JPA Inheritance
 ### Mapped Super Class
+- Base entity example <https://medium.com/codex/base-entity-and-audit-entity-with-jpa-fe413ad18bda>
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/b4833640-a5c0-4bcb-8d2b-3898d388aac2)
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/e6d13ebf-b93e-4dd4-ad18-611e960a2495)
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/ebd9b96c-0519-49e4-9da9-39aaa52833eb)
