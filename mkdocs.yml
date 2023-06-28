@@ -28,6 +28,7 @@ nav:
       - JavaJdGuide: java/javajdguide.md
     - SpringBoot:
       - Introduction: springboot/introduction.md
+      - spring-security-jwt: springboot/spring-security-jwt.md
     - JPA_Hibernate:
       - jpa_guide: springboot/jpaguide.md
       - jpa_performance: springboot/jpaperformance.md
