@@ -1,7 +1,7 @@
 # spring-security-jwt
 
 ## This is implemented based on spring boot 3.0.0 and Spring security 6
-- https://medium.com/@truongbui95/jwt-authentication-and-authorization-with-spring-boot-3-and-spring-security-6-2f90f9337421
+- <https://medium.com/@truongbui95/jwt-authentication-and-authorization-with-spring-boot-3-and-spring-security-6-2f90f9337421>
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/a5d3c9e4-665d-419a-8983-fcea6e90cf7c)
 ## Application Architecture
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/a42bf020-29d2-41e1-abcc-43e26d27d600)
