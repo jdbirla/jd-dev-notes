@@ -348,15 +348,14 @@ String str = "Hello, world!";
 #### Remove Object from Collection
 - Use Iterator for removing object from collection in loop 
 #### Don't use wrapper classes in loop instead use primitive Long -> long
+---
+## Java Performance
+<https://github.com/jdbirla/JD_IP_All_Together/blob/master/Interview_Q_A.md#java-performance>
+<https://medium.com/@ddwen/6-techniques-for-java-performance-optimization-c6d853d24e6d>
 
 ---
 ## Generics in Java
 - <https://salithachathuranga94.medium.com/generics-in-java-3c791555e924>
-
----
-## Java Faker API
-- [baeldung](https://www.baeldung.com/java-faker) - avaFaker library to generate real-looking fake data!.
-- [github ilinkj](https://github.com/DiUS/java-faker) 
 
 ---
 ## How to call Spring Boot Rest API’s Concurrently
@@ -401,8 +400,9 @@ https://levelup.gitconnected.com/how-to-follow-good-coding-standards-in-spring-b
 ### Java Tools
 - <https://github.com/jdbirla/JD_JAVA_Learning/tree/master/Java_Tools>
 
-### 
+### Java Faker API
+- [baeldung](https://www.baeldung.com/java-faker) - avaFaker library to generate real-looking fake data!.
+- [github ilinkj](https://github.com/DiUS/java-faker) 
+
 ---
-## Java Performance
-<https://github.com/jdbirla/JD_IP_All_Together/blob/master/Interview_Q_A.md#java-performance>
-<https://medium.com/@ddwen/6-techniques-for-java-performance-optimization-c6d853d24e6d>
+
