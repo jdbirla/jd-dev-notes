@@ -342,25 +342,49 @@ String str = "Hello, world!";
 
 
 ```
+---
+## Generics in Java
+- <https://salithachathuranga94.medium.com/generics-in-java-3c791555e924>
+---
+## java-date-time
+<https://github.com/jdbirla/JD_JAVA_Learning/blob/master/JavaDateTime_A-Z.md>
 
+---
+## What is New in Java 17?
+### New Features
+- Sealed classes and interfaces
+- Pattern matching for switch statements and expressions
+- New rendering pipeline for MacOS
+- New API for accessing large icons
+- Pseudo-Random Number Generators
+- New InstantSource Interface
+#### Pattern matching for switch statements and expressions
+```java
+public class Main {
+    public static void main(String[] args) {
+        Shape shape = new Rectangle(5, 3);
+
+        double area = switch (shape) {
+            case Circle c -> c.calculateArea();
+            case Rectangle r -> r.calculateArea();
+            default -> throw new IllegalArgumentException("Unknown shape");
+        };
+
+        System.out.println("Area: " + area);
+    }
+}
+```
 ---
 ## Common Java Mistakes and Learning
 #### Remove Object from Collection
-- Use Iterator for removing object from collection in loop 
+- Use Iterator for removing object from collection in loop
 #### Don't use wrapper classes in loop instead use primitive Long -> long
+
 ---
 ## Java Performance
 <https://github.com/jdbirla/JD_IP_All_Together/blob/master/Interview_Q_A.md#java-performance>
 <https://medium.com/@ddwen/6-techniques-for-java-performance-optimization-c6d853d24e6d>
 
 ---
-## Generics in Java
-- <https://salithachathuranga94.medium.com/generics-in-java-3c791555e924>
-
-
-
----
-## java-date-time
-<https://github.com/jdbirla/JD_JAVA_Learning/blob/master/JavaDateTime_A-Z.md>
 
 
