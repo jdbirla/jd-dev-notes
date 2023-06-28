@@ -199,8 +199,8 @@ public class Main {
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/0a039b27-5141-4cae-ac31-6b2d3098ce6c)
 ![java-8 drawio](https://github.com/jdbirla/jd-dev-notes/assets/69948118/48bcdbc0-6401-42fd-83c9-75d609fdfd90)
 
----
-## Callback Functions in java
+
+### Callback Functions in java
 #### Callback.java
 ```java
 package finalsection;
@@ -248,8 +248,8 @@ public class Callbacks {
 //    }
 }
 ```
----
-## Optional Use
+
+### Optional Use
 #### ofNullable(): 
  - This method returns an empty Optional instance if the value passed is null, otherwise, it returns an Optional instance containing the passed value.
 ```java
