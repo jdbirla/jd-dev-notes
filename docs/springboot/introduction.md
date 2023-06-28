@@ -183,6 +183,8 @@ public class BlogService {
 ```
 #### mapstruct
 - <https://github.com/mapstruct/mapstruct>
+- Mapstruct with lombok <https://springframework.guru/using-mapstruct-with-project-lombok/>
+- pom for mapstruct + lombok <https://github.com/spring-framework-guru/sfg-blog-posts/blob/master/maplombok/pom.xml>
 ```java
 @Mapper 1
 public interface CarMapper {
