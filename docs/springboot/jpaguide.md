@@ -132,7 +132,7 @@ public class Order {
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumnn(name = "order_id" , referenceColumnName = "id")
     private Set<OrderItem> orderItemSets = new HashSet<>();
-    ```
+```
 #### Bidirectional mapping : 
    ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/c7a128c2-d75c-43a4-b285-7d1c2ab0829e)
    - Parent entity will have OnetoMany and child entity will have ManyToOne relationship , Foreign key column in child table which referes to primary key of the parent table
