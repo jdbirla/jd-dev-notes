@@ -1,5 +1,5 @@
 # JPA Guide
-- https://medium.com/@saurabh.kundu/hibernate-a-guide-to-essential-annotations-5588d459b6f
+- <https://medium.com/@saurabh.kundu/hibernate-a-guide-to-essential-annotations-5588d459b6f>
 ## ID Generation
   - GenerationType.AUTO : It dependecy on data base mostly it used SEQUNCE 
   - GenerationType.Identity : It relies on auto-incremented database column
@@ -205,7 +205,8 @@ public class User {
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/e63a22b0-3487-439a-bbad-2251b6c3d4a5)
 
 - It will create tables for each sublcass with parent fields
- ```java
+  
+```java
  @MappedSuperclass
 public abstract class BaseEntity {
     @Id
