@@ -92,4 +92,39 @@ https://levelup.gitconnected.com/how-to-follow-good-coding-standards-in-spring-b
 - [baeldung](https://www.baeldung.com/java-faker) - avaFaker library to generate real-looking fake data!.
 - [github ilinkj](https://github.com/DiUS/java-faker) 
 
----
+### Mapper 
+#### Model Mapper
+    <http://modelmapper.org/>
+```java
+    private Post mapToEntity(PostDto postDto) {
+        Post post = mapper.map(postDto,Post.class);
+        return post;
+    }
+```
+#### mapstruct
+- <https://github.com/mapstruct/mapstruct>
+```java
+@Mapper 1
+public interface CarMapper {
+ 
+    CarMapper INSTANCE = Mappers.getMapper( CarMapper.class ); 3
+ 
+    @Mapping(source = "numberOfSeats", target = "seatCount")
+    CarDto carToCarDto(Car car); 2
+}
+
+@Test
+public void shouldMapCarToDto() {
+    //given
+    Car car = new Car( "Morris", 5, CarType.SEDAN );
+ 
+    //when
+    CarDto carDto = CarMapper.INSTANCE.carToCarDto( car );
+ 
+    //then
+    assertThat( carDto ).isNotNull();
+    assertThat( carDto.getMake() ).isEqualTo( "Morris" );
+    assertThat( carDto.getSeatCount() ).isEqualTo( 5 );
+    assertThat( carDto.getType() ).isEqualTo( "SEDAN" );
+}
+```
