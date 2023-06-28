@@ -1,5 +1,6 @@
 # Intellij
-
+## Intellij Debug
+- <https://springframework.guru/debug-your-code-in-intellij-idea/>
 ## Shortcuts
 #### Windows
 - Extend Selection: Alt + Up Arrow
