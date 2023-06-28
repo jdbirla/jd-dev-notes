@@ -43,4 +43,745 @@
 >2. **SecurityContextHolder**: is where Spring Security stores the details of who is authenticated. Spring Security uses that information for authorization.
 >3. **UserDetailsService**: Service to fetch user-specific data.
 >4. **Authorization Architecture**
-   
+
+## Code Components
+### Database configuration
+- DB configuration in yml or properties files
+### User Entity
+- Customer or user
+```java
+package com.jd.customer;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.SequenceGenerator;
+import jakarta.persistence.Table;
+import jakarta.persistence.UniqueConstraint;
+import java.util.Collection;
+import java.util.List;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
+/**
+ * Created by jd birla on 20-05-2023 at 16:37
+ */
+@Entity
+@Table(
+    name = "customer",
+    uniqueConstraints = {
+        @UniqueConstraint(
+            name = "customer_email_unique",
+            columnNames = "email"
+        ),
+        @UniqueConstraint(
+            name = "unique_profile_image_id",
+            columnNames = "profileImageId"
+        )
+    }
+)
+public class Customer implements UserDetails {
+
+  @Id
+  @SequenceGenerator(
+      name = "customer_id_seq",
+      sequenceName = "customer_id_seq",
+      allocationSize = 1
+  )
+  @GeneratedValue(
+      strategy = GenerationType.SEQUENCE,
+      generator = "customer_id_seq"
+  )
+  private Integer id;
+  @Column(
+      nullable = false
+  )
+  private String name;
+  @Column(
+      nullable = false
+  )
+  private String email;
+  @Column(
+      nullable = false
+  )
+  private Integer age;
+
+  @Column(
+      nullable = false
+  )
+  @Enumerated(EnumType.STRING)
+  private Gender gender;
+  @Column(
+      nullable = false
+  )
+  private String password;
+
+  @Column(
+      unique = true
+  )
+  private String profileImageId;
+
+  public Customer() {
+  }
+
+  public Customer(Integer id, String name, String email, String password,
+      Integer age, Gender gender) {
+    this.id = id;
+    this.name = name;
+    this.email = email;
+    this.password = password;
+    this.age = age;
+    this.gender = gender;
+  }
+
+  public Customer(Integer id, String name, String email, String password,
+      Integer age, Gender gender, String profileImageId) {
+    this(id, name, email, password, age, gender);
+    this.profileImageId = profileImageId;
+
+  }
+
+  public Customer(String name, String email, String password, Integer age, Gender gender) {
+    this.name = name;
+    this.email = email;
+    this.password = password;
+    this.age = age;
+    this.gender = gender;
+
+  }
+
+  public Integer getId() {
+    return id;
+  }
+
+  public void setId(Integer id) {
+    this.id = id;
+  }
+
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public String getEmail() {
+    return email;
+  }
+
+  public void setEmail(String email) {
+    this.email = email;
+  }
+
+  public Integer getAge() {
+    return age;
+  }
+
+  public void setAge(Integer age) {
+    this.age = age;
+  }
+
+  public Gender getGender() {
+    return gender;
+  }
+
+  public void setGender(Gender gender) {
+    this.gender = gender;
+  }
+
+  public String getProfileImageId() {
+    return profileImageId;
+  }
+
+  public void setProfileImageId(String profileImageId) {
+    this.profileImageId = profileImageId;
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (!(o instanceof Customer customer)) {
+      return false;
+    }
+
+    if (getId() != null ? !getId().equals(customer.getId()) : customer.getId() != null) {
+      return false;
+    }
+    if (getName() != null ? !getName().equals(customer.getName()) : customer.getName() != null) {
+      return false;
+    }
+    if (getEmail() != null ? !getEmail().equals(customer.getEmail())
+        : customer.getEmail() != null) {
+      return false;
+    }
+    if (getAge() != null ? !getAge().equals(customer.getAge()) : customer.getAge() != null) {
+      return false;
+    }
+    if (getGender() != customer.getGender()) {
+      return false;
+    }
+    if (getPassword() != null ? !getPassword().equals(customer.getPassword())
+        : customer.getPassword() != null) {
+      return false;
+    }
+    return getProfileImageId() != null ? getProfileImageId().equals(customer.getProfileImageId())
+        : customer.getProfileImageId() == null;
+  }
+
+  @Override
+  public int hashCode() {
+    int result = getId() != null ? getId().hashCode() : 0;
+    result = 31 * result + (getName() != null ? getName().hashCode() : 0);
+    result = 31 * result + (getEmail() != null ? getEmail().hashCode() : 0);
+    result = 31 * result + (getAge() != null ? getAge().hashCode() : 0);
+    result = 31 * result + (getGender() != null ? getGender().hashCode() : 0);
+    result = 31 * result + (getPassword() != null ? getPassword().hashCode() : 0);
+    result = 31 * result + (getProfileImageId() != null ? getProfileImageId().hashCode() : 0);
+    return result;
+  }
+
+  @Override
+  public String toString() {
+    return "Customer{" +
+        "id=" + id +
+        ", name='" + name + '\'' +
+        ", email='" + email + '\'' +
+        ", age=" + age +
+        ", gender=" + gender +
+        '}';
+  }
+
+  @Override
+  public Collection<? extends GrantedAuthority> getAuthorities() {
+    return List.of(new SimpleGrantedAuthority("ROLE_USER"));
+  }
+
+  @Override
+  public String getPassword() {
+    return this.password;
+  }
+
+  @Override
+  public String getUsername() {
+    return email;
+  }
+
+  @Override
+  public boolean isAccountNonExpired() {
+    return true;
+  }
+
+  @Override
+  public boolean isAccountNonLocked() {
+    return true;
+  }
+
+  @Override
+  public boolean isCredentialsNonExpired() {
+    return true;
+  }
+
+  @Override
+  public boolean isEnabled() {
+    return true;
+  }
+}
+```
+### User Service
+- UserDetailsService
+```java
+package com.jd.customer;
+
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
+
+/**
+ * Created by jd birla on 29-05-2023 at 13:08
+ */
+@Service
+public class CustomerUserDetailService implements UserDetailsService {
+
+  private final CustomerDao customerDao;
+
+  public CustomerUserDetailService(@Qualifier("jpa") CustomerDao customerDao) {
+    this.customerDao = customerDao;
+  }
+
+
+  @Override
+  public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+    return customerDao.selectUserByEmail(username).orElseThrow(() -> new UsernameNotFoundException("Username " + username + " not found "));
+  }
+}
+
+```
+
+### Jwt Service
+- JWTUtil
+```java
+package com.jd.jwt;
+
+import static java.time.temporal.ChronoUnit.DAYS;
+
+import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.SignatureAlgorithm;
+import io.jsonwebtoken.security.Keys;
+import java.security.Key;
+import java.time.Instant;
+import java.util.Date;
+import java.util.List;
+import java.util.Map;
+import org.springframework.stereotype.Service;
+
+/**
+ * Created by jd birla on 29-05-2023 at 09:48
+ */
+@Service
+public class JWTUtil {
+
+  private static final String SECRET_KEY =
+      "foobar_123456789_foobar_123456789_foobar_123456789_foobar_123456789";
+
+
+  public String issueToken(String subject) {
+    return issueToken(subject, Map.of());
+  }
+
+  public String issueToken(String subject, String... scopes) {
+    return issueToken(subject, Map.of("scopes", scopes));
+  }
+
+  public String issueToken(String subject, List<String> scopes) {
+    return issueToken(subject, Map.of("scopes", scopes));
+  }
+
+
+  public String issueToken(
+      String subject,
+      Map<String, Object> claims) {
+    String token = Jwts
+        .builder()
+        .setClaims(claims)
+        .setSubject(subject)
+        .setIssuer("https://amigoscode.com")
+        .setIssuedAt(Date.from(Instant.now()))
+        .setExpiration(
+            Date.from(
+                Instant.now().plus(15, DAYS)
+            )
+        )
+        .signWith(getSigningKey(), SignatureAlgorithm.HS256)
+        .compact();
+    return token;
+  }
+
+  public String getSubject(String token) {
+    return getClaims(token).getSubject();
+  }
+
+  private Claims getClaims(String token) {
+    Claims claims = Jwts
+        .parserBuilder()
+        .setSigningKey(getSigningKey())
+        .build()
+        .parseClaimsJws(token)
+        .getBody();
+    return claims;
+  }
+
+  private Key getSigningKey() {
+    return Keys.hmacShaKeyFor(SECRET_KEY.getBytes());
+  }
+
+  public boolean isTokenValid(String jwt, String username) {
+    String subject = getSubject(jwt);
+    return subject.equals(username) && !isTokenExpired(jwt);
+  }
+
+  private boolean isTokenExpired(String jwt) {
+    Date today = Date.from(Instant.now());
+    return getClaims(jwt).getExpiration().before(today);
+  }
+}
+
+```
+### Authentication Service
+- AuthenticationRequest
+```java
+package com.jd.auth;
+
+/**
+ * Created by jd birla on 30-05-2023 at 08:24
+ */
+public record AuthenticationRequest(String username, String password) {
+
+}
+
+```
+- AuthenticationResponse
+```java
+
+package com.jd.auth;
+
+import com.jd.customer.CustomerDTO;
+
+/**
+ * Created by jd birla on 30-05-2023 at 08:25
+ */
+public record AuthenticationResponse(String token, CustomerDTO customerDTO) {
+
+}
+```
+- AuthenticationController
+```java
+package com.jd.auth;
+
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+/**
+ * Created by jd birla on 30-05-2023 at 08:33
+ */
+@RestController
+@RequestMapping("api/v1/auth")
+public class AuthenticationController {
+
+  private final AuthenticationService authenticationService;
+
+  public AuthenticationController(AuthenticationService authenticationService) {
+    this.authenticationService = authenticationService;
+  }
+
+  @PostMapping("login")
+  public ResponseEntity<?> login(@RequestBody AuthenticationRequest request) {
+    AuthenticationResponse authenticationResponse = authenticationService.login(request);
+    return ResponseEntity.ok()
+        .header(HttpHeaders.AUTHORIZATION, authenticationResponse.token())
+        .body(authenticationResponse);
+  }
+
+}
+
+
+```
+- AuthenticationService
+```java
+package com.jd.auth;
+
+import com.jd.customer.Customer;
+import com.jd.customer.CustomerDTO;
+import com.jd.customer.CustomerDTOMapper;
+import com.jd.jwt.JWTUtil;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.stereotype.Service;
+
+/**
+ * Created by jd birla on 30-05-2023 at 08:26
+ */
+@Service
+public class AuthenticationService {
+
+  private final AuthenticationManager authenticationManager;
+  private final CustomerDTOMapper customerDTOMapper;
+  private final JWTUtil jwtUtil;
+
+  public AuthenticationService(AuthenticationManager authenticationManager,
+      CustomerDTOMapper customerDTOMapper, JWTUtil jwtUtil) {
+    this.authenticationManager = authenticationManager;
+    this.customerDTOMapper = customerDTOMapper;
+    this.jwtUtil = jwtUtil;
+  }
+
+  public AuthenticationResponse login(AuthenticationRequest request) {
+    Authentication authentication = authenticationManager.authenticate(
+        new UsernamePasswordAuthenticationToken(request.username(), request.password()));
+
+    Customer principal = (Customer) authentication.getPrincipal();
+    CustomerDTO customerDTO = customerDTOMapper.apply(principal);
+
+    String jwtToken = jwtUtil.issueToken(customerDTO.username(), customerDTO.roles());
+    return new AuthenticationResponse(jwtToken, customerDTO);
+  }
+}
+
+
+```
+- CustomerController
+```java
+@RestController
+@RequestMapping("api/v1/customers")
+public class CustomerController {
+
+  private final CustomerService customerService;
+  private final JWTUtil jwtUtil;
+
+
+  public CustomerController(CustomerService customerService, JWTUtil jwtUtil) {
+    this.customerService = customerService;
+    this.jwtUtil = jwtUtil;
+  }
+ @PostMapping
+  public ResponseEntity<?> registerCustomer(
+      @RequestBody CustomerRegistrationRequest request) {
+    customerService.addCustomer(request);
+    String jwtToken = jwtUtil.issueToken(request.email(), "ROLE_USER");
+    return ResponseEntity.ok().header(HttpHeaders.AUTHORIZATION, jwtToken).build();
+
+  }
+}
+```
+### Custom Filter
+- JWTAuthenticationFilter
+```java
+package com.jd.jwt;
+
+import com.jd.customer.CustomerUserDetailService;
+import jakarta.servlet.FilterChain;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import org.springframework.lang.NonNull;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
+import org.springframework.stereotype.Component;
+import org.springframework.web.filter.OncePerRequestFilter;
+
+/**
+ * Created by jd birla on 29-05-2023 at 13:58
+ */
+@Component
+public class JWTAuthenticationFilter extends OncePerRequestFilter {
+  private final JWTUtil jwtUtil;
+  private final UserDetailsService userDetailsService;
+
+  public JWTAuthenticationFilter(JWTUtil jwtUtil,
+      CustomerUserDetailService userDetailsService) {
+    this.jwtUtil = jwtUtil;
+    this.userDetailsService = userDetailsService;
+  }
+
+  @Override
+  protected void doFilterInternal(@NonNull HttpServletRequest request,
+      @NonNull HttpServletResponse response,
+      @NonNull FilterChain filterChain)
+      throws ServletException, IOException {
+
+    String authHeader = request.getHeader("Authorization");
+
+    if (authHeader == null || !authHeader.startsWith("Bearer ")) {
+      filterChain.doFilter(request, response);
+      return;
+    }
+
+    String jwt = authHeader.substring(7);
+    String subject = jwtUtil.getSubject(jwt);
+
+    if (subject != null &&
+        SecurityContextHolder.getContext().getAuthentication() == null) {
+      UserDetails userDetails = userDetailsService.loadUserByUsername(subject);
+      if (jwtUtil.isTokenValid(jwt, userDetails.getUsername())) {
+        UsernamePasswordAuthenticationToken authenticationToken =
+            new UsernamePasswordAuthenticationToken(
+                userDetails, null, userDetails.getAuthorities()
+            );
+        authenticationToken.setDetails(
+            new WebAuthenticationDetailsSource().buildDetails(request)
+        );
+        SecurityContextHolder.getContext().setAuthentication(authenticationToken);
+      }
+    }
+    filterChain.doFilter(request, response);
+
+  }
+}
+```
+
+### Web Security Setup
+- SecurityConfig
+```java
+package com.jd.security;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.AuthenticationProvider;
+import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
+import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+
+/**
+ * Created by jd birla on 29-05-2023 at 13:20
+ */
+@Configuration
+public class SecurityConfig {
+
+  @Bean
+  public PasswordEncoder passwordEncoder() {
+    return new BCryptPasswordEncoder();
+  }
+
+  @Bean
+  public AuthenticationManager authenticationManager(
+      AuthenticationConfiguration configuration
+  ) throws Exception {
+    return configuration.getAuthenticationManager();
+  }
+
+  @Bean
+  public AuthenticationProvider authenticationProvider(
+      UserDetailsService userDetailsService,
+      PasswordEncoder passwordEncoder
+  ) {
+    DaoAuthenticationProvider daoAuthenticationProvider =
+        new DaoAuthenticationProvider();
+    daoAuthenticationProvider.setPasswordEncoder(passwordEncoder);
+    daoAuthenticationProvider.setUserDetailsService(userDetailsService);
+    return daoAuthenticationProvider;
+  }
+
+}
+```
+- SecurityFilterChainConfig
+```java
+package com.jd.security;
+
+import com.jd.jwt.JWTAuthenticationFilter;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
+import org.springframework.security.authentication.AuthenticationProvider;
+import org.springframework.security.config.Customizer;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.web.AuthenticationEntryPoint;
+import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+
+/**
+ * Created by jd birla on 29-05-2023 at 10:05
+ */
+
+@Configuration
+@EnableWebSecurity
+public class SecurityFilterChainConfig {
+
+  private final AuthenticationProvider authenticationProvider;
+  private final JWTAuthenticationFilter jwtAuthenticationFilter;
+  private final AuthenticationEntryPoint authenticationEntryPoint;
+
+  public SecurityFilterChainConfig(AuthenticationProvider authenticationProvider,
+      JWTAuthenticationFilter jwtAuthenticationFilter,
+      AuthenticationEntryPoint authenticationEntryPoint) {
+    this.authenticationProvider = authenticationProvider;
+    this.jwtAuthenticationFilter = jwtAuthenticationFilter;
+    this.authenticationEntryPoint = authenticationEntryPoint;
+  }
+
+  @Bean
+  public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+    http
+        .csrf().disable()
+        .cors(Customizer.withDefaults())
+        .authorizeHttpRequests()
+        .requestMatchers(HttpMethod.POST, "/api/v1/customers", "/api/v1/auth/login")
+        .permitAll()
+        .requestMatchers(HttpMethod.GET,"/ping")
+        .permitAll()
+        .requestMatchers(HttpMethod.GET,"/actuator/**")
+        .permitAll()
+        .requestMatchers(HttpMethod.GET,"/api/v1/customers/*/profile-image")
+        .permitAll()
+        .anyRequest()
+        .authenticated()
+        .and()
+        .sessionManagement()
+        .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+        .and()
+        .authenticationProvider(authenticationProvider)
+        .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)
+        .exceptionHandling()
+        .authenticationEntryPoint(authenticationEntryPoint);
+
+    return http.build();
+  }
+
+}
+```
+- corsconfig
+```java
+package com.jd.security;
+
+import java.util.List;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+
+/**
+ * Created by jd birla on 27-05-2023 at 06:08
+ */
+@Configuration
+@EnableWebMvc
+public class CorsConfig {
+
+  @Value("#{'${cors.allowed-origins}'.split(',')}")
+  private List<String> allowedOrigins;
+
+  @Value("#{'${cors.allowed-methods}'.split(',')}")
+  private List<String> allowedMethods;
+
+  @Value("#{'${cors.allowed-headers}'.split(',')}")
+  private List<String> allowedHeaders;
+
+  @Value("#{'${cors.exposed-headers}'.split(',')}")
+  private List<String> expectedHeaders;
+
+//  @Override
+//  public void addCorsMappings(CorsRegistry registry) {
+//    CorsRegistration corsRegistration = registry.addMapping("/api/**");
+//    allowedOrigins.forEach(corsRegistration::allowedOrigins);
+//    allowedMethods.forEach(corsRegistration::allowedMethods);
+//
+//  }
+
+  @Bean
+  public CorsConfigurationSource corsConfigurationSource() {
+    CorsConfiguration configuration = new CorsConfiguration();
+    configuration.setAllowedOrigins(allowedOrigins);
+    configuration.setAllowedMethods(allowedMethods);
+    configuration.setAllowedHeaders(allowedHeaders);
+    configuration.setExposedHeaders(expectedHeaders);
+    UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+    source.registerCorsConfiguration("/api/**", configuration);
+    return source;
+  }
+}
+```
