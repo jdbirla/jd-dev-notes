@@ -76,6 +76,13 @@ https://levelup.gitconnected.com/how-to-follow-good-coding-standards-in-spring-b
 ### How to call Spring Boot Rest API’s Concurrently
 <https://levelup.gitconnected.com/how-to-call-spring-boot-rest-apis-concurrently-e23f93448d25>
 
+### Hikari configuration in Spring boot
+- <https://springframework.guru/hikari-configuration-for-mysql-in-spring-boot-2/>
+
+### Flyway Migration
+- <https://springframework.guru/database-migration-with-flyway/>
+
+  
 ----
 ## Utility
 ### Lombok
