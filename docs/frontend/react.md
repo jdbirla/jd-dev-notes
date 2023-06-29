@@ -1660,6 +1660,7 @@ export default function App() {
 
 ### Jonas: https://fast-react-pizza-menu.netlify.app/
 - https://github.com/jdbirla/JD_Front_End_Repo/tree/master/Jonas_Schmedtmann/React/ultimate-react-course-main/03-pizza-menu
+  
 | Library                         | Description                                                                                                                                                                      | Use                                                                                                                         |
 |---------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------|
 | @testing-library/jest-dom       | A set of custom Jest matchers for asserting on DOM elements.                                                                                                                   | Used in combination with Jest for testing DOM-related assertions in React components.                                       |
@@ -1672,7 +1673,8 @@ export default function App() {
 
 ### Jonas: https://travel-list-jonas.netlify.app/
 - https://github.com/jdbirla/JD_Front_End_Repo/tree/master/Jonas_Schmedtmann/React/ultimate-react-course-main/05-travel-list
-  | Library                         | Description                                                                                                                                                                      | Use                                                                                                                         |
+
+| Library                         | Description                                                                                                                                                                      | Use                                                                                                                         |
 |---------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------|
 | @testing-library/jest-dom       | A set of custom Jest matchers for asserting on DOM elements.                                                                                                                   | Used in combination with Jest for testing DOM-related assertions in React components.                                       |
 | @testing-library/react          | A library that provides utilities for testing React components.                                                                                                                 | Used for writing tests and performing assertions on React components, such as rendering, interacting, and querying elements. |
@@ -1684,6 +1686,7 @@ export default function App() {
 
 ### Jonas: https://usepopcorn.netlify.app/
 - https://github.com/jdbirla/JD_Front_End_Repo/tree/master/Jonas_Schmedtmann/React/ultimate-react-course-main/07-usepopcorn
+  
 | Library                         | Description                                                                                                                                                                      | Use                                                                                                                         |
 |---------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------|
 | @testing-library/jest-dom       | A library that provides custom Jest matchers for asserting on DOM elements.                                                                                                      | Used in combination with Jest for testing DOM-related assertions in React components.                                       |
@@ -1697,6 +1700,7 @@ export default function App() {
 
 ### Jonas: 	[https://the-react-quiz.netlify.app/](https://worldwise-jonas.netlify.app/)
 - https://github.com/jdbirla/JD_Front_End_Repo/tree/master/Jonas_Schmedtmann/React/ultimate-react-course-main/11-worldwise
+  
 | Library                         | Description                                                                                                                                                                      | Use                                                                                                                         |
 |---------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------|
 | json-server                     | A library that provides a simple way to set up a fake REST API server for development and testing purposes.                                                                      | Used for mocking a backend API during development and testing of React applications.                                         |
@@ -1709,6 +1713,7 @@ export default function App() {
 
 ### Jonas : 15-redux-intro
 - https://github.com/jdbirla/JD_Front_End_Repo/tree/master/Jonas_Schmedtmann/React/ultimate-react-course-main/15-redux-intro
+  
 | Library                         | Description                                                                                                                                                                      | Use                                                                                                                         |
 |---------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------|
 | @reduxjs/toolkit                | An official Redux library that provides utilities and abstractions for simplifying Redux setup and reducing boilerplate code.                                                    | Used for state management in React applications, offering a streamlined approach to Redux with built-in tools and features. |
@@ -1726,6 +1731,7 @@ export default function App() {
 
 ### Jonas: https://fast-react-pizza.netlify.app/
 - https://github.com/jdbirla/JD_Front_End_Repo/tree/master/Jonas_Schmedtmann/React/ultimate-react-course-main/16-fast-react-pizza
+
 | Library                         | Description                                                                                                                                                                      | Use                                                                                                                         |
 |---------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------|
 | @reduxjs/toolkit                | An official Redux library that provides utilities and abstractions for simplifying Redux setup and reducing boilerplate code.                                                    | Used for state management in React applications, offering a streamlined approach to Redux with built-in tools and features. |
@@ -1747,6 +1753,7 @@ export default function App() {
 | vite-plugin-eslint              | A Vite plugin for integrating ESLint into the build process.                                                                                                                    | Enables ESLint to be used during the development server and build processes in Vite.                                        |
 ### Jonas : https://the-wild-oasis.vercel.app/
 - https://github.com/jdbirla/JD_Front_End_Repo/tree/master/Jonas_Schmedtmann/React/ultimate-react-course-main/17-the-wild-oasis
+  
 | Library                         | Description                                                                                                                                                                      | Use                                                                                                                         |
 |---------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------|
 | @supabase/supabase-js           | A JavaScript client library for Supabase, an open-source alternative to Firebase that provides a real-time and secure backend-as-a-service (BaaS) platform.                    | Used for interacting with the Supabase backend and performing operations like querying, inserting, updating, and deleting data. |
