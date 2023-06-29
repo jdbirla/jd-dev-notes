@@ -1640,6 +1640,24 @@ export default function App() {
 
 ```
 ---
+## Libraries used in all projects
+### Amigose code FSP Vite
+| Library            | Description                                                                                                      | Use                                                                                                                |
+|--------------------|------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------|
+| @chakra-ui/react   | A component library that provides a set of accessible and customizable UI components for building React applications. | Used for creating visually appealing and responsive user interfaces with ready-to-use components and styling options. |
+| @emotion/react     | A library for writing CSS styles with JavaScript.                                                                | Used for styling React components using JavaScript instead of traditional CSS files.                                  |
+| @emotion/styled    | A library that provides a styled component API for Emotion.                                                      | Used in combination with @emotion/react to create styled components with custom CSS styles.                          |
+| axios              | A promise-based HTTP client for making asynchronous HTTP requests.                                                | Used for sending HTTP requests to a server and handling responses in React applications.                             |
+| formik             | A form management library that helps with handling form state, validation, and submission in React.               | Used for building complex forms and managing form state and validation with ease.                                    |
+| framer-motion      | A library for creating animations and interactive UI components in React.                                         | Used for adding motion and animation effects to React components, creating engaging user interfaces.                  |
+| jwt-decode         | A library for decoding JSON Web Tokens (JWTs) in React.                                                          | Used for decoding and extracting information from JWTs in client-side React applications.                            |
+| react              | The core library for building React applications.                                                                 | The foundation of React applications, used for creating components and managing their lifecycle.                     |
+| react-dom          | The package that provides DOM-specific methods for React.                                                        | Used for rendering React components into the browser's DOM.                                                         |
+| react-dropzone     | A React component that provides drag-and-drop file upload functionality.                                          | Used for implementing file upload features, allowing users to drag and drop files for uploading.                     |
+| react-icons        | A library that provides a wide range of customizable icons for React applications.                                | Used for easily incorporating icons into React components, enhancing the visual design of the application.           |
+| react-router-dom   | A library that provides routing capabilities for React applications.                                              | Used for implementing client-side routing in React applications, enabling navigation between different views.          |
+| yup                | A JavaScript schema validation library for defining and validating data schemas.                                 | Used for creating and validating data schemas, often used in combination with form libraries like Formik.            |
+---
 ## React Quick Ref
 ### ApiMarsFetchList
 ```js
