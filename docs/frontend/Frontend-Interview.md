@@ -205,11 +205,11 @@ export default UseEffectAsWillUnmount;
    - Prevent  Child re render
 #### Memoization
      - React.Memo for component memoization when input is changing then only the component will re-render
-     ```js
+```js
      const Archive = memo( component)
-     ```
+```
      - useMemo : for Object value memoization
-     ```js
+```js
      const archiveOptions = useMemo(() => {
     return {
       show: false,
@@ -221,9 +221,9 @@ export default UseEffectAsWillUnmount;
         onAddPost={handleAddPost}
         setIsFakeDark={setIsFakeDark}
       />
-      ```
+```
      - useCallback : for unction memoization
-     ```js
+```js
        const handleAddPost = useCallback(function handleAddPost(post) {
     setPosts((posts) => [post, ...posts]);
   }, []);
@@ -233,7 +233,7 @@ export default UseEffectAsWillUnmount;
         onAddPost={handleAddPost}
         setIsFakeDark={setIsFakeDark}
       />
-      ```
+```
 #### Use React Profiler
 #### Lazy Loading
 `const Homepage = lazy(() => import("./pages/Homepage"));`
@@ -314,25 +314,25 @@ The main difference between `PureComponent` and `Component` lies in how they han
 To implement a `PureComponent` in your React application, follow these steps:
 
 1. Import the `PureComponent` class from the `react` package:
-   ```jsx
+  
    import React, { PureComponent } from 'react';
-   ```
+```
 
 2. Create your component by extending the `PureComponent` class instead of the regular `Component` class:
-   ```jsx
+  
    class MyComponent extends PureComponent {
      // Component implementation
    }
-   ```
+```
 
 3. Implement the necessary render method and any additional methods or lifecycle hooks required for your component.
 
 4. Use the `MyComponent` in your application like any other React component:
-   ```jsx
+  
    function App() {
      return <MyComponent />;
    }
-   ```
+```
 
 By using `PureComponent`, React handles the optimization of shallow comparisons for you. It automatically compares the props and state of your component and determines whether a re-render is necessary. This can be particularly useful when dealing with large or complex components that may benefit from avoiding unnecessary renders.
 
