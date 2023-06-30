@@ -86,19 +86,39 @@ We may think of this particular method as in the form of a real-life example whe
  - useEffect allows you to perform side effects, such as fetching data or updating the DOM, after the component has rendered. It replaces the componentDidMount, componentDidUpdate, and componentWillUnmount lifecycle methods of class components.
 - useLayoutEffect is similar to useEffect, but it is called synchronously after all DOM mutations. It can be used to perform DOM measurements or to make sure the component is fully rendered before doing any work.**
 #### 1. Mounting:
-  ##### constructor() : constructor: Function components don’t need a constructor. You can initialize the state in the useState call. If computing the initial state is expensive, you can pass a function to useState.
-  ##### getDerivedStateFromProps() : Not required
-  ##### render() : This is the function component body itself.
-  ##### componentDidMount() : The componentDidMount() method is called after the component is rendered.
+  ##### constructor() : 
+ - **Class**:The constructor() method is called before anything else, when the component is initiated, and it is the natural place to set up the initial state and other initial values.
+The constructor() method is called with the props, as arguments, and you should always start by calling the super(props) before anything else, this will initiate the parent's constructor method and allows the component to inherit methods from its parent (React.Component).
+  - **Function**: Function components don’t need a constructor. You can initialize the state in the useState call. If computing the initial state is expensive, you can pass a function to useState.
+  ##### getDerivedStateFromProps() :
+  - **Class** : The getDerivedStateFromProps() method is called right before rendering the element(s) in the DOM.
+This is the natural place to set the state object based on the initial props.
+It takes state as an argument, and returns an object with changes to the state.
+The example below starts with the favorite color being "red", but the getDerivedStateFromProps() method updates the favorite color based on the favcol attribute:
+ - **Function**: Not required
+  ##### render() : 
+  - **Class**:The render() method is required, and is the method that actually outputs the HTML to the DOM.
+  - **Function**: This is the function component body itself.
+ 
+  ##### componentDidMount() : 
+   - **Class**:The componentDidMount() method is called after the component is rendered.
+This is where you run statements that requires that the component is already placed in the DOM.
+  - **Function**:The componentDidMount() method is called after the component is rendered.
 ```js
  useEffect(() => {
         console.log("UseEffect hook after component mounted.")
     }, [])
 ```
-#### 2. Updating
-##### getDerivedStateFromProps(): Not required
+#### 2. Updating :
+- The next phase in the lifecycle is when a component is updated.
+##### getDerivedStateFromProps(): 
+  - **Class**:Also at updates the getDerivedStateFromProps method is called. This is the first method that is called when a component gets updated.
+This is still the natural place to set the state object based on the initial props.
+  - **Function**:Not required
 ##### shouldComponentUpdate()
-  In the shouldComponentUpdate() method you can return a Boolean value based on prop comparions if its changes from previous value, that specifies whether React should continue with the rendering or not.
+  - **Class**:In the shouldComponentUpdate() method you can return a Boolean value that specifies whether React should continue with the rendering or not.
+The default value is true.
+  - **Function**:   In the shouldComponentUpdate() method you can return a Boolean value based on prop comparions if its changes from previous value, that specifies whether React should continue with the rendering or not.
 ##### First Way :
 
 ```js
@@ -119,9 +139,15 @@ const Button = React.memo((props) => {
   // your component
 });
 ```
-#### render() : This is the function component body itself.
-#### getSnapshotBeforeUpdate() : No Hooks
+#### render() : 
+  - **Class**:The render() method is of course called when a component gets updated, it has to re-render the HTML to the DOM, with the new changes
+  - **Function**:This is the function component body itself.
+#### getSnapshotBeforeUpdate() :
+  - **Class**:In the getSnapshotBeforeUpdate() method you have access to the props and state before the update, meaning that even after the update, you can check what the values were before the update.
+  - **Function**: No Hooks
 #### componentDidUpdate():
+  - **Class**:The componentDidUpdate method is called after the component is updated in the DOM.
+  - **Function**:
 ```js
 import React, { useEffect, useState } from 'react'
 
@@ -148,6 +174,8 @@ export default UseEffectAsDidUpdate;
 
 ```
 ### 3. Unmounting
+  - **Class**:The next phase in the lifecycle is when a component is removed from the DOM, or unmounting as React likes to call it.
+  - **Function**:
 #### componentWillUnmount
 ```js
 import React, { useEffect, useState } from 'react'
