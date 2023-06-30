@@ -800,7 +800,7 @@ applications:
 - We have granted permission to the EC2 role for access secrets manager
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/fdc9eb9a-f81b-437c-8bb1-7ae4d000359c)
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/fd76f8f2-31e5-424d-8d5d-beb397342eb7)
-
+- add dependecy for secrectsmanager
 ```yml
 spring:
   datasource:
