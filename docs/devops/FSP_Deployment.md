@@ -682,3 +682,77 @@ docker buildx build \
     --push \
     "$1"
 ```
+## AWS Loadbalancer, Auto scaling, Route 53, SSL
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/1c97e704-26ca-48ba-bcc8-3ebb0d16516e)
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/7306ec29-44c9-4f6f-ba36-1db7c6a1343c)
+- Create new env
+- Load balancer will be in public subnet
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/6f10f377-b54c-4d15-b284-5504eaa31506)
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/23818355-ed83-4c71-9861-341b5653f4c9)
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/02eb403a-8079-48fd-a2f0-eb768a0276c9)
+
+- aws.json
+- We removed the react container defination becasue will deploy react using aws amplify and chnage tithe port aws well
+```json
+{
+  "AWSEBDockerrunVersion": 2,
+  "containerDefinitions": [
+{
+      "name": "jdbirla-api",
+      "image": "jbirla/spring-boot-api:30.05.2023.11.38.43",
+      "essential": true,
+      "memory": 512,
+      "portMappings": [
+        {
+          "hostPort": 80,
+          "containerPort": 8080
+        }
+      ],
+      "environment": [
+        {
+        "name": "SPRING_DATASOURCE_URL",
+          "value": "EBS RDS URL"
+        }
+      ]
+    }
+  ]
+}
+```
+
+-  upload this file
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/675efc09-ec16-47e2-8e0e-1d01795859b3)
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/2b902539-bb5e-4242-8fa2-f44d3d859176)
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/247343a0-69c0-4e09-b678-1dc0a529f7a2)
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/324fa11c-98b7-4978-863c-9da0b0be147d)
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/8135bea9-ee5b-4f4d-af2f-31d62e866e8b)
+- Autoscaling triggers
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/7dd44de3-54f2-4180-aa45-659dbfb16ca4)
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/e1b41070-6820-4dd0-a00a-a164d83f9e8f)
+
+- change RDS host in aws json and redeploy
+- We will face health check issue for solving this issue we have exposed `info and health` actuator in applicaiton
+- We need to requestpermission into securityfilterchainconfig
+- Update github secrets for new env
+- Github action willl deploy after commit
+- Change health check path
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/ad933c37-df9f-4ccb-8b38-ce37e0b36de8)
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/8331e158-8750-474c-bfb8-0c4fb9690c18)
+
+- Route 53 take a domain
+- Create a record
+- ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/613ee714-a541-4f8b-a1ae-1850acb20cd3)
+- SSL TSL using certificate manager
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/3b659123-cbdf-41d9-b2ce-60ba3e1944ab)
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/7f7fba92-5aa0-4431-a5e0-3c16014be1ea)
+- create a reacord in certificayte
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/da2e9e91-3a69-43db-8a47-a33922d9dc87)
+- add listern for load balanser for hhtps
+ ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/6bb5b479-581d-4560-9bfc-00685cfe593d)
+- HTTP to HTTPs redirect
+
+## AWS Amplify
+
+
+
+
+
