@@ -314,12 +314,12 @@ The main difference between `PureComponent` and `Component` lies in how they han
 To implement a `PureComponent` in your React application, follow these steps:
 
 1. Import the `PureComponent` class from the `react` package:
-  
+```jsx
    import React, { PureComponent } from 'react';
 ```
 
 2. Create your component by extending the `PureComponent` class instead of the regular `Component` class:
-  
+```jsx
    class MyComponent extends PureComponent {
      // Component implementation
    }
@@ -328,7 +328,7 @@ To implement a `PureComponent` in your React application, follow these steps:
 3. Implement the necessary render method and any additional methods or lifecycle hooks required for your component.
 
 4. Use the `MyComponent` in your application like any other React component:
-  
+```jsx
    function App() {
      return <MyComponent />;
    }
