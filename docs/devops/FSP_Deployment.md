@@ -751,6 +751,48 @@ docker buildx build \
 - HTTP to HTTPs redirect
 
 ## AWS Amplify
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/aaea80b7-f62a-4a35-ac7d-ed4380394ecd)
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/681e2e8c-3477-4823-b679-9cc03c64b744)
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/bda9edce-f56c-42fa-91d3-134345403441)
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/c60b1e96-e140-4f3c-9f52-623c9ed10c49)
+
+
+```yml
+version: 1
+applications:
+  - frontend:
+      phases:
+        preBuild:
+          commands:
+            - nvm use ${VERSION_NODE_17}
+            - npm ci
+        build:
+          commands:
+            - nvm use ${VERSION_NODE_17}
+            - echo "VITE_API_BASE_URL=$VITE_API_BASE_URL" > .env.production
+            - npm run build
+      artifacts:
+        baseDirectory: /dist
+        files:
+          - '**/*'
+      cache:
+        paths:
+          - node_modules/**/*
+    appRoot: frontend/react
+```
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/b50855b5-f68b-44ce-b802-b755b7bddb7b)
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/2b1dade2-16f0-4856-a1e9-4a8959745a97)
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/cc5852f8-627b-451f-a2b9-bddb6241d651)
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/2244d624-e9b6-44bf-af7c-3dc41e1df714)
+- custom domain a free SSL certificate
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/0c2958b6-d5ad-460c-a419-a2f9ff9f70e1)
+
+- Preview and CICD
+- We can disable React-workflow using a condition
+`if: false`
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/24aba092-fced-4a93-82ec-3164196c99a7)
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/bfd575d0-137c-4b22-88e8-a5d74a5c5e42)
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/2fb462a2-a3cd-4a8e-85b5-a21b2161a6ea)
 
 
 
