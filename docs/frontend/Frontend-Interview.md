@@ -82,6 +82,12 @@ We may think of this particular method as in the form of a real-life example whe
     - Coding might become complex as it will make use of inline templating and JSX.
 
 ### Can we use class component life cycle method inside function component
+```
+3 phases: Mounting, Updating, Unmounting
+Mounting: constructor → render → DOM update → componentDidMount
+Updating: render → DOM update → componentDidUpdate
+Unmounting: componentWillUnmount
+```
   - https://legacy.reactjs.org/docs/hooks-faq.html#from-classes-to-hooks
  - useEffect allows you to perform side effects, such as fetching data or updating the DOM, after the component has rendered. It replaces the componentDidMount, componentDidUpdate, and componentWillUnmount lifecycle methods of class components.
 - useLayoutEffect is similar to useEffect, but it is called synchronously after all DOM mutations. It can be used to perform DOM measurements or to make sure the component is fully rendered before doing any work.**
@@ -468,9 +474,89 @@ To use the Error Boundary, you wrap the components that you want to handle error
 By using Error Boundaries, you can prevent the entire application from crashing when an error occurs in a specific component tree. Instead, you can display a fallback UI or an error message to the user, providing a better user experience and making it easier to diagnose and fix the error.
 
 
-
 ### Medium
 - <https://medium.com/@stevenjinyi/study-sheet-for-react-interview-questions-2020-2fe25b8fa316>
-- <https://tapajyoti-bose.medium.com/11-advanced-react-interview-questions-you-should-absolutely-know-with-detailed-answers-e306083ecb7d>
+### What is Redux?
+
+Redux is a library for managing application state
+Redux is a solution for global state management, allowing you to pass data without the need to pass props through every level (aka props drilling)
+Inspired by Facebook’s flux architecture
+###  What are the main constituents of Redux?
+
+Actions
+
+Actions are plain Javascript objects with type property to indicate what type of action is being performed
+Actions are dispatched to the central store using store.dispatch()
+Actions are usually created by Action Creator functions, which given some input generates the corresponding action.
+Reducers
+
+Reducers are functions that take an Action and a current state and returns the resulting state
+Reducers must be pure functions and have no side effects
+Store
+
+The Store is the central object that maintains and updates the application state
+The Store also handles the registration and unregistering of listeners
+### How does Redux work?
+
+Redux revolves around strict unidirectional data flow
+First: an Action is dispatched to the store via store.dispatch(action)
+Second: Redux determine the resultant state by calling a Reducer function
+Third: The root reducer combines the output of multiple reducers into a single state tree
+Fourth: The Store saves the new state tree and notifies listeners that are registered
+### What are Redux Selectors?
+
+A Selector is a function that takes in the Redux store state and returns the derived desired data from that state.
+Selectors allow the Redux store state to be as minimal as possible by computing data off of the state
+Selectors allow for better separation of concern by keeping components free from state transformation logic
+Selector computations can be memoized to prevent additional computation
+Selectors can also be composed and reused across an application
+### What is Redux Toolkit?
+
+Redux Toolkit: an official opinionated Redux toolset to get you up and running quickly with Redux without having the worry about the boilerplate. Comes with premade functions and utilities that help easily configure the store and create actions and reducers.
+Redux Toolkit comes baked with widely used Redux Addons:
+Redux Thunk — Middleware for async logic
+Reselect — Easily create memoized selectors
+
 - <https://juliuskoronci.medium.com/react-interview-questions-13f8839f2711>
+#### What is the difference between == and ===?
+The usual answer would be one compares only the values while the other also compares the type. In this case, follow up question would be: Why null == undefined is true? As you can guess their values will never be equal.
+
+A good answer is that == runs the loose equality check while === also compares the types. The loose equality check looks at the type on both sides and based on the types it decides what to do. The specifications states that if both sides of the comparison are null and undefined just return true.
+
+So, it may just return true like in the case of null with undefined or it may try to convert one or the other side to the same type and compare their values depending on what is specified for a certain scenario.
+
+### What are closures and lexical scope?
+A closure is when a function is able to remember and access its lexical scope even when that function is executed outside of that scope. A good example for closures is currying, a common accepted answer is also responding that an inner function returned by an outer function has access to its outer functions variables even after the outer function was called. Lexical scope is the scope model used by JavaScript which compared to dynamic scoping enables a lot of cool features. If someone also explains lexing time and goes into hoisting it is a big bonus.
+
+### What is data mutation and how to prevent it?
+- This is a bit tricky question as there are multiple correct answers and approaches. What we look for is understanding that arrays and objects can be passed around and since they are references, we are changing the original array or object. This leads to side effects and often to unwanted behaviour. The preferred way is never to mutate objects or arrays and when modifying, always create and return a new copy. We can take advantage of the spread operator, object.assign or libraries like ImmutableJS. Mentioning array.slice vs splice is a plus.
+
+
+### What is hoisting?
+- A common answer is: hoisting is a mechanism which moves all declarations to the top of the execution scope. A good answer is understanding that JavaScript compiles your code before execution. When the compiler enters an execution context, it will start lexing (splitting your code) and analysing the code while creating a list out of the declarations it finds. Each time the compiler encounters a declaration, it will create a binding to it and each time it encounters an assignment or evaluation it will ask the current scope for the binding, if it can’t find the binding, it will go up until it reaches the global scope. If you have strict mode on, you will get an error and if you use the good old es5 it will create a new binding for you. This is why, you are able to assign to a variable which wasn’t declared before. Anyway, after running through some steps, it will generate some compiled code which can be then executed :).
+
+### What is the difference between array.map and array.forEach?
+- This simple question apparently causes a lot of issue :) but the answer is very simple. While forEach executes a function for each element with the element as the function argument, map does almost the same but it returns a new array with the results of the function replacing the item in each step. The new array is of the same size as the original array.
 - <https://javascript.plainenglish.io/10-entry-level-react-interview-questions-5a8ea74e2130>
+### Why should you use React instead of real JavaScript frameworks, like for example Angular?
+Unlike Angular or Vue, React is just a library, which of course has its pros and cons. To focus on the pros:
+
+React is more lightweight and allows the creation of dynamic applications. Also, since React is basically JS with some JSX, it’s easier to get started with.
+Using VDOM, makes web applications perform faster.
+
+React uses a unidirectional data flow, which means that data flows from top to bottom. This makes debugging errors easier.
+
+There are many chrome extensions that make working and debugging React applications easier. Here are three of my favorites: Components, Redux and React Context. There are others, but these are the primary ones I use in almost every application.
+
+Since there is no React without JavaScript, you can definitely expect some JavaScript questions on the interview as well. Here are some of them.
+
+### 
+
+### 
+
+### 
+
+### 
+
+### 
+
