@@ -794,7 +794,20 @@ applications:
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/bfd575d0-137c-4b22-88e8-a5d74a5c5e42)
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/2fb462a2-a3cd-4a8e-85b5-a21b2161a6ea)
 
+### Secrets Manager
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/cdd1eb96-7f2c-4355-8d01-d1522cf8c196)
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/245ef67b-0349-425a-acca-130c9478132c)
+- We have granted permission to the EC2 role for access secrets manager
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/fdc9eb9a-f81b-437c-8bb1-7ae4d000359c)
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/fd76f8f2-31e5-424d-8d5d-beb397342eb7)
 
+```yml
+spring:
+  datasource:
+    url: jdbc-secretsmanager:postgresql://awseb-e-ezjnxfjb44-stack-awsebrdsdatabase-f2ocmocryc5g.celswdmxhcr1.eu-west-1.rds.amazonaws.com:5432/ebdb
+    username: test/full-stack/postgres
+    driver-class-name: com.amazonaws.secretsmanager.sql.AWSSecretsManagerPostgreSQLDriver
+```
 
 
 
