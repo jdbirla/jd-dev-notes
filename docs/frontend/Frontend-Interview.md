@@ -558,9 +558,9 @@ Since there is no React without JavaScript, you can definitely expect some JavaS
 
 ---
 ## JavaScript CS
-## The JavaScript Skills You Need For React
+### The JavaScript Skills You Need For React
 - https://medium.com/weekly-webtips/react-basics-whats-the-difference-between-javascript-and-jsx-604dd224b1cf
-### 1. Function Declarations and Arrow Functions
+#### 1. Function Declarations and Arrow Functions
 ```js
 // JavaScript function: returns any valid JavaScript type
 function javascriptFunction() {
@@ -630,7 +630,7 @@ export const App = () => {
   return <div>Hello React</div>;
 };
 ```
-### 2. Template Literals
+#### 2. Template Literals
 
 ```js
 /* 
@@ -671,7 +671,7 @@ function Layout(props) {
   );
 }
 ```
-### 3. Short Conditionals: &&, ||, Ternary Operator
+#### 3. Short Conditionals: &&, ||, Ternary Operator
 ```js
 //Without ternary operator
 import React from "react";
@@ -715,7 +715,7 @@ function App() {
 export default App;
 ```
 
-### 4. Three Array Methods: .map(), .filter(), .reduce()
+#### 4. Three Array Methods: .map(), .filter(), .reduce()
 
 ```js
 /* Note that this isn't exactly the same as the normal JavaScript .map() method, but is very similar. */
@@ -779,7 +779,7 @@ export default App;
 
 ```
 
-### 5. Object Tricks: Property Shorthand, Destructuring, Spread Operator
+#### 5. Object Tricks: Property Shorthand, Destructuring, Spread Operator
 
 ```js
 //bject destructuring. 
@@ -855,11 +855,10 @@ console.log(secondUser);
 
 ```
 
-### 6: Promises + Async/Await Syntax
+#### 6: Promises + Async/Await Syntax
 
 - an external API using browser features like the Fetch API or the third-party library axios.
 - Here is a real example of using React to fetch data from my GitHub API using the Fetch API to show my profile image. The data is resolved using promises:
--
 ```js
 /* Go to react.new and paste this code in to see it work! */
 import React from "react";
@@ -941,7 +940,7 @@ export default App;
 
 ```
 
-### 7. ES Modules + Import / Export syntax
+#### 7. ES Modules + Import / Export syntax
 
 - named imports/exports and as default imports/exports.
 ```js
@@ -981,7 +980,7 @@ import getMyName, { name as myName, age as myAge } from "../constants.js";
 console.log(myName, myAge, getMyName());
 
 ```
-### Callback Functions in JavaScript
+#### Callback Functions in JavaScript
 
 - A callback function is a function that is performed after another function has completed its execution. It is typically supplied as an input into another function.
 - Here's an example of a "click" event listener with a callback function that will be run whenever the button is clicked:
@@ -998,7 +997,7 @@ btn.addEventListener('click', () => {
 })
 ```
 
-### Promise
+#### Promise
 
 - callbackhell
 ```js
@@ -1042,7 +1041,7 @@ addName(2000, 'Joel')
 
 ```
 
-### Rest and Spread Operators in JavaScript
+#### Rest and Spread Operators in JavaScript
 - Spread operator
 ```js
 let pets= ["cat", "dog" , "rabbits"];
@@ -1090,9 +1089,9 @@ hobbies: {...}
 } */
 
 ```
----
-## React-JavaScript Sysntax Comparision
-### Data binding
+
+### React-JavaScript Sysntax Comparision
+#### Data binding
 - javascript
 ```js
 let myData = 'Hello';
@@ -1109,7 +1108,7 @@ function MyComponent() {
 }
 ```
 
-### Event binding:
+#### Event binding:
 
 - javascript
 ```js
@@ -1133,7 +1132,7 @@ function MyComponent() {
 
 ```
 
-### Class binding:
+#### Class binding:
 
 - javascript
 ```js
@@ -1155,7 +1154,7 @@ function MyComponent() {
 
 ```
 
-### Style binding:
+#### Style binding:
 
 - javascript
 ```js
@@ -1176,7 +1175,7 @@ function MyComponent() {
 
 ```
 
-### DOM manipulation
+#### DOM manipulation
 
 - javascript
 ```js
@@ -1205,7 +1204,7 @@ function MyComponent() {
 ```
 
 
-### Function calling:
+#### Function calling:
 
 - javascript
 ```js
@@ -1232,19 +1231,10 @@ function MyComponent() {
 
 ```
 
-###
-- javascript
-```js
 
-```
-- react
-```js
+### JSX-JavaScript-HTML syntax Comparision
 
-```
-
-## JSX-JavaScript-HTML syntax Comparision
-
-### Element rendering:
+#### Element rendering:
 
 - jsx
 ```jsx
@@ -1265,7 +1255,7 @@ document.getElementById('root').appendChild(h1);
 
 ```
 
-### Element attributes:
+#### Element attributes:
 
 
 - jsx
@@ -1286,7 +1276,7 @@ img.alt = 'image';
 
 ```
 
-### Styling
+#### Styling
 
 - jsx
 ```jsx
@@ -1308,7 +1298,7 @@ div.style.backgroundColor = 'yellow';
 ```
 
 
-### Conditionals
+#### Conditionals
 
 - jsx
 ```jsx
@@ -1347,7 +1337,7 @@ const element = (
 ```
 
 
-### Loops:
+#### Loops:
 
 
 - jsx
@@ -1388,14 +1378,6 @@ const element = (
 
 - jsx
 ```jsx
-
-```
-- html
-```html
-
-```
-- js
-```js
 
 ```
 
