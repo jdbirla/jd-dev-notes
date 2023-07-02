@@ -558,15 +558,6 @@ Since there is no React without JavaScript, you can definitely expect some JavaS
 
 ---
 ## JavaScript CS
-
-Index
-=============================
-- [The JavaScript Skills You Need For React](#the-javascript-skills-you-need-for-react)
-- [React-JavaScript Sysntax Comparision](#react-javascript-sysntax-comparision)
-- [JSX-JavaScript-HTML syntax Comparision](#jsx-javascript-html-syntax-comparision)
-
-
-
 ## The JavaScript Skills You Need For React
 - https://medium.com/weekly-webtips/react-basics-whats-the-difference-between-javascript-and-jsx-604dd224b1cf
 ### 1. Function Declarations and Arrow Functions
