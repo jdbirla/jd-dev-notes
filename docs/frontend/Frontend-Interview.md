@@ -556,6 +556,860 @@ Since there is no React without JavaScript, you can definitely expect some JavaS
 
 ### 
 
+---
+## JavaScript CS
+
+Index
+=============================
+- [The JavaScript Skills You Need For React](#the-javascript-skills-you-need-for-react)
+- [React-JavaScript Sysntax Comparision](#react-javascript-sysntax-comparision)
+- [JSX-JavaScript-HTML syntax Comparision](#jsx-javascript-html-syntax-comparision)
+
+
+
+## The JavaScript Skills You Need For React
+- https://medium.com/weekly-webtips/react-basics-whats-the-difference-between-javascript-and-jsx-604dd224b1cf
+### 1. Function Declarations and Arrow Functions
+```js
+// JavaScript function: returns any valid JavaScript type
+function javascriptFunction() {
+  return "Hello world";
+}
+
+// React function component: returns JSX
+function ReactComponent(props) {
+  return <h1>{props.content}</h1>;
+}
+```
+- a function declaration, and as an arrow function
+```js
+// Function declaration syntax
+function MyComponent(props) {
+  return <div>{props.content}</div>;
+}
+
+// Arrow function syntax
+const MyComponent = (props) => {
+  return <div>{props.content}</div>;
+};
+
+// Arrow function syntax (shorthand)
+const MyComponent = (props) => <div>{props.content}</div>;
+
+/* 
+In the last example we are using several shorthands that arrow functions allow:
+
+1. No parentheses around a single parameter
+2. Implicit return (as compared to using the "return" keyword)
+3. No curly braces for function body
+*/
+```
+- One small benefit of using function declarations over arrow functions is that you don't have to worry about problems with hoisting.
+- Due to the JavaScript behavior of hoisting, you can use multiple function components made with function declarations in a single file in whichever order you like.
+- Function components made with arrow functions, however, cannot be ordered whichever way you like. Because JavaScript variables are hoisted, arrow function components must be declared before they are used:
+```js
+function App() {
+  return (
+    <>
+      {/* Valid! FunctionDeclaration is hoisted */}
+      <FunctionDeclaration />
+      {/* Invalid! ArrowFunction is NOT hoisted. Therefore, it must be declared before it is used */}
+      <ArrowFunction />
+    </>
+  );
+}
+
+function FunctionDeclaration() {
+  return <div>Hello React!</div>;
+}
+
+function ArrowFunction() {
+  return <div>Hello React, again!</div>;
+}
+```
+- export diff
+```js
+// Function declaration syntax can be immediately exported with export default or export
+export default function App() {
+  return <div>Hello React</div>;
+}
+
+// Arrow function syntax must use export only
+export const App = () => {
+  return <div>Hello React</div>;
+};
+```
+### 2. Template Literals
+
+```js
+/* 
+Concatenating strings prior to ES6.
+Notice the awkward space after the word Hello?
+*/
+function sayHello(text) {
+  return "Hello " + text + "!";
+}
+
+sayHello("React"); // Hello React!
+
+/* 
+Concatenating strings using template literals.
+See how much more readable and predictable this code is?
+*/
+function sayHelloAgain(text) {
+  return `Hello again, ${text}!`;
+}
+
+sayHelloAgain("React"); // Hello again, React!
+```
+```js
+import React from "react";
+import Head from "./Head";
+
+function Layout(props) {
+  // Shows site name (i.e. Reed Barger) at end of page title
+  const title = `${props.title} | Reed Barger`;
+
+  return (
+    <>
+      <Head>
+        <title>{title}</title>
+      </Head>
+      <main>{props.children}</main>
+    </>
+  );
+}
+```
+### 3. Short Conditionals: &&, ||, Ternary Operator
+```js
+//Without ternary operator
+import React from "react";
+
+function App() {
+  const isLoggedIn = true;
+
+  if (isLoggedIn) {
+    // Shows: Welcome back!
+    return <div>Welcome back!</div>;
+  }
+
+  return <div>Who are you?</div>;
+}
+
+export default App;
+
+//with ternory operator
+import React from "react";
+
+function App() {
+  const isLoggedIn = true;
+
+  // Shows: Welcome back!
+  return isLoggedIn ? <div>Welcome back!</div> : <div>Who are you?</div>;
+}
+
+export default App;
+
+//Ternary operators can also be used inside curly braces (again, since it is an expression):
+
+import React from "react";
+
+function App() {
+  const isLoggedIn = true;
+
+  // Shows: Welcome back!
+  return <div>{isLoggedIn ? "Welcome back!" : "Who are you?"}</div>;
+}
+
+export default App;
+```
+
+### 4. Three Array Methods: .map(), .filter(), .reduce()
+
+```js
+/* Note that this isn't exactly the same as the normal JavaScript .map() method, but is very similar. */
+import React from "react";
+
+function App() {
+  const programmers = ["Reed", "John", "Jane"];
+
+  return (
+    <ul>
+      {programmers.map((programmer) => (
+        <li>{programmer}</li>
+      ))}
+    </ul>
+  );
+}
+
+export default App;
+
+
+//filter
+import React from "react";
+
+function App() {
+  const programmers = ["Reed", "John", "Jane"];
+
+  return (
+    <ul>
+      {/* Returns 'Reed' */}
+      {programmers
+        .filter((programmer) => !programmer.startsWith("J"))
+        .map((programmer) => (
+          <li>{programmer}</li>
+        ))}
+    </ul>
+  );
+}
+
+export default App;
+
+// reduce
+import React from "react";
+
+function App() {
+  const programmers = ["Reed", "John", "Jane"];
+
+  return (
+    <ul>
+      {/* Returns 'Reed' */}
+      {programmers
+        .filter((programmer) => !programmer.startsWith("J"))
+        .map((programmer) => (
+          <li>{programmer}</li>
+        ))}
+    </ul>
+  );
+}
+
+export default App;
+
+
+```
+
+### 5. Object Tricks: Property Shorthand, Destructuring, Spread Operator
+
+```js
+//bject destructuring. 
+const user = {
+  name: "Reed",
+  age: 28,
+  isEnglishSpeaker: true,
+};
+
+// Dot property access
+const name = user.name;
+const age = user.age;
+
+// Object destructuring
+const { age, name, isEnglishSpeaker: knowsEnglish } = user;
+// Use ':' to rename a value as you destructure it
+
+console.log(knowsEnglish); // true
+
+
+// Nested object destructuring in JavaScript 
+const user = {
+  name: 'John Doe',
+  age: 25,
+  address: {
+    street: '123 Main St',
+    city: 'New York',
+    country: 'USA'
+  }
+};
+
+// Extracting values using nested object destructuring
+const { name, age, address: { street, city, country } } = user;
+
+// Spread operator
+const user = {
+  name: "Reed",
+  age: 28,
+  isEnglishSpeaker: true,
+};
+
+const firstUser = {
+  name: user.name,
+  age: user.age,
+  isEnglishSpeaker: user.isEnglishSpeaker,
+};
+
+// Copy all of user's properties into secondUser
+const secondUser = {
+  ...user,
+};
+
+const user = {
+  name: "Reed",
+  age: 28,
+};
+
+const moreUserInfo = {
+  age: 70,
+  country: "USA",
+};
+
+// Copy all of user's properties into secondUser
+const secondUser = {
+  ...user,
+  ...moreUserInfo,
+  computer: "MacBook Pro",
+};
+
+console.log(secondUser);
+// { name: "Reed", age: 70, country: "USA", computer: "Macbook Pro" }
+
+
+```
+
+### 6: Promises + Async/Await Syntax
+
+- an external API using browser features like the Fetch API or the third-party library axios.
+- Here is a real example of using React to fetch data from my GitHub API using the Fetch API to show my profile image. The data is resolved using promises:
+-
+```js
+/* Go to react.new and paste this code in to see it work! */
+import React from "react";
+
+const App = () => {
+  const [avatar, setAvatar] = React.useState("");
+
+  React.useEffect(() => {
+    /* 
+      The first .then() lets us get JSON data from the response.
+      The second .then() gets the url to my avatar and puts it in state. 
+    */
+    fetch("https://api.github.com/users/reedbarger")
+      .then((response) => response.json())
+      .then((data) => setAvatar(data.avatar_url))
+      .catch((error) => console.error("Error fetching data: ", error));
+  }, []);
+
+  return <img src={avatar} alt="Reed Barger" />;
+};
+
+export default App;
+```
+- Instead of always needing to use callbacks to resolve our data from a promise, we can use a cleaned syntax that looks identical to synchronous code, called the async/await syntax.
+
+```js
+/* Go to react.new and paste this code in to see it work! */
+import React from "react";
+
+const App = () => {
+  const [avatar, setAvatar] = React.useState("");
+
+  React.useEffect(() => {
+    /* 
+	  Note that because the function passed to useEffect cannot be async, we must create a separate function for our promise to be resolved in (fetchAvatar)
+    */
+    async function fetchAvatar() {
+      const response = await fetch("https://api.github.com/users/reedbarger");
+      const data = await response.json();
+      setAvatar(data.avatar_url);
+    }
+
+    fetchAvatar();
+  }, []);
+
+  return <img src={avatar} alt="Reed Barger" />;
+};
+
+export default App;
+```
+```js
+/* Go to react.new and paste this code in to see it work! */
+import React from "react";
+
+const App = () => {
+  const [avatar, setAvatar] = React.useState("");
+
+  React.useEffect(() => {
+    async function fetchAvatar() {
+      /* Using an invalid user to create a 404 (not found) error */
+      const response = await fetch("https://api.github.com/users/reedbarge");
+      if (!response.ok) {
+        const message = `An error has occured: ${response.status}`;
+        /* In development, you'll see this error message displayed on your screen */
+        throw new Error(message);
+      }
+      const data = await response.json();
+
+      setAvatar(data.avatar_url);
+    }
+
+    fetchAvatar();
+  }, []);
+
+  return <img src={avatar} alt="Reed Barger" />;
+};
+
+export default App;
+
+```
+
+### 7. ES Modules + Import / Export syntax
+
+- named imports/exports and as default imports/exports.
+```js
+// constants.js
+export const name = "Reed";
+
+export const age = 28;
+
+export default function getName() {
+  return name;
+}
+
+// app.js
+// Notice that named exports are imported between curly braces
+import getName, { name, age } from "../constants.js";
+
+console.log(name, age, getName());
+```
+
+- You can also alias or rename what you are importing using the as keyword for named imports. The benefit of default exports is that they can be named to whatever you like.
+```js
+// constants.js
+const name = "Reed";
+
+const age = 28;
+
+function getName() {
+  return name;
+}
+
+export { name, age };
+export default getName;
+
+// app.js
+import getMyName, { name as myName, age as myAge } from "../constants.js";
+
+console.log(myName, myAge, getMyName());
+
+```
+### Callback Functions in JavaScript
+
+- A callback function is a function that is performed after another function has completed its execution. It is typically supplied as an input into another function.
+- Here's an example of a "click" event listener with a callback function that will be run whenever the button is clicked:
+```js
+//HTML
+<button class="btn">Click Me</button>
+
+//JavaScript
+const btn = document.querySelector('.btn');
+
+btn.addEventListener('click', () => {
+  let name = 'John doe';
+  console.log(name.toUpperCase())
+})
+```
+
+### Promise
+
+- callbackhell
+```js
+setTimeout(() => {
+    console.log("Joel");
+    setTimeout(() => {
+        console.log("Victoria");
+        setTimeout(() => {
+            console.log("John");
+            setTimeout(() => {
+                console.log("Doe");
+                setTimeout(() => {
+                    console.log("Sarah");
+                }, 2000);
+            }, 2000);
+        }, 2000);
+    }, 2000);
+}, 2000);
+```
+- Finally, let's try to re-implement the callback hell as a promise:
+```js
+function addName (time, name){
+  return new Promise ((resolve, reject) => {
+    if(name){
+      setTimeout(()=>{
+        console.log(name)
+        resolve();
+      },time)
+    }else{
+      reject('No such name');
+    }
+  })
+}
+
+addName(2000, 'Joel')
+  .then(()=>addName(2000, 'Victoria'))
+  .then(()=>addName(2000, 'John'))
+  .then(()=>addName(2000, 'Doe'))
+  .then(()=>addName(2000, 'Sarah'))
+  .catch((err)=>console.log(err))
+
+```
+
+### Rest and Spread Operators in JavaScript
+- Spread operator
+```js
+let pets= ["cat", "dog" , "rabbits"];
+
+let carnivorous = ["lion", "wolf", "leopard", "tiger"];
+
+let animals = [...pets, ...carnivorous];
+
+console.log(animals); //["cat", "dog" , "rabbits", "lion", "wolf", "leopard", "tiger"]
+
+let name = {firstName:"John", lastName:"Doe"};
+let hobbies = { hobby1: "singing", hobby2: "dancing" }
+let myInfo = {...name, ...hobbies};
+
+console.log(myInfo); //{firstName:"John", lastName:"Doe", hobby1: "singing", hobby2: "dancing"}
+```
+- rest
+```js
+let fruits= ["Mango", "Pineapple" , "Orange", "Lemon", "Apple"];
+const [firstFruit, secondFruit, ...rest] = fruits
+
+console.log(firstFruit, secondFruit, rest); //"Mango" "Pineapple" ["Orange","Lemon","Apple"]
+const chosenFruit = rest.find((fruit) => fruit === "Apple");
+
+console.log(`This is an ${chosenFruit}`); //"This is an Apple"
+
+const Susan = {
+  firstName: "Susan",
+  lastName: "Steward",
+  age: 14,
+  hobbies: {
+    hobby1: "singing",
+    hobby2: "dancing"
+  }
+};
+
+const {age, ...rest} = Susan;
+console.log(age, rest);
+/*
+14
+{
+firstName: "Susan" ,
+lastName: "Steward" ,
+hobbies: {...}
+} */
+
+```
+---
+## React-JavaScript Sysntax Comparision
+### Data binding
+- javascript
+```js
+let myData = 'Hello';
+document.getElementById('my-element').innerHTML = myData;
+```
+- react
+```js
+import React, { useState } from 'react';
+function MyComponent() {
+  const [myData, setMyData] = useState('Hello');
+  return (
+    <div id="my-element">{myData}</div>
+  );
+}
+```
+
+### Event binding:
+
+- javascript
+```js
+document.getElementById('my-button').addEventListener('click', myFunction);
+function myFunction() {
+  console.log('Button clicked');
+}
+
+```
+- react
+```js
+import React from 'react';
+function MyComponent() {
+  function myFunction() {
+    console.log('Button clicked');
+  }
+  return (
+    <button onClick={myFunction}>Click me</button>
+  );
+}
+
+```
+
+### Class binding:
+
+- javascript
+```js
+document.getElementById('my-element').classList.add('my-class');
+
+```
+- react
+```js
+import React from 'react';
+function MyComponent() {
+  const [isMyClass, setIsMyClass] = useState(false);
+  function toggleClass() {
+    setIsMyClass(!isMyClass);
+  }
+  return (
+    <div className={isMyClass ? 'my-class' : ''} onClick={toggleClass}>My Element</div>
+  );
+}
+
+```
+
+### Style binding:
+
+- javascript
+```js
+document.getElementById('my-element').style.color = 'red';
+
+```
+- react
+```js
+import React from 'react';
+function MyComponent() {
+  const myStyle = {
+    color: 'red'
+  };
+  return (
+    <div style={myStyle}>My Element</div>
+  );
+}
+
+```
+
+### DOM manipulation
+
+- javascript
+```js
+const div = document.createElement('div');
+const h1 = document.createElement('h1');
+const p = document.createElement('p');
+h1.innerHTML = 'Hello, World!';
+p.innerHTML = 'This is a plain JavaScript element.';
+div.appendChild(h1);
+div.appendChild(p);
+
+```
+- react
+```js
+function MyComponent() {
+  return (
+    <div>
+      <h1>Hello, World!</h1>
+      <p>This is a React component.</p>
+    </div>
+  );
+}
+
+
+
+```
+
+
+### Function calling:
+
+- javascript
+```js
+function myFunction() {
+  console.log('Hello');
+}
+myFunction();
+
+```
+- react
+```js
+import React, { useEffect } from 'react';
+function MyComponent() {
+  function myFunction() {
+    console.log('Hello');
+  }
+  useEffect(() => {
+    myFunction();
+  }, []);
+  return (
+    <div>My Component</div>
+  );
+}
+
+```
+
+###
+- javascript
+```js
+
+```
+- react
+```js
+
+```
+
+## JSX-JavaScript-HTML syntax Comparision
+
+### Element rendering:
+
+- jsx
+```jsx
+const element = <h1>Hello, world!</h1>;
+ReactDOM.render(element, document.getElementById('root'));
+
+```
+- html
+```html
+<h1>Hello, world!</h1>
+
+```
+- js
+```js
+const h1 = document.createElement('h1');
+h1.innerHTML = 'Hello, world!';
+document.getElementById('root').appendChild(h1);
+
+```
+
+### Element attributes:
+
+
+- jsx
+```jsx
+const element = <img src={imageUrl} alt="image" />;
+
+```
+- html
+```html
+<img src="image.jpg" alt="image" />
+
+```
+- js
+```js
+const img = document.createElement('img');
+img.src = 'image.jpg';
+img.alt = 'image';
+
+```
+
+### Styling
+
+- jsx
+```jsx
+const element = <div style={{ color: 'red', backgroundColor: 'yellow' }}>Hello, world!</div>;
+
+```
+- html
+```html
+<div style="color: red; background-color: yellow;">Hello, world!</div>
+
+```
+- js
+```js
+const div = document.createElement('div');
+div.innerHTML = 'Hello, world!';
+div.style.color = 'red';
+div.style.backgroundColor = 'yellow';
+
+```
+
+
+### Conditionals
+
+- jsx
+```jsx
+const element = (
+  <div>
+    {isLoggedIn ? (
+      <LogoutButton onClick={handleLogoutClick} />
+    ) : (
+      <LoginButton onClick={handleLoginClick} />
+    )}
+  </div>
+);
+
+```
+- html
+```html
+
+```
+- js
+```js
+<div id="root"></div>
+<script>
+  if (isLoggedIn) {
+    const button = document.createElement('button');
+    button.innerHTML = 'Logout';
+    button.addEventListener('click', handleLogoutClick);
+    document.getElementById('root').appendChild(button);
+  } else {
+    const button = document.createElement('button');
+    button.innerHTML = 'Login';
+    button.addEventListener('click', handleLoginClick);
+    document.getElementById('root').appendChild(button);
+  }
+</script>
+
+```
+
+
+### Loops:
+
+
+- jsx
+```jsx
+const numbers = [1, 2, 3, 4, 5];
+const listItems = numbers.map((number) =>
+  <li>{number}</li>
+);
+
+const element = (
+  <ul>
+    {listItems}
+  </ul>
+);
+
+```
+- html
+```html
+
+```
+- js
+```js
+<ul id="list"></ul>
+<script>
+  const numbers = [1, 2, 3, 4, 5];
+  const ul = document.getElementById('list');
+  for (let i = 0; i < numbers.length; i++) {
+    const li = document.createElement('li');
+    li.innerHTML = numbers[i];
+    ul.appendChild(li);
+  }
+</script>
+
+```
+
+
+### 
+
+- jsx
+```jsx
+
+```
+- html
+```html
+
+```
+- js
+```js
+
+```
+
+
+
 ### 
 
 ### 
