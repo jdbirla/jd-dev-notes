@@ -1,10 +1,50 @@
 # Frontend-Interview
 ## React Interview
 
+### What is hoisting
+- Hoisting: Makes some types of variables accessible/usable in the code before they are actually declared. “Variables lifted to the top of their scope”.
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/bea2e1f5-8092-4e5f-8ad6-4a3697fadd34)
+
+### Scope
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/7738cfee-6a7a-4f0f-9482-a159c91aa909)
+![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/3f1cbbe0-2919-4d0d-a0eb-d3054ffa66d0)
+
 ### What is promise
 
 Ans : The phenomenon which happens when we nest multiple callbacks within a function is called a callback hell. The shape of the resulting code structure resembles a pyramid and hence callback hell is also called the “pyramid of the doom”. It makes the code very difficult to understand and maintain.
+A promise is an object in JavaScript that represents the eventual completion or failure of an asynchronous operation and its resulting value. It is a way to handle asynchronous operations in a more structured and manageable manner.
 
+Promises are commonly used when dealing with operations such as making HTTP requests, reading/writing files, interacting with databases, or any other task that takes time to complete. Instead of relying on callback functions, promises provide a more organized way to handle asynchronous code.
+
+A promise can be in one of three states:
+
+Pending: The initial state when the promise is created and the asynchronous operation is still in progress.
+Fulfilled: The state when the asynchronous operation is successfully completed, and the promise is resolved with a value.
+Rejected: The state when the asynchronous operation encounters an error or fails, and the promise is rejected with a reason (an error object).
+The core idea of promises is that they allow you to attach callbacks (functions) to handle the fulfillment or rejection of the promise. This helps to separate the logic for handling successful and failed outcomes.
+
+```java
+const myPromise = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    const randomNum = Math.random();
+    if (randomNum < 0.5) {
+      resolve(randomNum); // Resolves the promise with a value
+    } else {
+      reject(new Error('Something went wrong')); // Rejects the promise with an error
+    }
+  }, 2000); // Simulating a 2-second delay
+});
+
+// Attaching callbacks to handle fulfillment and rejection
+myPromise
+  .then(result => {
+    console.log('Promise resolved with result:', result);
+  })
+  .catch(error => {
+    console.error('Promise rejected with error:', error);
+  });
+
+```
 ### Promise Channing
 
 Ans : Promise chaining: Promise chaining is a syntax that allows you to chain together multiple asynchronous tasks in a specific order. This is great for complex code where one asynchronous task needs to be performed after the completion of a different asynchronous task.
