@@ -965,8 +965,7 @@ console.log('--------------------------------------------');
  - Nullish will give only true when nullish values are there not the falsy values
  - Nullish: null and undefined (`NOT 0 or ''`)
  
- ```js
- 
+```js
 const restaurant = {
   name: 'Classico Italiano',
   location: 'Via Angelo Tavanti 23, Firenze, Italy',
