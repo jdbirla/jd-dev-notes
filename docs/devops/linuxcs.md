@@ -17,7 +17,7 @@
 | 7   | [System and Hardware information](#system-and-hardware-information) |
 | 8   | [Search Files](#search-files)                                       |
 | 9   | [SSH](#ssh)                                                         |
-| 10  | [Vi/Vim-commands](#vi/vim-commands)                                 |
+| 10  | [Vi/Vim-commands](#Vi-Vim-commands)                                 |
 
 ### User Information
 
@@ -747,7 +747,7 @@ sudo sshd service restart
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### Vi/Vim-commands
+### Vi-Vim-commands
 
 Vi editor is the most popular text editor from the early days of Unix. Whereas Vim(Vi IMproved) is an improved version of vi editor to be used in CLI (command line interface) for mainly text editing tasks in many configuration files. Some of the other alternatives are Elvis, Nvi, Nano, Joe, and Vile.
 It has two main operation modes,
