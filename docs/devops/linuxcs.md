@@ -147,6 +147,7 @@ cat /etc/*release*
    **[⬆ Back to Top](#table-of-contents)**
 
 ## File and directory commands
+![Screenshot_2023-07-13-20-28-51-74_254de13a4bc8758c9908fff1f73e3725](https://github.com/jdbirla/jd-dev-notes/assets/69948118/26913991-7bae-4956-9121-d742c3984f7a)
 
 1. **pwd** The pwd(Present Working Directory) command is used to print the name of the present/current working directory starting from the root.
 ```bash
