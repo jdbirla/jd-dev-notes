@@ -34,6 +34,13 @@ nav:
       - jpa_performance: springboot/jpaperformance.md
     - Testing:
       - Testing_Guide: testing/testing_guide.md
+    - kafka:
+      - kafka-common: kafka/common.md
+      - kafkacommands:
+        - start-kafka: kafka/start.md
+        - kafka-cli: kafka/cli.md
+        - kafka-extended: kafka/extended.md
+        - kafka-topic-config: kafka/topic-config.md   
   - FrontEnd:
     - TypeScript:
       - Introduction: typescript/introduction.md
