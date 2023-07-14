@@ -317,7 +317,7 @@ Each file or directory has following permissions for the above 3 types of owners
 
     The above authorization levels represented in a diagram
 
-<img src="https://github.com/sudheerj/Linux-cheat-sheet/blob/master/images/permissions.png" width="600" height="400">
+<img width="807" alt="permissions" src="https://github.com/jdbirla/jd-dev-notes/assets/69948118/ff2982eb-5b49-45f6-b5d3-e3c091a2aa6e">
 
 There is a need to restrict own file/directory access to others.
 
