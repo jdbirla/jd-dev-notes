@@ -17,7 +17,7 @@
 | 7   | [System and Hardware information](#system-and-hardware-information) |
 | 8   | [Search Files](#search-files)                                       |
 | 9   | [SSH](#ssh)                                                         |
-| 10  | [Vi/Vim-commands](#Vi-Vim-commands)                                 |
+| 10  | [Vi/Vim-commands](#vi-vim-commands)                                 |
 
 ### User Information
 
