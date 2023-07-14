@@ -1,7 +1,6 @@
-# Linux  Cheat Sheet by Sudhir
-# Linux-cheat-sheet
+# Linux Cheat Sheet by Sudhir
 
-> Click :star:if you like the project. Pull Request are highly appreciated. Follow me [@SudheerJonna](https://twitter.com/SudheerJonna) for technical updates.
+> Click :star:https://github.com/sudheerj/Linux-cheat-sheet
 
 ### Table of Contents
 
@@ -29,61 +28,63 @@
     3. Date & Time of login
     4. Remote host name of the user
 
-   ```bash
+```sh
    $ who
+   
    sudheer :0 2019-08-04 01:21 (:0)
-   ```
+```
 
 2. **whoami:** It display the system’s username
 
-   ```bash
+```bash
    $ whoami
    sudheer
-   ```
+```
 
 3. **id:** It display the user identification(the real and effective user and group IDs) information
 
-   ```bash
+```bash
    $ id
    uid=1000(sj) gid=1000(sj) groups=1000(sj),4(adm),24(cdrom),27(sudo),30(dip),46(plugdev),120(lpadmin),131(lxd),132(sambashare)
-   ```
+```
 4. **groups:** This command is used to display all the groups for which the user belongs to.
 
-   ```bash
+```bash
    $ group
    sj: sj, adm, cdrom, sudo, dip, plugdev, lpadmin, lxd, sambashare
-   ```
+```
 
 5. **finger:**  Used to check the information of any currently logged in users. i.e, It displays users login time, tty (name), idle time, home directory, shell name etc.
 
-   ```bash
+```bash
    $ finger
    Login     Name       Tty      Idle  Login Time   Office     Office Phone
    sj        sj        *:0             Aug 28 01:27 (:0)
-   ```
+```
 
    This may not be available by default in many linux machines. In this case, you need to install it manually.
 
-   ```bash
+```bash
    $ sudo apt install finger
-   ```
+```
 6. **users:** Displays usernames of all users currently logged on the system.
 
-   ```bash
+```bash
    $ users
    sj
-   ```
+```
 
 7. **grep:** It  is a powerful pattern searching tool to find information about a specific user from the system accounts file: /etc/passwd.
 
-    ```bash
+```bash
     $ grep -i sj /etc/passwd
     sj:x:1000:1000:sj,,,:/home/sj:/bin/bash
-    ```
+```
 
 8. **W Command:** It(W) is a command-line utility that displays information about currently logged in users and what each user is doing.
 
-    ```bash
+```bash
+    
     w [OPTIONS] [USER]
 
     Example:
@@ -91,11 +92,11 @@
      18:45:04 up  2:09,  1 user,  load average: 0.09, 0.07, 0.02
     USER     TTY      FROM             LOGIN@   IDLE   JCPU   PCPU WHAT
     sj       :0       :0               01:27   ?xdm?   1:14   0.01s /usr/lib/gdm3/g
-    ```
+```
 
 9. **last or lastb:** Displays a list of last logged in users on the system. You can pass user names to display their login and hostname details.
 
-    ```bash
+```bash
     last [options] [username...] [tty...]
 
     Example:
@@ -109,11 +110,11 @@
     reboot   system boot  5.4.0-29-generic Thu May 14 21:03   still running
 
     wtmp begins Thu May 14 21:03:56 2020
-    ```
+```
 
 10. **lastlog:** The `lastlog` command is used to find the details of a recent login of all users or of a given user.
 
-    ```cmd
+```cmd
     $ lastlog
 
     Username         Port     From             Latest
@@ -127,21 +128,21 @@
     lp                                         **Never logged in**
     mail                                       **Never logged in**
     news                                       **Never logged in**
-    ```
+```
 
    **[⬆ Back to Top](#table-of-contents)**
 
 ### File and directory commands
 
 1. **pwd** The pwd(Present Working Directory) command is used to print the name of the present/current working directory starting from the root.
-   ```bash
+```bash
    $ pwd
    /home/sj/Desktop/Linux
-   ```
+```
 
 2. **ls**: The `ls` command is used to list files or directories. It also accepts some flags or options that changes how files or directories are listed in your terminal.
 
-    ```bash
+```bash
      Syntax:
      ls [flags] [directory]
 
@@ -159,11 +160,11 @@
      $ ls ~
      Desktop    Downloads  Pictures  Sudheer    test   test.txt
      Documents  Music      Public    Templates  test1  Videos
-    ```
+```
 
     Below are the list of possible options for `ls` command,
 
-    ```cmd
+```cmd
     -a Show all (including hidden)
     -R Recursive list
     -r Reverse order
@@ -173,115 +174,115 @@
     -1 One file per line
     -m Comma-­sep­arated output
     -Q Quoted output
-    ```
+```
 
 3. **mkdir** The mkdir(make directory) command allows users to create directories or folders.
 
-   ```bash
+```bash
    $ mkdir ubuntu
    $ ls
    ubuntu
-   ```
+```
 
    The option '-p' is used to create multiple directories or parent directories at once.
 
-   ```bash
+```bash
    $ mkdir -p dir1/dir2/dir3
    $ cd dir1/dir2/dir3
    ~/Desktop/Linux/dir1/dir2/dir3$
-   ```
+```
 
 4. **rmdir**: The rmdir(remove directories) is used to remove _empty_ directories. Can be used to delete multiple empty directories as well. Safer to use compared to `rm -r FolderName`. This command can also be forced to delete non-empty directories.
 
    1. Remove empty directory:
 
-   ```bash
+```bash
    rmdir FolderName
-   ```
+```
 
    2. Remove multiple directories:
 
-   ```bash
+```bash
    rmdir FolderName1 FolderName2 FolderName3
-   ```
+```
 
    3. Remove non-empty directories:
 
-   ```bash
+```bash
    rmdir FolderName1 --ignore-fail-on-non-empty
-   ```
+```
 
    4. Remove entire directory tree. This command is similar to `rmdir a/b/c a/b a`:
 
-   ```bash
+```bash
    rmdir -p a/b/c
-   ```
+```
 
 5. **rm**: The rm(remove) command is used to remove objects such as files, directories, symbolic links etc from the file system.
    1. Remove file: The rm command is used to remove or delete a file
-   ```bash
+```bash
    rm file_name
-   ```
+```
    2. Remove file forcefully: The rm command with -f option is used for removal of file without prompting for confirmation.
-   ```bash
+```bash
    rm -f filename
-   ```
+```
    3. Remove directory: The rm command with -r option is used to remove the directory and its contents recursively.
-   ```bash
+```bash
    rm -r myDir
-   ```
+```
    4. Remove directory forcefully: The rm command with -rf option is used to forcefully remove directory recursively.
-   ```bash
+```bash
    rm -rf myDir
-   ```
+```
 6. **touch**: The touch command is is used to create, change and modify timestamps of a file without any content.
    1. **Create a new file:** You can create a single file at a time using touch command. The file created is an empty file.
-       ```bash
+```bash
        touch file_name
-       ```
+```
    2. **Create multiple files:** You can create the multiple numbers of files at the same time.
-       ```bash
+```bash
        touch file1_name file2_name file3_name
-       ```
+```
    3. **Change access time:** The touch command with `a` option is used to change the access time of a file.
-       ```bash
+```bash
        touch -a file_name
-       ```
+```
    4. **Change modification time:** The touch command with `m` option is used to change the modified time.
-       ```bash
+```bash
        touch -m file_name
-       ```
+```
    5. **Use timestamp of other file:** The touch command with `r` option is used to get timestamp of another file.
-       ```bash
+```bash
        touch -r file2 file1
-       ```
+```
 
        In the above example, we get the timestamp of file1 for file2.
 
    6. **Create file with Specific time:** The touch command with 't' option is used to create a file with specified time.
-       ```bash
+```bash
        touch -t 1911010000 file_name
-       ```
+```
 7. **cat**: The cat command is used to create single or multiple files, view contain of file, concatenate files and redirect output in terminal or files.
-     ```bash
+```bash
      $ cat [OPTION] [FILE]...
-     ```
+```
    1. **Create a file:** Used to create a file with specific name, content and press exit using `CTRL + D`
-       ```bash
+```bash
        cat > file_name1.txt
        Hello, How are you?
-       ```
+```
    2. **View file contents:** You can view contents of a single or more files by mentioning the filenames.
 
-       ```bash
+```bash
        cat file_name1 file_name2
-       ```
+```
    3. **More & Less options:** If a file having a large number of content that won’t fit in the output terminal then `more` & `less` options can be used to indiate additional content.
 
-       ```bash
+```bash
        cat file_name1.txt | more
        cat file_name1.txt | less
-       ```
+```
 
 **[⬆ Back to Top](#table-of-contents)**
 
@@ -351,9 +352,9 @@ The file permissions will be represented in a three-digit octal number.
 
 Let's update the permissions in absolute mode with an example as below,
 
-   ```cmd
+```cmd
     chmode 764 test.txt
-   ```
+```
 
 2. **Symbolic mode:**
 In the symbolic mode, you can modify permissions of a specific owner unlike absolute mode.
@@ -409,35 +410,35 @@ ifconfig -a
 
 2.  **Test connection to a remote machine:** Send an echo request to test connection of a remote machine.
 
-    ```cmd
+```cmd
     ping <ip-address> or hostname
 
     Example:
     ping 10.0.0.11
-    ```
+```
 
 3.  **Show IP Address:** Display ip address of a currennt machine
 
-    ```cmd
+```cmd
     hostname -I
     (OR)
     ip addr show
-    ```
+```
 
 4.  **Active ports:** Shows active or listening ports
 
-     ```cmd
+```cmd
      netstat -pnltu
-     ```
+```
 
 5.  **Find information about domain:** `whois` command is used to find out information about a domain, such as the owner of the domain, the owner’s contact information, and the nameservers used by domain.
 
-    ```cmd
+```cmd
     whois [domain]
 
     Example:
     whois google.com
-    ```
+```
 
 **[⬆ Back to Top](#table-of-contents)**
 
@@ -864,40 +865,40 @@ O    # open a line above the current cursor position
 
 1. **Change word:** Change word/part of word to right of cursor
 
-    ```cmd
+```cmd
     cw
-    ```
+```
 
 2. **Change line** Change entire line
 
-    ```cmd
+```cmd
     cc
-    ```
+```
 
 3. **Change line from specific character** Change from cursor to end of line
 
-    ```cmd
+```cmd
     C
-    ```
+```
 
 ##### Deleting Text
 
 1. **Deleting One Character:** Position the cursor over the character to be deleted and type x
 
-    ```cmd
+```cmd
     x
     X       //To delete one character before the cursor
-    ```
+```
 2. **Deleting a Word:** Position the cursor at the beginning of the word and type dw
 
-    ```cmd
+```cmd
     dw
-    ```
+```
 3. **Deleting a Line:** Position the cursor anywhere on the line and type dd.
 
-    ```cmd
+```cmd
     dd
-    ```
+```
 
 ##### Cut, Copy & Paste
 
@@ -909,78 +910,78 @@ O    # open a line above the current cursor position
 
    i. Copy an entire line: Just place the cursor at the beginning of the line and type `yy`
 
-   ```cmd
+```cmd
    yy
-   ```
+```
 
    ii.Copy three lines: Just place the cursor from where to start copying and type `3yy`
 
-   ```cmd
+```cmd
    3yy
-   ```
+```
 
    iii. Copy word with trailing whitespace: Place the cursor at the beginning of the word and type `yaw`
 
-   ```cmd
+```cmd
    yaw
-   ```
+```
 
    iv. Copy word without trailing whitespace: Place the cursor at the beginning of the word and type `yiw`.
 
-   ```cmd
+```cmd
    yiw
-   ```
+```
 
    v. Copy right of the cursor: Copy text right of the cursor to the end of line using `y$` command
 
-   ```cmd
+```cmd
    y$
-   ```
+```
 
    vi.Copy left of the cursor: Copy text left of the cursor to the end of line using `y^` command
 
-   ```cmd
+```cmd
    y^
-   ```
+```
 
    vii. Copy text between the cursor and character: Copy text between the cursor and specified character.
 
-   ```cmd
+```cmd
    ytx(Copy until x and x is excluded)
    yfx(Copy until x and x is included)
-   ```
+```
 
    **Cut** There are various cutting or deleting commands based on amount of text to be deleted. The `d` character is used to perform this operation.
 
    i. Cut entire line: Cut the entire line where the cursor is located
 
-   ```cmd
+```cmd
    dd
-   ```
+```
 
    ii.Cut three lines: Cut the three lines starting from the place where cursor is located
 
-   ```cmd
+```cmd
    3dd
-   ```
+```
 
    iii.Cut right of the cursor: Cut the text from the right of the cursor till the end of line
 
-   ```cmd
+```cmd
    d$
-   ```
+```
 
    iii.Cut left of the cursor: Cut the text from the left of the cursor till the beginning of line
 
-   ```cmd
+```cmd
    d^
-   ```
+```
 
    **Paste** This operation is performed using `p` command to paste the selected text
 
-   ```cmd
+```cmd
    p
-   ```
+```
 
 2. **Visual Mode** In this mode, first select the text using below keys
 
@@ -993,12 +994,12 @@ O    # open a line above the current cursor position
 ##### Exiting
 
     These commands are used to exit from the file.
-    ```cmd
+```cmd
     :w	    # Write (save) the file, but don't exit
     :wq	    # Write (save) and quit
     :wq!	# Force write (save) and quit
     :q	    # Quit, but it fails if anything has changed
     :q!	    # Quit and throw away for any changes
-    ```
+```
 
 **[⬆ Back to Top](#table-of-contents)**
