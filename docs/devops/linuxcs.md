@@ -18,7 +18,8 @@
 | 8   | [Search Files](#search-files)                                       |
 | 9   | [SSH](#ssh)                                                         |
 | 10  | [Vi/Vim-commands](#vi-vim-commands)                                 |
-| 11  | [Extra-commands](#extra-commands)                                 |
+| 11  | [Extra-commands](#extra-commands)                                   |
+
 ## User Information
 
 1. **who** It is used to get information about currently logged in user on to system. If you don't provide any option or arguments, the command displays the following information for each logged-in user.
@@ -1017,7 +1018,7 @@ O    # open a line above the current cursor position
 
 **[⬆ Back to Top](#table-of-contents)**
 
-## extra-commands
+## Extra-commands
 
 ### Linux Basic Commands
 
@@ -1028,7 +1029,7 @@ Ex:
     [siva@siva-mint ~]$
     [siva@siva-mint ~]#
 
-**How to determine whether a given Linux is 32 bit or 64 bit?**
+#### How to determine whether a given Linux is 32 bit or 64 bit?**
 
 `$ uname -m`
 
@@ -1039,7 +1040,7 @@ Ex:
 ![image](https://user-images.githubusercontent.com/69948118/232764043-a6132a7d-40c4-4daa-a791-2238c90b0719.png)
 
 
-**Show distribution info:**
+#### Show distribution info:**
 
 `$ uname -a`
 
@@ -1127,7 +1128,7 @@ List all aliases: `$ alias`
 
 If a command is not in your PATH variable: `$ locate chage`
 
-## Terminal shorcuts
+### Terminal shorcuts
 
     Alt+F => Word forward Go forward one word.
     Alt+B => Word backward Go backward one word.
