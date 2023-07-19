@@ -4,7 +4,7 @@
 
 - Installation [https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html)
 - Configure AWS CLI [https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html)
-
+- https://devopscube.com/install-configure-aws-cli-linux/
 ```shell
 $ aws configure
 AWS Access Key ID [None]: YOUR_ACCESS_KEY_ID
