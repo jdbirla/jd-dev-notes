@@ -236,8 +236,9 @@ public class OrderHeader extends BaseEntity {
         this.customerName = customerName;
     }
 }
- ```
+```
 ### Single Table
+
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/30680a4f-5100-41aa-a08d-08e08e21713f)
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/79375321-d64e-4a21-870e-75cf4ea53cef)
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/f37b3198-0631-42dd-a85f-c29a6b50da13)
@@ -291,12 +292,13 @@ public class Truck extends Vehicle{
         this.payload = payload;
     }
 }
-
 ```
 ### Joined Table
+
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/093e1ba8-ce54-4905-aaf4-e1695dd6b289)
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/c3e6dc30-afc6-45a7-970a-4bca8ad3d85a)
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/2780ac1f-2299-40a9-a378-ef223d276aee)
+
 - Each entity has its own table with shared attribute from parent will have foreign key to parent tables
 ```java
 @Entity
