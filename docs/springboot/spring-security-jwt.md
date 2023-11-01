@@ -10,6 +10,7 @@
 - An authenticated user sends a request to access resources.
 ### Sign Up
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/371e68a7-3d45-45e8-9898-d633c04e209d)
+
 - The Sign-up process is made very simple. One notable component is the JwtService, a custom service utilized for handling JWT operations. Further implementation details can be found in the coding section below.
 
    1. The process starts when a user submits a request to the service. A user object is then generated from the request data, with the password being encoded using the PasswordEncoder.
@@ -27,12 +28,13 @@
    4. Once we have the user information, we call the JwtService to generate the JWT.
    5. The JWT is then encapsulated in a JSON response and returned to the user.
       
->Two new concepts are introduced in this process, and I’ll provide a brief explanation for each.
-- 1. **UsernamePasswordAuthenticationToken**: A type of Authentication object which can be created from a username and password that are submitted.
-- 2. **AuthenticationManager**: Processes authentication object and will do all authentication jobs for us.
+Two new concepts are introduced in this process, and I’ll provide a brief explanation for each.
+   - 1. **UsernamePasswordAuthenticationToken**: A type of Authentication object which can be created from a username and password that are submitted.
+   - 2. **AuthenticationManager**: Processes authentication object and will do all authentication jobs for us.
 
 ### Resources Access
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/06a88be3-0480-4d10-a2fa-6398fa119d5d)
+
    1. The process starts when the user sends a request to the Service. The request is first intercepted by JwtAuthenticationFilter, which is a custom filter integrated into the SecurityFilterChain.
    2. As the API is secured, if the JWT is missing, a response with HTTP Status 403 is sent to the user.
    3. When an existing JWT is received, JwtService is called to extract the userEmail from the JWT. If the userEmail cannot be extracted, a response with HTTP Status 403 is sent to the user.
@@ -43,12 +45,12 @@
    8. The Spring Security Authorization process is automatically invoked.
    9. The request is dispatched to the controller, and a successful JSON response is returned to the user.
        
->This process is a little more tricky, it involves some new concepts. Let’s dive into them in more detail:
+- This process is a little more tricky, it involves some new concepts. Let’s dive into them in more detail:
 
-- 1. **SecurityFilterChain**: a filter chain which is capable of being matched against an HttpServletRequest. in order to decide whether it applies to that request.
-- 2. **SecurityContextHolder**: is where Spring Security stores the details of who is authenticated. Spring Security uses that information for authorization.
-- 3. **UserDetailsService**: Service to fetch user-specific data.
-- 4. **Authorization Architecture**
+   - 1. **SecurityFilterChain**: a filter chain which is capable of being matched against an HttpServletRequest. in order to decide whether it applies to that request.
+   - 2. **SecurityContextHolder**: is where Spring Security stores the details of who is authenticated. Spring Security uses that information for authorization.
+   - 3. **UserDetailsService**: Service to fetch user-specific data.
+   - 4. **Authorization Architecture**
 
 ## Code Components
 ### Database configuration
