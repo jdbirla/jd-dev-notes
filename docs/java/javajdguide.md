@@ -345,6 +345,7 @@ String str = "Hello, world!";
 ---
 ## Generics in Java
 - <https://salithachathuranga94.medium.com/generics-in-java-3c791555e924>
+- <https://github.com/jdbirla/jd-dev-notes/blob/master/docs/java/Generics.pdf>
 ---
 ## java-date-time
 <https://github.com/jdbirla/JD_JAVA_Learning/blob/master/JavaDateTime_A-Z.md>
