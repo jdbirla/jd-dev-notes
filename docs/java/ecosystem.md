@@ -45,15 +45,43 @@ In order to generate a value-type object all you have to do is to annotate an ab
     - https://www.baeldung.com/vavr
     - https://docs.vavr.io/
 - [FF4j](https://ff4j.github.io/)
+    - FEATURE FLAGS FOR JAVA MADE EASY
+    - Enable. and disable features at runtime - no deployments. In your code implement multiple paths protected by dynamic predicates (if/then/else).
+    - Enable features not only with flag values but also drive access with roles and groups (Canary Release). Different frameworks supported starting by Spring Security.
 - [Failsafe](https://github.com/jhalterman/failsafe)
+   - Failsafe is a lightweight, zero-dependency library for handling failures in Java 8+, with a concise API for handling everyday use cases and the flexibility to handle everything else. It works by wrapping executable logic with one or more resilience policies, which can be combined and composed as needed.
+   - Policies include Retry, CircuitBreaker, RateLimiter, Timeout, Bulkhead, and Fallback. Additional modules include OkHttp and Retrofit.
 - [Retry4j](https://github.com/elennick/retry4j)
+    - Retry4j is no longer maintained and has had no releases for several years. Please feel free to fork and make your own changes/releases if you want to build upon it. Also consider checking out more modern libraries such as:
+    - Failsafe - https://github.com/jhalterman/failsafe
+    - Spring Retry - https://github.com/spring-projects/spring-retry
+    - resilience4j - https://github.com/resilience4j/resilience4j
 - [Twitter4j](http://twitter4j.org/en/)
+    - https://www.baeldung.com/twitter4j
+    - Twitter4J is an open source Java library, which provides a convenient API for accessing the Twitter API. 
+    - Simply put, here’s how we can interact with the Twitter API; we can:
+    - Post a tweet
+    - Get timeline of a user, with a list of latest tweets
+    - Send and receive direct messages
+    - Search for tweets and much more
+    - This library ensures that we can easily do these operations, and it also ensures the security and privacy of a user – for which we naturally need to have OAuth credentials configured in our app.
 - [JooQ](https://www.jooq.org/)
+    - Great Reasons for Using jOOQ Our customers spend most time on their business-logic. Because jOOQ takes care of all their Java/SQL infrastructure problems.
+    - https://www.baeldung.com/jooq-intro
+    -  jOOQ (Java Object Orientated Query). This library generates Java classes based on the database tables and lets us create type-safe SQL queries through its fluent API.
 - [FlexyPool](https://github.com/vladmihalcea/flexy-pool)
-- [Hibernate-Types](https://github.com/vladmihalcea/hibernate-types)
+    - The FlexyPool library adds metrics and flexible strategies to a given Connection Pool, allowing it to resize on demand. This is very handy since most connection pools offer a limited set of dynamic configuration strategies.
+    - https://www.baeldung.com/spring-flexypool-guide
+    - In this tutorial, we’ll learn how to use FlexyPool with Spring Boot and H2 using HikariCP. It’s a powerful connection pool manager built on top of major connection pools.
 - [Resilience4j](https://github.com/resilience4j/resilience4j)
+   - Resilience4j is a lightweight fault tolerance library designed for functional programming. Resilience4j provides higher-order functions (decorators) to enhance any functional interface, lambda expression or method reference with a Circuit Breaker, Rate Limiter, Retry or Bulkhead. You can stack more than one decorator on any functional interface, lambda expression or method reference. The advantage is that you have the choice to select the decorators you need and nothing else.
 - [Zalando/problem-spring-web](https://github.com/zalando/problem-spring-web)
+    - https://www.baeldung.com/problem-spring-web
+    - In this tutorial, we’re going to explore how to produce application/problem+json responses using the Problem Spring Web library. This library helps us to avoid repetitive tasks related to error handling.
+   - By integrating Problem Spring Web into our Spring Boot application, we can simplify the way we handle exceptions within our project and generate responses accordingly.
 - [SpringFox](http://springfox.github.io/springfox/)
+    - Automated JSON API documentation for API's built with Spring
+     - https://www.baeldung.com/swagger-2-documentation-for-spring-rest-api
 - [eclipse-collections](https://github.com/eclipse/eclipse-collections)
     - Eclipse Collections is a comprehensive collections library for Java. The library enables productivity and performance by delivering an expressive and efficient set of APIs and types. The iteration protocol was inspired by the Smalltalk collection framework, and the collections are compatible with the Java Collection Framework types.
     - Eclipse Collections is compatible with Java 8+. Eclipse Collections is a part of the OpenJDK Quality Outreach program, and it is validated for different versions of the OpenJDK.
