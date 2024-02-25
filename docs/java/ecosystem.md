@@ -36,7 +36,9 @@ $ sdk install java 11.0.2-open
 - [Resilience4j](https://github.com/resilience4j/resilience4j)
 - [Zalando/problem-spring-web](https://github.com/zalando/problem-spring-web)
 - [SpringFox](http://springfox.github.io/springfox/)
-
+- [eclipse-collections](https://github.com/eclipse/eclipse-collections)
+    - Eclipse Collections is a comprehensive collections library for Java. The library enables productivity and performance by delivering an expressive and efficient set of APIs and types. The iteration protocol was inspired by the Smalltalk collection framework, and the collections are compatible with the Java Collection Framework types.
+    - Eclipse Collections is compatible with Java 8+. Eclipse Collections is a part of the OpenJDK Quality Outreach program, and it is validated for different versions of the OpenJDK.
 
 ### Testing
 - [JUnit 5 Docs](https://junit.org/junit5/docs/current/user-guide/)
