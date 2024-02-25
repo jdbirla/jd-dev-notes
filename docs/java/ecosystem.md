@@ -102,16 +102,42 @@ In order to generate a value-type object all you have to do is to annotate an ab
 - 
 ### Testing
 - [JUnit 5 Docs](https://junit.org/junit5/docs/current/user-guide/)
+   - JUnit 5 = JUnit Platform + JUnit Jupiter + JUnit Vintage
 - [REST Assured](https://github.com/rest-assured/rest-assured/wiki/Usage)
+    - https://rest-assured.io/
+    - https://www.baeldung.com/rest-assured-tutorial
+    - REST-assured was designed to simplify the testing and validation of REST APIs and is highly influenced by testing techniques used in dynamic languages such as Ruby and Groovy.
+   - The library has solid support for HTTP, starting of course with the verbs and standard HTTP operations, but also going well beyond these basics.
+   - In this guide, we are going to explore REST-assured and we’re going to use Hamcrest to do assertion. If you are not already familiar with Hamcrest, you should first brush up with the tutorial: Testing with Hamcrest.
 - [Mock Server](http://www.mock-server.com/)
+    - https://www.baeldung.com/mockserver
+    - MockServer is a tool for mocking/stubbing external HTTP APIs.
 - [TestContainers](https://www.testcontainers.org/)
+   - https://www.baeldung.com/docker-test-containers
+   - In this tutorial, we’ll be looking at Java TestContainers library. It allows us to use Docker containers within our tests. As a result, we can write self-contained integration tests that depend on external resources.
+   - We can use any resource in our tests that have a docker image. For example, there are images for databases, web browsers, web servers, and message queues. Therefore, we can run them as containers within our tests.
 - [Mockito](https://site.mockito.org/)
+    - https://www.baeldung.com/mockito-series
 - [Assertj](http://joel-costigliola.github.io/assertj/)
+  - https://www.baeldung.com/introduction-to-assertj
+  - In this article we will be exploring AssertJ – an opensource community-driven library used for writing fluent and rich assertions in Java tests.
+   - This article focuses on tools available in the basic AssertJ module called AssertJ-core.
 - [Awaitility](https://github.com/awaitility/awaitility)
+    - http://www.awaitility.org/
+    - https://www.baeldung.com/awaitility-testing
+    - A common problem with asynchronous systems is that it’s hard to write readable tests for them that are focused on business logic and are not polluted with synchronizations, timeouts, and concurrency control.
+    - In this article, we are going to take a look at Awaitility — a library which provides a simple domain-specific language (DSL) for asynchronous systems testing.
+    - With Awaitility, we can express our expectations from the system in an easy-to-read DSL.
 - [Localstack](https://localstack.cloud/)
+   - Develop and test your AWS applications locally to reduce development time and increase product velocity. Reduce unnecessary AWS spend and remove the complexity and risk of maintaining AWS dev accounts.
 - [Jacoco](https://www.eclemma.org/jacoco/)
+   - Code coverage is a software metric used to measure how many lines of our code are executed during automated tests.
+   - In this tutorial, we’re going to stroll through some practical aspects of using JaCoCo, a code coverage reports generator for Java projects.
+   - https://www.baeldung.com/jacoco
 - [SonarQube](https://www.sonarqube.org/)
+    - Empower development teams with a code quality and security solution that deeply integrates into your enterprise environment; enabling you to deploy clean code consistently and reliably.
 - [SonarCloud](https://sonarcloud.io/)
+   - Development teams love SonarCloud for a reason. It provides instant feedback, in the right context, with minimal distractions so Clean Code is delivered every day.
 
 ### Performace Testinng
 - [Gatling](https://gatling.io/)
