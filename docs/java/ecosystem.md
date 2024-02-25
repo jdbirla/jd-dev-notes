@@ -141,7 +141,10 @@ In order to generate a value-type object all you have to do is to annotate an ab
 
 ### Performace Testinng
 - [Gatling](https://gatling.io/)
+   - Gatling is a load testing tool that comes with excellent support of the HTTP protocol – which makes it a really good choice for load testing any HTTP server.
+   - https://www.baeldung.com/introduction-to-gatling
 - [JMeter](https://jmeter.apache.org/)
+   - The Apache JMeter™ application is open source software, a 100% pure Java application designed to load test functional behavior and measure performance. It was originally designed for testing Web Applications but has since expanded to other test functions.
 
 ### Database Migration
 - [Flyway DB Migration](https://flywaydb.org/)
@@ -154,8 +157,11 @@ In order to generate a value-type object all you have to do is to annotate an ab
 
 ### Monitoring
 - [Grafana](https://grafana.com/)
+   - Grafana is a multi-platform open source analytics and interactive visualization web application. It provides charts, graphs, and alerts for the web when connected to supported data sources.
 - [Prometheus](https://prometheus.io/)
+   - Prometheus, a Cloud Native Computing Foundation project, is a systems and service monitoring system. It collects metrics from configured targets at given intervals, evaluates rule expressions, displays the results, and can trigger alerts when specified conditions are observed.
 - [ELK Stack](https://www.elastic.co/elk-stack)
+   - The ELK stack is an acronym used to describe a stack that comprises three popular projects: Elasticsearch, Logstash, and Kibana. Often referred to as Elasticsearch, the ELK stack gives you the ability to aggregate logs from all your systems and applications, analyze these logs, and create visualizations for application and infrastructure monitoring, faster troubleshooting, security analytics, and more.
 
 ## References
 * <https://www.oracle.com/technetwork/java/javase/downloads/index.html>
