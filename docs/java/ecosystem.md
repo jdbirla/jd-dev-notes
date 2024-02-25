@@ -21,12 +21,29 @@ $ sdk install java 11.0.2-open
 
 ## Java Libraries and Tools
 - [Lombok](https://projectlombok.org/)
+   - Project Lombok is a java library that automatically plugs into your editor and build tools, spicing up your java.
+Never write another getter or equals method again, with one annotation your class has a fully featured builder, Automate your logging variables, and much more.
 - [AutoValue](https://github.com/google/auto/blob/master/value/userguide/index.md)
+    - https://www.baeldung.com/introduction-to-autovalue
+    - Value classes are extremely common in Java projects. These are classes for which you want to treat any two instances with suitably equal field values as interchangeable. That's right: we're talking about those classes where you wind up implementing equals, hashCode and toString in a bloated, repetitive, formulaic yet error-prone fashion.
+    - AutoValue is a source code generator for Java, and more specifically it’s a library for generating source code for value objects or value-typed objects.
+In order to generate a value-type object all you have to do is to annotate an abstract class with the @AutoValue annotation and compile your class. What is generated is a value object with accessor methods, parameterized constructor, properly overridden toString(), equals(Object) and hashCode() methods.
 - [Immutable objects](https://immutables.github.io/immutable.html)
+    - Java annotation processors to generate simple, safe and consistent value objects. Do not repeat yourself, try Immutables, the most comprehensive tool in this field!
 - [Jasypt](http://www.jasypt.org/)
+    - Jasypt is a Java library which allows developers to add basic encryption capabilities to projects with minimum effort, and without the need of having an in-depth knowledge about implementation details of encryption protocols.
+    - https://www.baeldung.com/jasypt
 - [JJwt](https://github.com/jwtk/jjwt)
+    - JJWT aims to be the easiest to use and understand library for creating and verifying JSON Web Tokens (JWTs) and JSON Web Keys (JWKs) on the JVM and Android.
+    - https://www.baeldung.com/java-json-web-tokens-jjwt
 - [Jackson JSON](https://github.com/FasterXML/jackson)
+    - Jackson has been known as "the Java JSON library" or "the best JSON parser for Java". Or simply as "JSON for Java".
+    - https://www.baeldung.com/jackson
 - [Vavr](http://www.vavr.io/)
+    - Vavr is a functional library for Java 8+ that provides immutable data types and functional control structures.
+    - https://github.com/vavr-io/vavr
+    - https://www.baeldung.com/vavr
+    - https://docs.vavr.io/
 - [FF4j](https://ff4j.github.io/)
 - [Failsafe](https://github.com/jhalterman/failsafe)
 - [Retry4j](https://github.com/elennick/retry4j)
