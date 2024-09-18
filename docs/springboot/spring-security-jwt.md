@@ -6,6 +6,8 @@
 - https://github.com/jdbirla/JD_Spring_Security_Master/blob/master/JWT_security_medium_blog.md
   
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/a5d3c9e4-665d-419a-8983-fcea6e90cf7c)
+![image](https://github.com/user-attachments/assets/d61f9dac-2c2c-481a-9220-66dfc68d29cc)
+
 ## Application Architecture
 ![image](https://github.com/jdbirla/jd-dev-notes/assets/69948118/a42bf020-29d2-41e1-abcc-43e26d27d600)
 - User makes a request to the service, seeking to create an account.
