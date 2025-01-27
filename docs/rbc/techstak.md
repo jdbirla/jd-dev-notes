@@ -568,9 +568,9 @@ Here is a detailed comparison between **Solace** and **Apache Kafka**, covering 
   - Highly scalable with distributed architecture.
   - Ideal for handling large-scale, high-volume event streams.
 
----
 
-### **7. Storage**
+
+##### **7. Storage**
 - **Solace**:
   - Does not focus on long-term storage of messages.
   - Messages are typically transient, though persistence is available for short-term storage.
@@ -657,7 +657,95 @@ Here is a detailed comparison between **Solace** and **Apache Kafka**, covering 
 - **Kafka** excels in **stream processing**, durable storage, and high-throughput use cases. 
 
 
+#### Solace vs Apache Kafka vs RabbitMQ**
 
+
+
+##### **1. Architecture**
+| Feature                | **Solace**                                                    | **Apache Kafka**                                         | **RabbitMQ**                                            |
+|------------------------|-------------------------------------------------------------|--------------------------------------------------------|-------------------------------------------------------|
+| **Type**               | Event broker with Pub/Sub, queueing, and stream processing  | Distributed event streaming platform                  | Message broker with queueing and Pub/Sub             |
+| **Protocol Support**   | MQTT, AMQP, JMS, REST, WebSocket, proprietary               | Custom Kafka protocol (binary, high-performance)       | AMQP, STOMP, MQTT, HTTP                               |
+| **Message Storage**    | Persistent and transient message queues                     | Persistent (log-based storage with configurable retention) | Persistent and transient queues                      |
+| **Message Delivery**   | Guaranteed, at-most-once, or at-least-once                  | At-least-once, exactly-once (requires configuration)   | At-most-once or at-least-once                        |
+| **Clustering**         | Supports clustering across hybrid environments              | Distributed and scalable (partition-based)             | Centralized broker; clustering for HA                |
+
+
+
+##### **2. Performance**
+| Feature                | **Solace**                           | **Apache Kafka**                        | **RabbitMQ**                        |
+|------------------------|---------------------------------------|-----------------------------------------|-------------------------------------|
+| **Latency**            | Low latency (microseconds-level)     | Ultra-low latency, optimized for logs   | Moderate latency                   |
+| **Throughput**         | High throughput (up to millions/sec) | Very high throughput (logs optimized)   | Moderate throughput (~50k/sec)     |
+| **Scalability**        | Horizontal scalability, cloud-native | Highly scalable (distributed by design) | Scalable with clustering           |
+
+
+
+##### **3. Key Features**
+| Feature                    | **Solace**                                                    | **Apache Kafka**                                           | **RabbitMQ**                                          |
+|----------------------------|-------------------------------------------------------------|----------------------------------------------------------|-----------------------------------------------------|
+| **Message Pattern**        | Pub/Sub, request-response, message queues                   | Pub/Sub (log-based topics)                               | Pub/Sub, request-response                           |
+| **Replay Messages**        | Supported (with persistence)                                | Supported (time-based or offset-based)                  | Limited (requires custom setup for persistence)    |
+| **Dynamic Routing**        | Built-in, topic hierarchy                                   | Limited to partitioning and topics                      | Built-in, exchange routing                         |
+| **Backpressure Handling**  | Flow control and configurable message timeouts              | Consumers decide their read speed                       | Flow control based on acknowledgments              |
+| **Protocol Flexibility**   | Supports multiple protocols                                 | Kafka protocol only                                      | Limited protocol variety                           |
+
+
+
+##### **4. Use Cases**
+##### **Solace**
+1. **IoT Applications**: Handles real-time, low-latency communication for connected devices.
+2. **Hybrid Cloud Environments**: Bridges on-premises and cloud systems.
+3. **Event-Driven Microservices**: Decouples systems using advanced Pub/Sub patterns.
+4. **Financial Services**: High-speed event streaming for trading platforms.
+5. **Message Routing**: Topic-based dynamic routing with hierarchical structure.
+
+###### **Apache Kafka**
+1. **Real-Time Data Streaming**: Captures and processes large volumes of event data.
+2. **Data Pipelines**: Connects various data sources and sinks.
+3. **Event Sourcing**: Logs every change as an event for audit and history.
+4. **Big Data Analytics**: Streams data to analytics platforms like Spark and Flink.
+5. **Log Aggregation**: Acts as a central hub for collecting logs across distributed systems.
+
+###### **RabbitMQ**
+1. **Traditional Message Queues**: Request-response patterns and work queue processing.
+2. **Task Distribution**: Balances tasks across multiple workers.
+3. **Lightweight Messaging**: Suitable for lightweight or low-complexity messaging systems.
+4. **Microservices Communication**: Ideal for decoupling services with simpler patterns.
+5. **Cloud-Native Applications**: Integrates easily with various cloud services.
+
+
+
+##### **5. When to Choose**
+| Scenario                             | **Best Choice**                                                                                         | **Reason**                                                                                                    |
+|--------------------------------------|---------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------|
+| **High Throughput Streaming**        | Kafka                                                                                                   | Optimized for streaming large datasets with low latency and partition-based scaling.                         |
+| **Low Latency Event Communication**  | Solace                                                                                                  | Offers microsecond-level latency and advanced protocol support.                                              |
+| **Complex Routing Rules**            | Solace or RabbitMQ                                                                                      | Solace for topic hierarchy, RabbitMQ for custom exchange routing.                                            |
+| **Distributed Systems Logs**         | Kafka                                                                                                   | Log-based storage enables easy replay and analytics.                                                         |
+| **IoT and Hybrid Cloud**             | Solace                                                                                                  | Supports IoT protocols (MQTT, WebSocket) and hybrid cloud environments.                                       |
+| **Lightweight, Simple Queuing**      | RabbitMQ                                                                                                | Easy to set up and supports basic queuing needs with lower resource requirements.                             |
+| **Message Replay with State**        | Kafka                                                                                                   | Stores logs for long-term replay and exactly-once semantics.                                                 |
+| **Real-Time Financial Applications** | Solace                                                                                                  | Reliable and high-speed messaging with support for multiple protocols and low latency.                       |
+| **Integration with Legacy Systems**  | RabbitMQ or Solace                                                                                      | RabbitMQ is simple to integrate; Solace provides better flexibility for complex hybrid integrations.          |
+| **Scalable Analytics Pipelines**     | Kafka                                                                                                   | Highly scalable for distributed analytics pipelines with seamless big data integration.                      |
+
+
+
+##### **Key Differences in Decision-Making**
+1. **Protocol Requirements**: If you need support for multiple messaging protocols (MQTT, AMQP, JMS), Solace is the clear winner. Kafka uses its proprietary protocol, while RabbitMQ supports AMQP primarily.
+2. **Scale of Use**: Kafka is best for large-scale, distributed environments, whereas Solace shines in real-time and low-latency scenarios. RabbitMQ is ideal for smaller or less complex deployments.
+3. **Ease of Setup**: RabbitMQ is simpler to configure and manage compared to Kafka or Solace.
+4. **Replayability**: Kafka offers unmatched replay capabilities due to its log-based storage, whereas RabbitMQ has limited support. Solace offers good replay capabilities with persistent queues.
+5. **Cloud-Native Support**: Solace is a leader in hybrid and multi-cloud environments, whereas RabbitMQ and Kafka focus more on either on-premises or single-cloud setups.
+
+
+
+##### **Conclusion**
+- Choose **Solace** if you need **low latency, hybrid cloud flexibility, multiple protocol support, or IoT applications**. 
+- Choose **Kafka** if you need **distributed, high-throughput, and log-based event streaming** for large-scale systems.
+- Choose **RabbitMQ** if you want a **lightweight, traditional message broker** for simple task queues or low-complexity systems.
+  
 ----
 ### Flume
 
