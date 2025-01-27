@@ -499,6 +499,11 @@ Here is a detailed comparison between **Solace** and **Apache Kafka**, covering 
 
 #### Solace vs Kafka
 
+![image](https://github.com/user-attachments/assets/52314721-f754-458d-aeab-129378fe5d96)
+![image](https://github.com/user-attachments/assets/140a8e14-9148-4f0e-b6b0-dec937737cd7)
+![image](https://github.com/user-attachments/assets/82568c6e-7944-4a0f-a408-72266fa55293)
+
+
 ##### **1. Overview**
 - **Solace**: 
   - Enterprise-grade event broker designed for real-time, event-driven architectures.
