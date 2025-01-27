@@ -285,6 +285,73 @@ Here is a detailed comparison between **Solace** and **Apache Kafka**, covering 
 5. **Cloud-Native Support**: Solace is a leader in hybrid and multi-cloud environments, whereas RabbitMQ and Kafka focus more on either on-premises or single-cloud setups.
 
 
+### Tutorial
+- https://www.youtube.com/watch?v=PP1nNlgERQI&list=PLY1Ks8JEfJR57vCkrQK0Y9bn8DKNMMJI_
+
+![image](https://github.com/user-attachments/assets/dbe0ff81-d29e-44fc-993e-12ff314d5e17)
+![image](https://github.com/user-attachments/assets/2ad8f70a-a6c6-4022-b503-70328ca060c6)
+![image](https://github.com/user-attachments/assets/a9329f67-372f-4108-8b3a-3f527d0d6718)
+![image](https://github.com/user-attachments/assets/cda6d327-c2b5-488f-99f2-05243ea74277)
+![image](https://github.com/user-attachments/assets/eb7b32c7-1924-4d95-8997-5187b626ff42)
+![image](https://github.com/user-attachments/assets/5979ec8c-7214-4446-b42e-19cb17b95a65)
+![image](https://github.com/user-attachments/assets/b477fbce-3855-4944-9734-416ce139b327)
+![image](https://github.com/user-attachments/assets/889a4d99-b7b7-42e4-a6aa-f0f8b33ec44e)
+![image](https://github.com/user-attachments/assets/7b5814c4-6858-4cdb-bd02-3642be86e392)
+![image](https://github.com/user-attachments/assets/df86140f-06db-4942-be00-26eeed86e308)
+![image](https://github.com/user-attachments/assets/953149a6-775a-44b3-bae5-0bc3d6d096bb)
+![image](https://github.com/user-attachments/assets/89f4c2c9-67ff-4e3f-a9ac-6b9bde5f4d2f)
+![image](https://github.com/user-attachments/assets/edad785b-2331-4187-9ef7-0f7f2c041978)
+![image](https://github.com/user-attachments/assets/1c6a6ac3-360e-4567-a418-1fc6ee40fb7d)
+![image](https://github.com/user-attachments/assets/872f61ff-c07d-455f-92b0-1de6b5ed39fd)
+![image](https://github.com/user-attachments/assets/e018de30-6fda-4652-ada7-7d9d20ea62e8)
+![image](https://github.com/user-attachments/assets/7970fb45-bb9b-43c1-93dc-032723782bfd)
+![image](https://github.com/user-attachments/assets/30616b1b-a1b4-40ad-b2fc-fa3088556c25)
+![image](https://github.com/user-attachments/assets/387e22fa-4675-4499-aaa3-32613bdb18f7)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
 
 ### **Conclusion**
 - Choose **Solace** if you need **low latency, hybrid cloud flexibility, multiple protocol support, or IoT applications**. 
