@@ -360,46 +360,8 @@ Here is a detailed comparison between **Solace** and **Apache Kafka**, covering 
 ![image](https://github.com/user-attachments/assets/14edc9e3-529e-481a-a35b-da9f4d9cda55)
 
 
+---
 
+![image](https://github.com/user-attachments/assets/f3e17206-4ede-4b65-9954-8165d73b3af2)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
 
