@@ -294,9 +294,13 @@ Here is a detailed comparison between **Solace** and **Apache Kafka**, covering 
 ### Tutorial
 - https://www.youtube.com/watch?v=PP1nNlgERQI&list=PLY1Ks8JEfJR57vCkrQK0Y9bn8DKNMMJI_
 - https://github.com/SolaceTraining
-![image](https://github.com/user-attachments/assets/dbe0ff81-d29e-44fc-993e-12ff314d5e17)
-![image](https://github.com/user-attachments/assets/2ad8f70a-a6c6-4022-b503-70328ca060c6)
-![image](https://github.com/user-attachments/assets/a9329f67-372f-4108-8b3a-3f527d0d6718)
+- 
+![image](https://github.com/user-attachments/assets/886f2ea7-cc86-40bf-bfa9-cebf036bf92e)
+![image](https://github.com/user-attachments/assets/dcd1e005-159f-4f64-b7b7-c119ac4fefb8)
+![image](https://github.com/user-attachments/assets/487fcf31-e938-45c1-a0c8-55fa5066121a)
+![image](https://github.com/user-attachments/assets/8126b0b5-4d93-4dc2-af35-1175c9516dee)
+![image](https://github.com/user-attachments/assets/533f3c4c-3f23-4efa-8a4b-0c0e6653ba60)
+![image](https://github.com/user-attachments/assets/682e48b7-b53b-4aa2-80fc-74406cdcd5b1)
 ![image](https://github.com/user-attachments/assets/cda6d327-c2b5-488f-99f2-05243ea74277)
 ![image](https://github.com/user-attachments/assets/eb7b32c7-1924-4d95-8997-5187b626ff42)
 ![image](https://github.com/user-attachments/assets/5979ec8c-7214-4446-b42e-19cb17b95a65)
