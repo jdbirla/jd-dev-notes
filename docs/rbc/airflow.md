@@ -95,3 +95,41 @@ Several tools can be used instead of Airflow, depending on your specific require
 
 ## **Conclusion**
 Apache Airflow is a powerful and flexible tool for managing complex workflows, but its configuration and setup can be challenging. Alternatives like Prefect or Dagster provide modern and user-friendly features, while cloud-native tools like AWS Step Functions or GCP Workflows simplify orchestration in cloud environments. The choice depends on your specific use case, ecosystem, and ease-of-use preferences.
+
+---
+
+### Tutorials
+- https://www.youtube.com/watch?v=5peQThvQmQk
+![image](https://github.com/user-attachments/assets/ea89722e-5f0b-4916-9a36-8745de59b488)
+![image](https://github.com/user-attachments/assets/c04b848a-482e-4533-ac8c-20b789bbea15)
+![image](https://github.com/user-attachments/assets/d7aec122-5879-4a18-a71b-f46c576bbb27)
+![image](https://github.com/user-attachments/assets/15e59188-5825-4d2e-9986-4657f8f54de8)
+![image](https://github.com/user-attachments/assets/89a0fc0c-731a-4b52-974d-112cdcf2e65f)
+![image](https://github.com/user-attachments/assets/11375961-04ae-4ce0-aae2-09351e9351fe)
+![image](https://github.com/user-attachments/assets/f61be7e8-10e9-4ae8-ab87-02a22cbab93e)
+![image](https://github.com/user-attachments/assets/42b5dd1c-42f1-4630-b03b-d44b0bb89f5b)
+![image](https://github.com/user-attachments/assets/68f2d504-91aa-4e57-9004-2cfbc8feab7f)
+![image](https://github.com/user-attachments/assets/8fe35f97-4cc9-4c19-b3e9-2ef1fa64e906)
+![image](https://github.com/user-attachments/assets/6bff58d0-5f12-453e-b414-4713c734f769)
+![image](https://github.com/user-attachments/assets/9dec44f8-12e7-41ee-8edf-ef115fa5ab68)
+![image](https://github.com/user-attachments/assets/d043a384-2f0d-452e-86d8-6c2b07cd925c)
+![image](https://github.com/user-attachments/assets/45dca4cc-eb92-48c1-91e6-d390ce1e521b)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
