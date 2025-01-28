@@ -289,6 +289,9 @@ Here is a detailed comparison between **Solace** and **Apache Kafka**, covering 
 - Choose **Kafka** if you need **distributed, high-throughput, and log-based event streaming** for large-scale systems.
 - Choose **RabbitMQ** if you want a **lightweight, traditional message broker** for simple task queues or low-complexity systems.
   
+![firstimage](rbc/firstimage.png)
+![firstimage](https://jdbirla-dev-notes.netlify.app/rbc/firstimage.png)
+![firstimage](https://jdbirla-dev-notes.netlify.app/rbc/firstimage)
 
 ----
 ### Tutorial
