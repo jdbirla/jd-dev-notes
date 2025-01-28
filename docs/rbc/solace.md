@@ -294,7 +294,7 @@ Here is a detailed comparison between **Solace** and **Apache Kafka**, covering 
 ### Tutorial
 - https://www.youtube.com/watch?v=PP1nNlgERQI&list=PLY1Ks8JEfJR57vCkrQK0Y9bn8DKNMMJI_
 - https://github.com/SolaceTraining
-- 
+  
 ![image](https://github.com/user-attachments/assets/886f2ea7-cc86-40bf-bfa9-cebf036bf92e)
 ![image](https://github.com/user-attachments/assets/dcd1e005-159f-4f64-b7b7-c119ac4fefb8)
 ![image](https://github.com/user-attachments/assets/487fcf31-e938-45c1-a0c8-55fa5066121a)
