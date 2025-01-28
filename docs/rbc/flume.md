@@ -74,3 +74,13 @@ It is commonly used in Big Data ecosystems for log aggregation and real-time dat
 | **Protocol Support**       | Limited to log-focused sources      | Custom Kafka protocol              | Rich plugin ecosystem           | Wide range of connectors         |
 | **Integration**            | Tight with HDFS, Hadoop ecosystem   | Tight with event processing tools  | Tight with Elasticsearch         | Broad ecosystem integration      |
 | **Real-Time Processing**   | Limited real-time capabilities      | Optimized for real-time streaming  | Supports real-time processing    | Strong real-time capabilities    |
+
+---
+### Tutorial
+- https://www.youtube.com/watch?v=SwDZhlnr9ho
+![image](https://github.com/user-attachments/assets/b94412ac-aebc-4709-a3a8-4c5fbc01b3a5)
+![image](https://github.com/user-attachments/assets/3a8013d3-4b4c-43ce-a636-371ce83d34a2)
+![image](https://github.com/user-attachments/assets/01812bf8-5ac5-4435-b8d7-924f002e0d60)
+![image](https://github.com/user-attachments/assets/1d45eee4-662b-4b50-bae6-85f0dfcdf006)
+
+
