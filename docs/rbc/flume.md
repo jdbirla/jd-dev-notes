@@ -83,4 +83,24 @@ It is commonly used in Big Data ecosystems for log aggregation and real-time dat
 ![image](https://github.com/user-attachments/assets/01812bf8-5ac5-4435-b8d7-924f002e0d60)
 ![image](https://github.com/user-attachments/assets/1d45eee4-662b-4b50-bae6-85f0dfcdf006)
 
+---
+- https://www.youtube.com/watch?v=62yqIHHtIYM&list=PLeUBsMTwZBi0vPhPHRfurknpsqh1cZE0t
+![image](https://github.com/user-attachments/assets/512d0780-ad63-42f0-8330-076e557fca9d)
+![image](https://github.com/user-attachments/assets/f07f3c1f-09ca-4a94-9a23-76ba17ea52b1)
+![image](https://github.com/user-attachments/assets/d0c98332-8de3-4a2a-b76f-42ffbf821814)
+![image](https://github.com/user-attachments/assets/a2866bda-ccde-4c04-a5fc-c0963aac9fcc)
+![image](https://github.com/user-attachments/assets/4578de21-056f-4d8d-8767-a385424d59b7)
+![image](https://github.com/user-attachments/assets/8f5e3e88-e632-4538-9bed-f65ab808ddb5)
+![image](https://github.com/user-attachments/assets/f2c76282-387a-450f-bd6b-bba2e4dfa730)
+![image](https://github.com/user-attachments/assets/00774f2b-ffb8-425a-a8ed-05de8dcf4933)
+
+
+
+
+
+
+
+
+
+
 
