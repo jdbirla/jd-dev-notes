@@ -293,7 +293,7 @@ Here is a detailed comparison between **Solace** and **Apache Kafka**, covering 
 ----
 ### Tutorial
 - https://www.youtube.com/watch?v=PP1nNlgERQI&list=PLY1Ks8JEfJR57vCkrQK0Y9bn8DKNMMJI_
-
+- https://github.com/SolaceTraining
 ![image](https://github.com/user-attachments/assets/dbe0ff81-d29e-44fc-993e-12ff314d5e17)
 ![image](https://github.com/user-attachments/assets/2ad8f70a-a6c6-4022-b503-70328ca060c6)
 ![image](https://github.com/user-attachments/assets/a9329f67-372f-4108-8b3a-3f527d0d6718)
@@ -322,6 +322,35 @@ Here is a detailed comparison between **Solace** and **Apache Kafka**, covering 
 ![image](https://github.com/user-attachments/assets/043812a8-c175-4ce8-98da-d37b36feb715)
 ![image](https://github.com/user-attachments/assets/92e74ff9-b071-4e61-906a-163646c16d1e)
 ![image](https://github.com/user-attachments/assets/790ce7cb-259c-49ea-ac10-7577fd629da5)
+![image](https://github.com/user-attachments/assets/edce401b-43de-4545-86f1-7c0f68c7b644)
+![image](https://github.com/user-attachments/assets/17ef2b26-8268-4bc0-a2d6-84b931498519)
+![image](https://github.com/user-attachments/assets/c14b84ab-a612-4f47-a2b0-b432b81752fe)
+![image](https://github.com/user-attachments/assets/57768061-eed0-4088-bf73-e510135923aa)
+![image](https://github.com/user-attachments/assets/57f4ab7a-b517-4fd8-b7c1-3e394e5f1cd0)
+![image](https://github.com/user-attachments/assets/8a99ea32-a093-4905-8e2b-f6491d3bf7b5)
+![image](https://github.com/user-attachments/assets/c78981a1-d56b-4e06-98f0-7b7cf82c894a)
+![image](https://github.com/user-attachments/assets/d5eecc45-14c0-4f91-b1da-071451b136e5)
+![image](https://github.com/user-attachments/assets/bb8fb094-8d5b-4afd-b0db-3aa1d695180a)
+![image](https://github.com/user-attachments/assets/2a48e010-4285-4afc-9c99-1b4da79849b9)
+![image](https://github.com/user-attachments/assets/7df0a2f7-0f1a-4f02-a0ca-9110fac2c6a6)
+![image](https://github.com/user-attachments/assets/01473f4c-b862-4c64-9d33-218584516f63)
+![image](https://github.com/user-attachments/assets/02c06058-3ddc-4d32-bbb3-61004974ecfa)
+![image](https://github.com/user-attachments/assets/530f87b4-7660-4800-877b-0196efed3753)
+![image](https://github.com/user-attachments/assets/ef8753fc-0994-497e-82f3-4b7a2e3835a1)
+![image](https://github.com/user-attachments/assets/33f0ccbd-c270-4955-a329-e177c85b7622)
+![image](https://github.com/user-attachments/assets/0d64ceef-7ba0-4cf9-a99f-4f0f6fadf8eb)
+![image](https://github.com/user-attachments/assets/9bb0f287-4e87-45e2-ae19-dd3b3e68f1bd)
+![image](https://github.com/user-attachments/assets/4bc576ee-5672-4a40-92df-3e76fe152a01)
+![image](https://github.com/user-attachments/assets/5ee8786a-3da8-4e4c-9a08-f58799490561)
+![image](https://github.com/user-attachments/assets/71767bda-bc0f-4a29-ba31-4841ce9d93f8)
+![image](https://github.com/user-attachments/assets/fc8acae8-f70c-4c53-aa3e-91cc515871ec)
+![image](https://github.com/user-attachments/assets/467c6364-8293-46e9-932c-5dd0e4452a8d)
+![image](https://github.com/user-attachments/assets/710e5161-844c-44e7-83bd-39ea5164702d)
+![image](https://github.com/user-attachments/assets/2dd1db09-b21a-43dd-afc6-2b76316b7a24)
+![image](https://github.com/user-attachments/assets/fd2300aa-2ada-4c82-9db1-2431936e1f12)
+![image](https://github.com/user-attachments/assets/add9035d-cfbd-49f2-a67b-0ebfe26ce5a5)
+![image](https://github.com/user-attachments/assets/cc05f492-bb0c-4060-8384-facdef4889f0)
+![image](https://github.com/user-attachments/assets/f42f5a9b-170f-4249-9d12-b9eaab88ae50)
 
 
 
