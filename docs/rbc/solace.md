@@ -284,7 +284,13 @@ Here is a detailed comparison between **Solace** and **Apache Kafka**, covering 
 4. **Replayability**: Kafka offers unmatched replay capabilities due to its log-based storage, whereas RabbitMQ has limited support. Solace offers good replay capabilities with persistent queues.
 5. **Cloud-Native Support**: Solace is a leader in hybrid and multi-cloud environments, whereas RabbitMQ and Kafka focus more on either on-premises or single-cloud setups.
 
+### **Conclusion**
+- Choose **Solace** if you need **low latency, hybrid cloud flexibility, multiple protocol support, or IoT applications**. 
+- Choose **Kafka** if you need **distributed, high-throughput, and log-based event streaming** for large-scale systems.
+- Choose **RabbitMQ** if you want a **lightweight, traditional message broker** for simple task queues or low-complexity systems.
+  
 
+----
 ### Tutorial
 - https://www.youtube.com/watch?v=PP1nNlgERQI&list=PLY1Ks8JEfJR57vCkrQK0Y9bn8DKNMMJI_
 
@@ -307,6 +313,12 @@ Here is a detailed comparison between **Solace** and **Apache Kafka**, covering 
 ![image](https://github.com/user-attachments/assets/7970fb45-bb9b-43c1-93dc-032723782bfd)
 ![image](https://github.com/user-attachments/assets/30616b1b-a1b4-40ad-b2fc-fa3088556c25)
 ![image](https://github.com/user-attachments/assets/387e22fa-4675-4499-aaa3-32613bdb18f7)
+![image](https://github.com/user-attachments/assets/6eec9143-1048-4f77-b471-afc43ffc449e)
+![image](https://github.com/user-attachments/assets/78565a28-4da9-4d25-b0f2-70fbf0300f70)
+![image](https://github.com/user-attachments/assets/700fb219-1138-4e7b-b886-dd556c0c38e1)
+![image](https://github.com/user-attachments/assets/3eda7ee9-6ca3-4441-98e4-bc03767a6bca)
+![image](https://github.com/user-attachments/assets/73708e56-01c1-4768-a865-336fa4125a8d)
+![image](https://github.com/user-attachments/assets/32410641-d621-4eb6-9ef4-d01695de0285)
 
 
 
@@ -353,8 +365,3 @@ Here is a detailed comparison between **Solace** and **Apache Kafka**, covering 
 
   
 
-### **Conclusion**
-- Choose **Solace** if you need **low latency, hybrid cloud flexibility, multiple protocol support, or IoT applications**. 
-- Choose **Kafka** if you need **distributed, high-throughput, and log-based event streaming** for large-scale systems.
-- Choose **RabbitMQ** if you want a **lightweight, traditional message broker** for simple task queues or low-complexity systems.
-  
