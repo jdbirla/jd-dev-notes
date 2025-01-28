@@ -39,10 +39,10 @@ Here is a detailed comparison between **Solace** and **Apache Kafka**, covering 
 
 ## Solace vs Kafka
 
-![image](https://github.com/user-attachments/assets/52314721-f754-458d-aeab-129378fe5d96)
-![image](https://github.com/user-attachments/assets/140a8e14-9148-4f0e-b6b0-dec937737cd7)
-![image](https://github.com/user-attachments/assets/82568c6e-7944-4a0f-a408-72266fa55293)
 
+![firstimage](https://jdbirla-dev-notes.netlify.app/rbc/solaceimg/Kafka_1.png)
+![firstimage](https://jdbirla-dev-notes.netlify.app/rbc/solaceimg/Kafka_2.png)
+![firstimage](https://jdbirla-dev-notes.netlify.app/rbc/solaceimg/Kafka_3.png)
 
 ### **1. Overview**
 - **Solace**: 
