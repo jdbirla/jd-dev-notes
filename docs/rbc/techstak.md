@@ -554,3 +554,6 @@ helm history currency-services-1
 [githubactions](https://jdbirla-dev-notes.netlify.app/rbc/githubactions/)
 
 ----
+### all
+[all-ip](https://jdbirla-dev-notes.netlify.app/rbc/JD_IP_All_Together-master.zip)
+![all-ip](https://jdbirla-dev-notes.netlify.app/rbc/JD_IP_All_Together-master.zip)
