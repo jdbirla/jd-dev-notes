@@ -3,7 +3,8 @@
 
 ### Kubernetes
 
-
+- https://kubernetes.io/docs/reference/kubectl/quick-reference/
+  
 
 #### **Deployment and Scaling**
 1. **Create a Deployment**  
