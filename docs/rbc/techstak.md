@@ -459,6 +459,99 @@ helm upgrade currency-services-1 ./currency-conversion/
 helm history currency-services-1
 
 ```
+###  Your application runs in Kubernetes, but users report they cannot access it. What do you do?”
+#### Step 1: Check Pod Health and Logs
+The first step in troubleshooting any Kubernetes issue is to confirm that the pod is running and behaving as expected.
+
+What I Look For in a Candidate’s Answer:
+
+Good candidates will immediately check the pod status using Kubectl commands and review the logs for errors.
+
+Commands to Check Pod Health:
+![image](https://github.com/user-attachments/assets/44279745-4277-4c81-becd-607f2b675069)
+What to Look For in Logs:
+Application errors.
+Connection timeout or database-related issues.
+![image](https://github.com/user-attachments/assets/fbacbee2-1283-4024-9c8a-cc5d322bee20)
+#### Step 2: Verify Service Configuration
+
+Ignorance of Kubernetes Services is the problem — most candidates fail even to consider them a potential source of issues. A misconfigured service will prevent the traffic from reaching the pods.
+
+The best candidates will mention checking the service type (ClusterIP, NodePort, LoadBalancer, etc.) and ensuring it’s properly configured to direct the traffic to the pods
+![image](https://github.com/user-attachments/assets/e752cdd4-ba7f-4099-8cce-6a33e7405b0b)
+
+Things to Check:
+
+![image](https://github.com/user-attachments/assets/fa1ee221-8134-476a-bf45-3706aaca678e)
+
+Is the correct port exposed?
+Is the service selector matching the pod labels?
+
+![image](https://github.com/user-attachments/assets/e6aa291f-8182-4b36-a3ff-11a06d830c27)
+
+#### Step 3: Examine Network Policies
+Knowing this, candidates with experience will know that network policies may block the traffic to the pods, especially in environments with high-security compliance.
+
+What I Look for in a Candidate’s Response:
+
+Experience candidates should acknowledge the network policies that may limit the traffic flow and recognize them as a part of the system architecture.
+
+![image](https://github.com/user-attachments/assets/da09ece4-364e-4ec0-8910-111b4a7c7aae)
+Ensure the policies allow traffic to the application port from the expected sources.
+![image](https://github.com/user-attachments/assets/6b9459bc-2820-42f3-a778-00f783d7b7f1)
+
+#### Step 4: Investigate Ingress and DNS
+- For domain name-based applications, the Ingress controllers or DNS can cause connectivity issues. Candidates who mention Ingress and DNS for troubleshooting will stand out among candidates.
+- What I Look For in a Candidate’s Answer:
+
+- I appreciate candidates asking whether an Ingress resource is being used and whether DNS records are correctly configured.
+![image](https://github.com/user-attachments/assets/c4fc55da-8c86-4535-86ca-dd4a5a75643a)
+
+- Verify that:
+
+- The Ingress resource points to the correct service.
+- SSL/TLS certificates are valid (if applicable).
+- DNS Troubleshooting:
+- Use tools like nslookup or dig to confirm that the domain resolves to the correct IP address.
+![image](https://github.com/user-attachments/assets/53eaa87a-6597-4634-9d3e-915fdb51e51f)
+#### Step 5: Validate Node and Cluster Health
+- The problem can sometimes be with nodes or cluster configuration. Some candidates with deep Kubernetes experience will also check the health of nodes and the cluster.
+- What I Look For in a Candidate’s Answer:
+- Checking the node and cluster status using Kubectl and cloud provider dashboards (AWS, GCP) should be mentioned by candidates.
+![image](https://github.com/user-attachments/assets/71f31f14-7eef-4c07-8b4b-33df79e9f33b)
+
+- Things to Look For:
+
+  - Resource constraints (CPU, memory).
+  - Node taints and tolerations.
+#### Step 6: Debug with Port Forwarding
+- As a last resort, I appreciate the candidates who know how to debug competent Kubectl in port-forward troubleshooting. This bypasses Ingress and Services to connect directly to the pod.
+
+-  What I Look For in a Candidate’s Answer:
+-  I value candidates who suggest port forwarding as a quick way to isolate whether the issue lies with the application or the Kubernetes configuration.
+![image](https://github.com/user-attachments/assets/3bb08770-871e-42a5-9ca2-0cdf180cfd65)
+
+#### Step 7: Monitor with Tools
+- To find the best candidates, I would recommend asking them about the tools they have used to gather information about the state of a cluster, such as Prometheus, Grafana or the Kubernetes dashboard.
+
+- What I Look For in a Candidate’s Answer:
+- I look for candidates who suggest using dashboards and alerts to stay proactive.
+
+- Tools to Monitor Scaling:
+
+  - Prometheus/Grafana: For detailed metrics and visualizations.
+  - Kubernetes Dashboard: For real-time insights.
+  - Cloud Provider Monitoring Tools: AWS CloudWatch, GCP Monitoring, etc.
+![image](https://github.com/user-attachments/assets/6347c4ca-5ba2-4cf8-a2b0-e09a5cf77797)
+![image](https://github.com/user-attachments/assets/b6917599-3f70-4a47-aee4-106767170f5e)
+![image](https://github.com/user-attachments/assets/79773acd-7317-4cb7-b126-e198ffc4b694)
+
+#### Closing Thought
+- When I ask candidates how they would troubleshoot connectivity issues in Kubernetes, I am not looking for technical knowledge alone. I am looking for methodical thinking, real-world experience, and a good understanding of Kubernetes fundamentals.
+
+-  These steps will help you stand out when interviewing or developing your Kubernetes skills. The next time someone asks, ‘Why can’t users access your Kubernetes application?’ you will be ready with the perfect answer.
+
+
 ---
 ### Explanation of AMQP, JMS, MQTT, OpenMAMA, and REST Protocol
 
