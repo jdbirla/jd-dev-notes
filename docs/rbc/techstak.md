@@ -461,43 +461,43 @@ helm history currency-services-1
 ```
 ###  Your application runs in Kubernetes, but users report they cannot access it. What do you do?”
 #### Step 1: Check Pod Health and Logs
-The first step in troubleshooting any Kubernetes issue is to confirm that the pod is running and behaving as expected.
+- The first step in troubleshooting any Kubernetes issue is to confirm that the pod is running and behaving as expected.
 
-What I Look For in a Candidate’s Answer:
+- What I Look For in a Candidate’s Answer:
 
-Good candidates will immediately check the pod status using Kubectl commands and review the logs for errors.
+- Good candidates will immediately check the pod status using Kubectl commands and review the logs for errors.
 
-Commands to Check Pod Health:
+- Commands to Check Pod Health:
 ![image](https://github.com/user-attachments/assets/44279745-4277-4c81-becd-607f2b675069)
-What to Look For in Logs:
-Application errors.
-Connection timeout or database-related issues.
+- What to Look For in Logs:
+- Application errors.
+- Connection timeout or database-related issues.
 ![image](https://github.com/user-attachments/assets/fbacbee2-1283-4024-9c8a-cc5d322bee20)
 #### Step 2: Verify Service Configuration
 
-Ignorance of Kubernetes Services is the problem — most candidates fail even to consider them a potential source of issues. A misconfigured service will prevent the traffic from reaching the pods.
+- Ignorance of Kubernetes Services is the problem — most candidates fail even to consider them a potential source of issues. A misconfigured service will prevent the traffic from reaching the pods.
 
-The best candidates will mention checking the service type (ClusterIP, NodePort, LoadBalancer, etc.) and ensuring it’s properly configured to direct the traffic to the pods
+- The best candidates will mention checking the service type (ClusterIP, NodePort, LoadBalancer, etc.) and ensuring it’s properly configured to direct the traffic to the pods
 ![image](https://github.com/user-attachments/assets/e752cdd4-ba7f-4099-8cce-6a33e7405b0b)
 
-Things to Check:
+- Things to Check:
 
 ![image](https://github.com/user-attachments/assets/fa1ee221-8134-476a-bf45-3706aaca678e)
 
-Is the correct port exposed?
-Is the service selector matching the pod labels?
+  - Is the correct port exposed?
+  - Is the service selector matching the pod labels?
 
 ![image](https://github.com/user-attachments/assets/e6aa291f-8182-4b36-a3ff-11a06d830c27)
 
 #### Step 3: Examine Network Policies
-Knowing this, candidates with experience will know that network policies may block the traffic to the pods, especially in environments with high-security compliance.
+- Knowing this, candidates with experience will know that network policies may block the traffic to the pods, especially in environments with high-security compliance.
 
-What I Look for in a Candidate’s Response:
+- What I Look for in a Candidate’s Response:
 
-Experience candidates should acknowledge the network policies that may limit the traffic flow and recognize them as a part of the system architecture.
+- Experience candidates should acknowledge the network policies that may limit the traffic flow and recognize them as a part of the system architecture.
 
 ![image](https://github.com/user-attachments/assets/da09ece4-364e-4ec0-8910-111b4a7c7aae)
-Ensure the policies allow traffic to the application port from the expected sources.
+- Ensure the policies allow traffic to the application port from the expected sources.
 ![image](https://github.com/user-attachments/assets/6b9459bc-2820-42f3-a778-00f783d7b7f1)
 
 #### Step 4: Investigate Ingress and DNS
