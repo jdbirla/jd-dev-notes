@@ -26,8 +26,10 @@ To address this issue, I raised another ticket on March 10 to request the correc
 I kindly request your assistance in rectifying this issue at the earliest. Please let me know the next steps and how we can proceed with the correction. Your prompt support in resolving this matter would be greatly appreciated.
 
 Looking forward to your response.
+-----
 
-Best regards,
-[Your Name]
-[Your Employee ID]
-[Your Contact Information]
+![image](https://github.com/user-attachments/assets/5c02471b-aafe-48ac-939f-993c4787f074)
+![image](https://github.com/user-attachments/assets/16ac84a0-418c-4ebb-a885-740b39aec9f8)
+![image](https://github.com/user-attachments/assets/5cec8bb9-f40e-4f41-b10a-600c9ba4b6bf)
+![image](https://github.com/user-attachments/assets/905906bf-6b03-4734-9d60-38b4f3dafaae)
+![image](https://github.com/user-attachments/assets/5744bb84-0efc-45e4-878c-907c6bc95980)
