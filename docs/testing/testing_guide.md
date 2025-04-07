@@ -40,8 +40,9 @@ JsonPath: XPath for JSON.
 
 ### [4.All_Assertions](#all-asserstions)
 
+### [5.All At One]
 
-### [5.Old Test sheet](#old-test-sheet)
+### [6.Old Test sheet](#old-test-sheet)
 
 
 
@@ -2491,6 +2492,161 @@ org.junit.jupiter.api.Assertions.assertThrows(ResurceNotFound.class, () -> {
       BDDMockito.verify(employeeRepository,Mockito.times(1)).deleteById(employeeid);
 ---
 ```
+---
+
+## All At One
+
+## 🔹 Two Common Types of Tests
+
+| Type                     | Annotation                | Scope                             | Use Case                                      |
+|--------------------------|---------------------------|------------------------------------|-----------------------------------------------|
+| **Unit Test**            | `@ExtendWith(MockitoExtension.class)` | Lightweight, no Spring Context | Fast tests, mocks everything manually         |
+| **Integration Test**     | `@SpringBootTest`         | Loads Spring Context              | Test Spring config, beans, properties, wiring |
+
+---
+
+## 🔹 When to Use Each
+
+### ✅ 1. **Unit Test with Mockito**
+
+Use when you want:
+- Fast, isolated tests
+- No Spring container
+- Full control over mocking
+
+```java
+@ExtendWith(MockitoExtension.class)
+class MyServiceTest {
+
+    @Mock
+    private DependencyService dependencyService;
+
+    @InjectMocks
+    private MyService myService;
+
+    @Test
+    void testLogic() {
+        when(dependencyService.getData()).thenReturn("mocked data");
+        assertEquals("Processed mocked data", myService.process());
+    }
+}
+```
+
+🧠 **Use `@InjectMocks`** to auto-wire the `@Mock` fields into the object under test.
+
+
+
+### ✅ 2. **Integration Test with Spring Context**
+
+Use when:
+- You want to load the Spring Boot application context
+- Test actual bean configuration, `@Value` properties, etc.
+- Test `@Autowired` beans
+
+```java
+@SpringBootTest
+class MyServiceIntegrationTest {
+
+    @Autowired
+    private MyService myService;
+
+    @MockBean
+    private DependencyService dependencyService;
+
+    @Test
+    void testWithSpringContext() {
+        when(dependencyService.getData()).thenReturn("mocked data from spring");
+        assertEquals("Processed mocked data from spring", myService.process());
+    }
+}
+```
+
+🧠 **Use `@MockBean`** when you want to mock a Spring bean **in the context**.
+
+
+## 🔸 Detailed Comparison of Annotations
+
+| Annotation      | Description |
+|----------------|-------------|
+| `@Autowired`    | Injects real Spring-managed bean from context |
+| `@Mock`         | Mockito mock, not a Spring bean |
+| `@MockBean`     | Replaces a Spring bean in the context with a Mockito mock |
+| `@Spy`          | Partial mock – real method calls unless stubbed |
+| `@InjectMocks`  | Injects `@Mock` dependencies into a real instance of the class |
+| `@SpringBootTest` | Starts full Spring Boot context |
+| `@ExtendWith(MockitoExtension.class)` | Enables Mockito in JUnit 5 without Spring |
+
+
+## 🔸 Practical Use Cases
+
+### 1. **Unit Test (Fast, No Spring)**
+
+```java
+@ExtendWith(MockitoExtension.class)
+class OrderServiceTest {
+
+    @Mock
+    private PaymentService paymentService;
+
+    @InjectMocks
+    private OrderService orderService;
+}
+```
+
+### 2. **Integration Test (Spring Boot Test)**
+
+```java
+@SpringBootTest
+class OrderServiceTest {
+
+    @Autowired
+    private OrderService orderService;
+
+    @MockBean
+    private PaymentService paymentService;
+}
+```
+
+### 3. **Spy (Partial Mock)**
+
+```java
+@ExtendWith(MockitoExtension.class)
+class UtilityServiceTest {
+
+    @Spy
+    private UtilityService utilityService;
+
+    @Test
+    void testRealAndMockedBehavior() {
+        doReturn("mocked").when(utilityService).helperMethod();
+        assertEquals("mocked", utilityService.helperMethod());
+        assertEquals("real", utilityService.anotherMethod()); // real method
+    }
+}
+```
+
+
+## 🔸 Summary Matrix
+
+| Scenario                               | Recommendation        | Annotation(s) to Use                        |
+|----------------------------------------|------------------------|---------------------------------------------|
+| Test business logic only (no Spring)   | Unit test              | `@Mock`, `@InjectMocks`, `@ExtendWith`      |
+| Test service + Spring config           | Integration test       | `@SpringBootTest`, `@MockBean`, `@Autowired`|
+| Mock specific method in real object    | Partial mocking        | `@Spy`, optionally `@InjectMocks`           |
+| Override Spring beans for testing      | Integration test       | `@MockBean`                                 |
+| Autowire full object with real deps    | Integration test       | `@SpringBootTest`, `@Autowired`             |
+
+
+## ✅ When to Use What?
+
+| If You Want To... | Use |
+|-------------------|-----|
+| Mock dependencies without Spring context | `@ExtendWith(MockitoExtension.class)` + `@Mock`, `@InjectMocks` |
+| Load Spring config, inject properties or beans | `@SpringBootTest` + `@Autowired`, `@MockBean` |
+| Partially mock a real object | `@Spy` |
+| Replace Spring-managed bean for test | `@MockBean` in `@SpringBootTest` |
+
+
 
 ---
 
